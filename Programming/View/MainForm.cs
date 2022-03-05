@@ -3,7 +3,6 @@ using Programming.View;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Color = Programming.Model.Color;
 
 namespace Programming
 {
@@ -14,7 +13,7 @@ namespace Programming
         {
             InitializeComponent();
 
-            EnumsListBox.Items.Add(Enums.Color);
+            EnumsListBox.Items.Add(Enums.Colors);
             EnumsListBox.Items.Add(Enums.EducationForm);
             EnumsListBox.Items.Add(Enums.Genre);
             EnumsListBox.Items.Add(Enums.Seasons);
@@ -47,8 +46,8 @@ namespace Programming
                         EnumValue = Enum.GetValues(typeof(Genre));
                         break;
 
-                    case Enums.Color:
-                        EnumValue = Enum.GetValues(typeof(Color));
+                    case Enums.Colors:
+                        EnumValue = Enum.GetValues(typeof(Colors));
                         break;
 
                     case Enums.EducationForm:

@@ -4,7 +4,7 @@
     {
         Weekday,
         Genre,
-        Color,
+        Colors,
         EducationForm,
         Smartphones,
         Seasons
