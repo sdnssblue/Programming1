@@ -1,4 +1,5 @@
 ﻿using Programming.Model;
+using Programming.View;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -8,15 +9,6 @@ namespace Programming
 {
     public partial class MainForm : Form
     {
-        public enum Enums
-        {
-            Weekday,
-            Genre,
-            Color,
-            EducationForm,
-            Smartphones,
-            Seasons
-        }
 
         public MainForm()
         {
@@ -49,61 +41,41 @@ namespace Programming
                 {
                     case Enums.Weekday:
                         EnumValue = Enum.GetValues(typeof(Weekday));
-                        foreach (Weekday value in EnumValue)
-                        {
-                            ValuesListBox.Items.Add(value);
-                        }
                         break;
 
                     case Enums.Genre:
                         EnumValue = Enum.GetValues(typeof(Genre));
-                        foreach (Genre value in EnumValue)
-                        {
-                            ValuesListBox.Items.Add(value);
-                        }
                         break;
 
                     case Enums.Color:
                         EnumValue = Enum.GetValues(typeof(Color));
-                        foreach (Color value in EnumValue)
-                        {
-                            ValuesListBox.Items.Add(value);
-                        }
                         break;
 
                     case Enums.EducationForm:
                         EnumValue = Enum.GetValues(typeof(EducationForm));
-                        foreach (EducationForm value in EnumValue)
-                        {
-                            ValuesListBox.Items.Add(value);
-                        }
                         break;
 
                     case Enums.Smartphones:
                         EnumValue = Enum.GetValues(typeof(Smartphones));
-                        foreach (Smartphones value in EnumValue)
-                        {
-                            ValuesListBox.Items.Add(value);
-                        }
                         break;
 
                     case Enums.Seasons:
                         EnumValue = Enum.GetValues(typeof(Seasons));
-                        foreach (Seasons value in EnumValue)
-                        {
-                            ValuesListBox.Items.Add(value);
-                        }
                         break;
 
                     default:
                         throw new NotImplementedException();
+                }
+                foreach (var value in EnumValue)
+                {
+                    ValuesListBox.Items.Add(value);
                 }
             }
         }
 
         private void ValuesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            IntValueBox.Text = ValuesListBox.SelectedIndex.ToString();
+            IntValueBox.Text = ((int) (ValuesListBox.SelectedItem)).ToString();
         }
 
         private void WeekdayParseButton_Click(object sender, EventArgs e)
@@ -112,7 +84,7 @@ namespace Programming
             Weekday value;
             if (Enum.TryParse(textWeekdayTextBox, out value))
             {
-                OutputWeekdayLabel.Text = $"Это день недели ({value} - {(int)value + 1})";
+                OutputWeekdayLabel.Text = $"Это день недели ({value} - {(int)value})";
             }
             else
             {
