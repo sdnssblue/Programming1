@@ -12,12 +12,12 @@ namespace Programming.View
         {
             InitializeComponent();
 
-            EnumsListBox.Items.Add(Enums.Colors);
-            EnumsListBox.Items.Add(Enums.EducationForm);
-            EnumsListBox.Items.Add(Enums.Genre);
-            EnumsListBox.Items.Add(Enums.Seasons);
-            EnumsListBox.Items.Add(Enums.Smartphones);
-            EnumsListBox.Items.Add(Enums.Weekday);
+            Array typeValues = Enum.GetValues(typeof(Enums));
+            foreach (Enums value in typeValues)
+            {
+                EnumsListBox.Items.Add(value);
+            }
+            EnumsListBox.SelectedIndex = 0;
 
             Array initSeasonValues = Enum.GetValues(typeof(Seasons));
             foreach (Seasons value in initSeasonValues)
