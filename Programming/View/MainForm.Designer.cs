@@ -81,7 +81,7 @@ namespace Programming.View
             // 
             // GoButton
             // 
-            this.GoButton.Location = new System.Drawing.Point(314, 57);
+            this.GoButton.Location = new System.Drawing.Point(314, 60);
             this.GoButton.Name = "GoButton";
             this.GoButton.Size = new System.Drawing.Size(75, 23);
             this.GoButton.TabIndex = 9;
@@ -92,7 +92,7 @@ namespace Programming.View
             // SeasonsComboBox
             // 
             this.SeasonsComboBox.FormattingEnabled = true;
-            this.SeasonsComboBox.Location = new System.Drawing.Point(9, 58);
+            this.SeasonsComboBox.Location = new System.Drawing.Point(9, 61);
             this.SeasonsComboBox.Name = "SeasonsComboBox";
             this.SeasonsComboBox.Size = new System.Drawing.Size(299, 24);
             this.SeasonsComboBox.TabIndex = 3;
@@ -100,7 +100,7 @@ namespace Programming.View
             // SeasonLabel
             // 
             this.SeasonLabel.AutoSize = true;
-            this.SeasonLabel.Location = new System.Drawing.Point(6, 38);
+            this.SeasonLabel.Location = new System.Drawing.Point(6, 41);
             this.SeasonLabel.Name = "SeasonLabel";
             this.SeasonLabel.Size = new System.Drawing.Size(110, 17);
             this.SeasonLabel.TabIndex = 2;
