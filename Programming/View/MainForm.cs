@@ -28,7 +28,7 @@ namespace Programming.View
         }
 
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             {
                 ValuesListBox.Items.Clear();
