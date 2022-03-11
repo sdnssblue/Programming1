@@ -73,7 +73,7 @@ namespace Programming.View
 
         private void ValuesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            IntValueBox.Text = ((int) (ValuesListBox.SelectedItem)).ToString();
+            IntValueTextBox.Text = ((int) (ValuesListBox.SelectedItem)).ToString();
         }
 
         private void WeekdayParseButton_Click(object sender, EventArgs e)
