@@ -62,7 +62,7 @@ namespace Programming.View
             this.EnumsTabPage.Location = new System.Drawing.Point(4, 25);
             this.EnumsTabPage.Name = "EnumsTabPage";
             this.EnumsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.EnumsTabPage.Size = new System.Drawing.Size(810, 495);
+            this.EnumsTabPage.Size = new System.Drawing.Size(811, 495);
             this.EnumsTabPage.TabIndex = 0;
             this.EnumsTabPage.Text = "Enums";
             this.EnumsTabPage.UseVisualStyleBackColor = true;
@@ -161,9 +161,9 @@ namespace Programming.View
             this.EnumerationGroupBox.Controls.Add(this.EnumsListBox);
             this.EnumerationGroupBox.Controls.Add(this.ChooseValueLabel);
             this.EnumerationGroupBox.Controls.Add(this.ChooseEnumerationLabel);
-            this.EnumerationGroupBox.Location = new System.Drawing.Point(6, 6);
+            this.EnumerationGroupBox.Location = new System.Drawing.Point(6, 9);
             this.EnumerationGroupBox.Name = "EnumerationGroupBox";
-            this.EnumerationGroupBox.Size = new System.Drawing.Size(800, 295);
+            this.EnumerationGroupBox.Size = new System.Drawing.Size(796, 295);
             this.EnumerationGroupBox.TabIndex = 0;
             this.EnumerationGroupBox.TabStop = false;
             this.EnumerationGroupBox.Text = "Enumerations";
@@ -230,14 +230,14 @@ namespace Programming.View
             this.TabControl.Location = new System.Drawing.Point(0, 0);
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
-            this.TabControl.Size = new System.Drawing.Size(818, 524);
+            this.TabControl.Size = new System.Drawing.Size(819, 524);
             this.TabControl.TabIndex = 0;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(818, 524);
+            this.ClientSize = new System.Drawing.Size(819, 524);
             this.Controls.Add(this.TabControl);
             this.Name = "MainForm";
             this.ShowIcon = false;
