@@ -1,12 +1,12 @@
-﻿namespace Programming.Model
+﻿namespace Programming.View
 {
     public enum Enums
     {
-        Weekday,
-        Genre,
         Colors,
         EducationForm,
+        Genre,
+        Seasons,
         Smartphones,
-        Seasons
+        Weekday
     }
 }
