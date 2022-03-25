@@ -29,7 +29,7 @@
             }
             set
             {
-                if (value <= 0)
+                if (value < 0)
                 {
                     throw new System.ArgumentException(
                         "the value of the height field must be positive");
@@ -46,7 +46,7 @@
             }
             set
             {
-                if (value <= 0)
+                if (value < 0)
                 {
                     throw new System.ArgumentException(
                         "the value of the width field must be positive");

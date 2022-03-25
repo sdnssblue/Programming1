@@ -2,23 +2,23 @@
 {
     public class Song
     {
-        private int _durationOfSeconds;
+        private int _durationSeconds;
 
         public Song()
         {
 
         }
 
-        public Song(string musician,
+        public Song(string author,
                     string songName,
-                    int durationOfSeconds)
+                    int durationSeconds)
         {
-            Musician = musician;
+            Author = author;
             SongName = songName;
-            DurationSeconds = durationOfSeconds;
+            DurationSeconds = durationSeconds;
         }
 
-        public string Musician {get; set;}
+        public string Author { get; set;}
 
         public string SongName {get; set;}
 
@@ -26,16 +26,16 @@
         {
             get
             {
-                return _durationOfSeconds;
+                return _durationSeconds;
             }
             set
             {
-                if (value <= 0)
+                if (value < 0)
                 {
                     throw new System.ArgumentException(
                         "the value of the Duration Seconds field must be greater than zero");
                 }
-                _durationOfSeconds = value;
+                _durationSeconds = value;
             }
         }
     }

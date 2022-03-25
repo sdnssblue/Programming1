@@ -9,16 +9,16 @@
 
         }
 
-        public Discipline(string nameOfDiscipline,
+        public Discipline(string disciplineName,
                           string examDate,
                           int mark)
         {
-            NameOfDiscipline = nameOfDiscipline;
+            DisciplineName = disciplineName;
             ExamDate = examDate;
             Mark = mark;
         }
 
-        public string NameOfDiscipline {get; set;}
+        public string DisciplineName {get; set;}
 
         public string ExamDate {get; set;}
 

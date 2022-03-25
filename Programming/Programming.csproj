@@ -48,10 +48,10 @@
   <ItemGroup>
     <Compile Include="Model\Discipline.cs" />
     <Compile Include="Model\Contact.cs" />
-    <Compile Include="Model\Film.cs" />
+    <Compile Include="Model\Movie.cs" />
     <Compile Include="Model\Colors.cs" />
     <Compile Include="Model\EducationForm.cs" />
-    <Compile Include="Model\Gerne.cs" />
+    <Compile Include="Model\Genre.cs" />
     <Compile Include="Model\Seasons.cs" />
     <Compile Include="Model\Smartphones.cs" />
     <Compile Include="Model\Weekday.cs" />

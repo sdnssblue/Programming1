@@ -2,11 +2,21 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Rectangle = Programming.Model.Rectangle;
 
 namespace Programming.View
 {
     public partial class MainForm : Form
     {
+        const int CountElements = 5;
+
+        private Rectangle[] _rectangles;
+
+        private Rectangle _currentRectangle;
+
+        private Random _randomValues;
+
+
         public MainForm()
         {
             InitializeComponent();
@@ -24,6 +34,21 @@ namespace Programming.View
                 SeasonsComboBox.Items.Add(value);
             }
             SeasonsComboBox.SelectedIndex = 0;
+
+
+            _randomValues = new Random();
+            _rectangles = new Rectangle[CountElements];
+            var colors = Enum.GetValues(typeof(Colors));
+            for (int i = 0; i < CountElements; i++)
+            {
+                _currentRectangle = new Rectangle();
+                _currentRectangle.Width = _randomValues.Next(1, 101) / 10.0;
+                _currentRectangle.Length = _randomValues.Next(1, 101) / 10.0;
+                _currentRectangle.Color = colors.GetValue(_randomValues.Next(0, colors.Length)).ToString();
+                _rectangles[i] = _currentRectangle;
+                RectanglesListBox.Items.Add($"Rectangle {i+1}");
+            }
+            RectanglesListBox.SelectedIndex = 0;
         }
 
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -105,5 +130,13 @@ namespace Programming.View
                     break;
             }
         }
-    }
+        private void RectangleListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedIndexRectangle = RectanglesListBox.SelectedIndex;
+            _currentRectangle = _rectangles[selectedIndexRectangle];
+            LengthTextBox.Text = _currentRectangle.Length.ToString();
+            WidthTextBox.Text = _currentRectangle.Width.ToString();
+            ColorTextBox.Text = _currentRectangle.Color;
+        }
+    }   
 }

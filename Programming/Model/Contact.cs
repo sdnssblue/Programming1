@@ -11,12 +11,12 @@
 
         public Contact(string firstname,
                        string surname,
-                       string adres,
+                       string address,
                        string number)
         {
             Firstname = firstname;
             Surname = surname;
-            Adres = adres;
+            Address = address;
             Number = number;
         }
 
@@ -24,7 +24,7 @@
 
         public string Surname {get; set;}
         
-        public string Adres {get; set;}
+        public string Address {get; set;}
 
         public string Number
         {

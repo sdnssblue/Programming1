@@ -1,64 +1,68 @@
-﻿namespace Programming.Model
-{
-    public class Film
-    {
-        private int _yearRelease;
-        private double _rating;
-        private int _durationOfMinutes;
+﻿using System;
 
-        public Film()
+namespace Programming.Model
+{
+    public class Movie
+    {
+        private int _releaseYear;
+        private double _rating;
+        private int _durationMinutes;
+
+        public Movie()
         {
 
         }
 
-        public Film(int yearRelease,
-                    int durationOfMinutes,
+        public Movie(int releaseYear,
+                    int durationMinutes,
                     int rating,
-                    string name,
+                    string title,
                     string genre)
         {
-            YearRelease = yearRelease;
-            DurationOfMinutes = durationOfMinutes;
+            ReleaseYear = releaseYear;
+            DurationMinutes = durationMinutes;
             Rating = rating;
-            Name = name;
+            Title = title;
             Genre = genre;
         }
 
-        public string Name {get; set;}
+        public string Title {get; set;}
 
         public string Genre {get; set;}
 
-        public int DurationOfMinutes
+        public int DurationMinutes
         {
             get
             {
-                return _durationOfMinutes;
+                return _durationMinutes;
             }
             set
             {
-                if (value <= 0)
+                if (value < 0)
                 {
                     throw new System.ArgumentException(
                         "the duration of minutes field must be greater than 0");
                 }
-                _durationOfMinutes = value;
+                _durationMinutes = value;
             }
         }
 
-        public int YearRelease
+        public int ReleaseYear
         {
             get
             {
-                return _yearRelease;
+                return _releaseYear;
             }
             set
             {
-                if (1900 > value || value > 2022)
+                DateTime myDateTime = DateTime.Now;
+                int year = myDateTime.Year;
+                if (1900 > value || value > year)
                 {
                     throw new System.ArgumentException(
                         "the release year should be in the range from 1900 to 2022");
                 }
-                _yearRelease = value;
+                _releaseYear = value;
             }
         }
 

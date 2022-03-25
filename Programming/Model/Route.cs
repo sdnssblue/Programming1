@@ -2,41 +2,40 @@
 {
     public class Route
     {
-        private int _flightTimeOfMinutes;
+        private int _flightTimeMinutes;
 
         public Route()
         {
 
         }
 
-        public Route(string departurePoint,
-                     string destinationPoint,
-                     int flightTimeOfMinutes)
+        public Route(string departure,
+                     string destination,
+                     int flightTimeMinutes)
         {
-            DeparturePoint = departurePoint;
-            DestinationPoint = destinationPoint;
-            FlightTimeOfMinutes = flightTimeOfMinutes;
+            Departure = departure;
+            Destination = destination;
+            FlightTimeMinutes = flightTimeMinutes;
         }
 
-        public string DeparturePoint {get; set;}
+        public string Departure {get; set;}
 
-        public string DestinationPoint {get; set;}
+        public string Destination {get; set;}
 
-        public int FlightTimeOfMinutes
+        public int FlightTimeMinutes
         {
             get
             {
-                return _flightTimeOfMinutes;
+                return _flightTimeMinutes;
             }
             set
-
             {
-                if (value <= 0)
+                if (value < 0)
                 {
                     throw new System.ArgumentException(
                         "the flight time of minutes field must be greater than 0");
                 }
-                _flightTimeOfMinutes = value;
+                _flightTimeMinutes = value;
             }
         }
     }
