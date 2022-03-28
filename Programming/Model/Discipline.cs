@@ -24,10 +24,7 @@
 
         public int Mark
         {
-            get
-            {
-                return _mark;
-            }
+            get => _mark;
             set
             {
                 if (2 > value || value > 5)

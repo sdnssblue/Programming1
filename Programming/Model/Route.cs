@@ -24,10 +24,7 @@
 
         public int FlightTimeMinutes
         {
-            get
-            {
-                return _flightTimeMinutes;
-            }
+            get => _flightTimeMinutes;
             set
             {
                 if (value < 0)

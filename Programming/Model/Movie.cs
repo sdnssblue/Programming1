@@ -32,10 +32,7 @@ namespace Programming.Model
 
         public int DurationMinutes
         {
-            get
-            {
-                return _durationMinutes;
-            }
+            get => _durationMinutes;
             set
             {
                 if (value < 0)
@@ -49,18 +46,15 @@ namespace Programming.Model
 
         public int ReleaseYear
         {
-            get
-            {
-                return _releaseYear;
-            }
+            get => _releaseYear;
             set
             {
                 DateTime myDateTime = DateTime.Now;
                 int year = myDateTime.Year;
                 if (1900 > value || value > year)
                 {
-                    throw new System.ArgumentException(
-                        "the release year should be in the range from 1900 to 2022");
+                    throw new System.ArgumentException
+                        ($"the release year should be in the range from 1900 to {year}");
                 }
                 _releaseYear = value;
             }
@@ -68,10 +62,7 @@ namespace Programming.Model
 
         public double Rating
         {
-            get
-            {
-                return _rating;
-            }
+            get => _rating;
             set
             {
                 if (0 > value || value > 10)

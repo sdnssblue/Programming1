@@ -24,10 +24,7 @@
 
         public int DurationSeconds
         {
-            get
-            {
-                return _durationSeconds;
-            }
+            get => _durationSeconds;
             set
             {
                 if (value < 0)

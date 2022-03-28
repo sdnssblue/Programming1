@@ -22,10 +22,7 @@
 
         public int Hours
         {
-            get
-            {
-                return _hours;
-            }
+            get => _hours;
             set
             {
                 if (0 > value || value > 23)
@@ -39,10 +36,7 @@
 
         public int Minutes
         {
-            get
-            {
-                return _minutes;
-            }
+            get => _minutes;
             set
             {
                 if (0 > value || value > 60)
@@ -56,10 +50,7 @@
 
         public int Seconds
         {
-            get
-            {
-                return _seconds;
-            }
+            get => _seconds;
             set
             {
                 if (0 > value || value > 60)

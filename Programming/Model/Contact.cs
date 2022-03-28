@@ -28,10 +28,7 @@
 
         public string Number
         {
-            get
-            {
-                return _number;
-            }
+            get => _number;
             set
             {
                 if (!long.TryParse(value, out long num))

@@ -8,6 +8,10 @@ namespace Programming.View
 {
     public partial class MainForm : Form
     {
+        Color ErrorColor = Color.LightPink;
+
+        Color CorrectColor = Color.White;
+
         const int CountElements = 5;
 
         private Rectangle[] _rectangles;
@@ -46,7 +50,7 @@ namespace Programming.View
                 _currentRectangle.Length = _randomValues.Next(1, 101) / 10.0;
                 _currentRectangle.Color = colors.GetValue(_randomValues.Next(0, colors.Length)).ToString();
                 _rectangles[i] = _currentRectangle;
-                RectanglesListBox.Items.Add($"Rectangle {i+1}");
+                RectanglesListBox.Items.Add($"Rectangle {i + 1}");
             }
             RectanglesListBox.SelectedIndex = 0;
         }
@@ -130,6 +134,7 @@ namespace Programming.View
                     break;
             }
         }
+
         private void RectangleListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedIndexRectangle = RectanglesListBox.SelectedIndex;
