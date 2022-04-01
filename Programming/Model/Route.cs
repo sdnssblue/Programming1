@@ -1,4 +1,6 @@
-﻿namespace Programming.Model
+﻿using System;
+
+namespace Programming.Model
 {
     public class Route
     {
@@ -29,7 +31,7 @@
             {
                 if (value < 0)
                 {
-                    throw new System.ArgumentException(
+                    throw new ArgumentException(
                         "the flight time of minutes field must be greater than 0");
                 }
                 _flightTimeMinutes = value;

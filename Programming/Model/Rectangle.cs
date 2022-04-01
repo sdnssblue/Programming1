@@ -1,8 +1,11 @@
-﻿namespace Programming.Model
+﻿using System;
+
+namespace Programming.Model
 {
     public class Rectangle
     {
         private double _length;
+
         private double _width;
 
         public Rectangle()
@@ -28,7 +31,7 @@
             {
                 if (value < 0)
                 {
-                    throw new System.ArgumentException(
+                    throw new ArgumentException(
                         "the value of the height field must be positive");
                 }
                 _length = value;
@@ -42,7 +45,7 @@
             {
                 if (value < 0)
                 {
-                    throw new System.ArgumentException(
+                    throw new ArgumentException(
                         "the value of the width field must be positive");
                 }
                 _width = value;

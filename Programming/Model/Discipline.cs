@@ -1,4 +1,6 @@
-﻿namespace Programming.Model
+﻿using System;
+
+namespace Programming.Model
 {
     public class Discipline
     {
@@ -29,7 +31,7 @@
             {
                 if (2 > value || value > 5)
                 {
-                    throw new System.ArgumentException(
+                    throw new ArgumentException(
                         "the value of the mark field should be between 2 (unsatisfactory) and 5 (excellent)");
                 }
                 _mark = value;

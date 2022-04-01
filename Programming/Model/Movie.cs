@@ -5,7 +5,9 @@ namespace Programming.Model
     public class Movie
     {
         private int _releaseYear;
+
         private double _rating;
+
         private int _durationMinutes;
 
         public Movie()
@@ -37,7 +39,7 @@ namespace Programming.Model
             {
                 if (value < 0)
                 {
-                    throw new System.ArgumentException(
+                    throw new ArgumentException(
                         "the duration of minutes field must be greater than 0");
                 }
                 _durationMinutes = value;
@@ -49,12 +51,10 @@ namespace Programming.Model
             get => _releaseYear;
             set
             {
-                DateTime myDateTime = DateTime.Now;
-                int year = myDateTime.Year;
-                if (1900 > value || value > year)
+                if (1900 > value || value > DateTime.Now.Year)
                 {
-                    throw new System.ArgumentException
-                        ($"the release year should be in the range from 1900 to {year}");
+                    throw new ArgumentException
+                        ($"the release year should be in the range from 1900 to {DateTime.Now.Year}");
                 }
                 _releaseYear = value;
             }
@@ -67,7 +67,7 @@ namespace Programming.Model
             {
                 if (0 > value || value > 10)
                 {
-                    throw new System.ArgumentException(
+                    throw new ArgumentException(
                         "the rating should be in the range from 0 to 10");
                 }
                 _rating = value;

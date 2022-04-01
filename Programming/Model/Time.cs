@@ -1,9 +1,13 @@
-﻿namespace Programming.Model
+﻿using System;
+
+namespace Programming.Model
 {
     public class Time
     {
         private int _hours;
+
         private int _minutes;
+
         private int _seconds;
 
         public Time()
@@ -27,7 +31,7 @@
             {
                 if (0 > value || value > 23)
                 {
-                    throw new System.ArgumentException(
+                    throw new ArgumentException(
                         "the value of the hours field must be in the range from 0 to 23");
                 }
                 _hours = value;
@@ -41,7 +45,7 @@
             {
                 if (0 > value || value > 60)
                 {
-                    throw new System.ArgumentOutOfRangeException(
+                    throw new ArgumentOutOfRangeException(
                         "the value of the minutes field must be in the range from 0 to 60");
                 }
                 _minutes = value;
@@ -55,7 +59,7 @@
             {
                 if (0 > value || value > 60)
                 {
-                    throw new System.ArgumentOutOfRangeException(
+                    throw new ArgumentOutOfRangeException(
                         "the value of the seconds field must be in the range from 0 to 60");
                 }
                 _seconds = value;

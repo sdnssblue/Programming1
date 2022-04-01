@@ -1,4 +1,6 @@
-﻿namespace Programming.Model
+﻿using System;
+
+namespace Programming.Model
 {
     public class Contact
     {
@@ -33,12 +35,12 @@
             {
                 if (!long.TryParse(value, out long num))
                 {
-                    throw new System.ArgumentException(
+                    throw new ArgumentException(
                         "the value of the number field must consist of digits only");
                 }
                 if (value.Length != 11)
                 {
-                    throw new System.ArgumentException(
+                    throw new ArgumentException(
                         "the value of the number field must consist of 11 digits");
                 }
                 _number = value;

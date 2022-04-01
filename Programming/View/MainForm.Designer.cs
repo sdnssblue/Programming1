@@ -334,9 +334,9 @@ namespace Programming.View
             this.MoviesReleaseLabel.AutoSize = true;
             this.MoviesReleaseLabel.Location = new System.Drawing.Point(191, 170);
             this.MoviesReleaseLabel.Name = "MoviesReleaseLabel";
-            this.MoviesReleaseLabel.Size = new System.Drawing.Size(72, 13);
+            this.MoviesReleaseLabel.Size = new System.Drawing.Size(69, 13);
             this.MoviesReleaseLabel.TabIndex = 7;
-            this.MoviesReleaseLabel.Text = "Release year:";
+            this.MoviesReleaseLabel.Text = "Year release:";
             // 
             // ReleaseYearMovieTextBox
             // 
