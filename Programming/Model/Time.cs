@@ -43,7 +43,7 @@ namespace Programming.Model
             get => _minutes;
             set
             {
-                if (0 > value || value > 60)
+                if (0 > value || value > 59)
                 {
                     throw new ArgumentOutOfRangeException(
                         "the value of the minutes field must be in the range from 0 to 60");
@@ -57,7 +57,7 @@ namespace Programming.Model
             get => _seconds;
             set
             {
-                if (0 > value || value > 60)
+                if (0 > value || value > 59)
                 {
                     throw new ArgumentOutOfRangeException(
                         "the value of the seconds field must be in the range from 0 to 60");
