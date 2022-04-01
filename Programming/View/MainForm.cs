@@ -47,8 +47,10 @@ namespace Programming.View
             _random = new Random();
 
             _rectangles = InitRectangles();
+            RectangleListBox.SelectedIndex = 0;
 
             _movies = InitMovies();
+            RectangleListBox.SelectedIndex = 0;
         }
 
         private Rectangle[] InitRectangles()
@@ -65,7 +67,6 @@ namespace Programming.View
                 rectangles[i] = _currentRectangle;
                 RectangleListBox.Items.Add($"Rectangle {i + 1}");
             }
-            RectangleListBox.SelectedIndex = 0;
             return rectangles;
         }
 
@@ -85,7 +86,6 @@ namespace Programming.View
                 movies[i] = _currentMovie;
                 MovieListBox.Items.Add($"Movie {i + 1}");
             }
-            MovieListBox.SelectedIndex = 0;
             return movies;
         }
 
