@@ -80,10 +80,10 @@ namespace Programming.View
                 _currentMovie.Rating = _random.Next(101) / 10.0;
                 _currentMovie.ReleaseYear = _random.Next(1900, DateTime.Now.Year);
                 _currentMovie.Genre = genres.GetValue(_random.Next(0, genres.Length)).ToString();
-                _currentMovie.Title = $"Film {_currentMovie.Genre} {_currentMovie.ReleaseYear}";
+                _currentMovie.Title = $"Movie {_currentMovie.Genre} {_currentMovie.ReleaseYear}";
                 _currentMovie.DurationMinutes = _random.Next(40, 200);
                 movies[i] = _currentMovie;
-                MovieListBox.Items.Add($"Film {i + 1}");
+                MovieListBox.Items.Add($"Movie {i + 1}");
             }
             MovieListBox.SelectedIndex = 0;
             return movies;
@@ -104,15 +104,15 @@ namespace Programming.View
             return maxWidthIndex;
         }
 
-        private int FindFilmWithMaxRating(Movie[] films)
+        private int FindMovieWithMaxRating(Movie[] movies)
         {
             int maxRatingIndex = 0;
             double maxValue = 0;
             for (int i = 0; i < CountElements; i++)
             {
-                if (films[i].Rating > maxValue)
+                if (movies[i].Rating > maxValue)
                 {
-                    maxValue = films[i].Rating;
+                    maxValue = movies[i].Rating;
                     maxRatingIndex = i;
                 }
             }
@@ -325,7 +325,7 @@ namespace Programming.View
 
         private void FindMovieButton_Click(object sender, EventArgs e)
         {
-            int findMaxRatingIndex = FindFilmWithMaxRating(_movies);
+            int findMaxRatingIndex = FindMovieWithMaxRating(_movies);
             MovieListBox.SelectedIndex = findMaxRatingIndex;
         }
     }   
