@@ -505,7 +505,7 @@ namespace Programming.View
             this.RectangleListBox.Name = "RectangleListBox";
             this.RectangleListBox.Size = new System.Drawing.Size(179, 290);
             this.RectangleListBox.TabIndex = 0;
-            this.RectangleListBox.Click += new System.EventHandler(this.RectangleListBox_SelectedIndexChanged);
+            this.RectangleListBox.SelectedIndexChanged += new System.EventHandler(this.RectangleListBox_SelectedIndexChanged);
             // 
             // MainForm
             // 
