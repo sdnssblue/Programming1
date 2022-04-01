@@ -1,8 +1,8 @@
-﻿namespace Programming.Model
+﻿namespace Programming.Model.Enums
 {
     public enum Genre
     {
-        Comedy,
+        Comedy = 1,
         Drama,
         Thriller,
         Action,

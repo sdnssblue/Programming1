@@ -1,8 +1,8 @@
-﻿namespace Programming.Model
+﻿namespace Programming.Model.Enums
 {
     public enum Colors
     {
-        White,
+        White = 1,
         Black,
         Red,
         Green,

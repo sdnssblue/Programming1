@@ -414,6 +414,7 @@ namespace Programming.View
             this.MovieListBox.Name = "MovieListBox";
             this.MovieListBox.Size = new System.Drawing.Size(179, 290);
             this.MovieListBox.TabIndex = 0;
+            this.MovieListBox.Click += new System.EventHandler(this.MovieListBox_SelectedIndexChanged);
             // 
             // RectanglesGroupBox
             // 

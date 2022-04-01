@@ -1,4 +1,5 @@
 ﻿using Programming.Model;
+using Programming.Model.Enums;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -63,7 +64,7 @@ namespace Programming.View
                 _currentRectangle.Width = _randomValues.Next(1, 101) / 10.0;
                 _currentRectangle.Length = _randomValues.Next(1, 101) / 10.0;
                 _currentRectangle.Color = colors.GetValue(_randomValues.Next(0, colors.Length)).ToString();
-                _rectangles[i] = _currentRectangle;
+                rectangles[i] = _currentRectangle;
                 RectangleListBox.Items.Add($"Rectangle {i + 1}");
             }
             return rectangles;
@@ -80,7 +81,7 @@ namespace Programming.View
                 _currentMovie.ReleaseYear = _randomValues.Next(1900, 2023);
                 _currentMovie.Genre = genres.GetValue(_randomValues.Next(0, genres.Length)).ToString();
                 _currentMovie.Title = $"Film {_currentMovie.Genre} {_currentMovie.ReleaseYear}";
-                _currentMovie.DurationMinutes = _randomValues.Next(151);
+                _currentMovie.DurationMinutes = _randomValues.Next(40, 200);
                 movies[i] = _currentMovie;
                 MovieListBox.Items.Add($"Film {i + 1}");
             }
@@ -252,8 +253,8 @@ namespace Programming.View
 
         private void MovieListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int selectedIndexFilm = MovieListBox.SelectedIndex;
-            _currentMovie = _movies[selectedIndexFilm];
+            int selectedIndexMovie = MovieListBox.SelectedIndex;
+            _currentMovie = _movies[selectedIndexMovie];
             TitleMovieTextBox.Text = _currentMovie.Title;
             GenreMovieTextBox.Text = _currentMovie.Genre;
             ReleaseYearMovieTextBox.Text = _currentMovie.ReleaseYear.ToString();
@@ -263,14 +264,14 @@ namespace Programming.View
 
         private void TitleMovieTextBox_TextChanged(object sender, EventArgs e)
         {
-            string titleFilmValue = TitleMovieTextBox.Text;
-            _currentMovie.Title = titleFilmValue;
+            string titleMovieValue = TitleMovieTextBox.Text;
+            _currentMovie.Title = titleMovieValue;
         }
 
         private void GenreMovieTextBox_TextChanged(object sender, EventArgs e)
         {
-            string genreFilmValue = GenreMovieTextBox.Text;
-            _currentMovie.Genre = genreFilmValue;
+            string genreMovieValue = GenreMovieTextBox.Text;
+            _currentMovie.Genre = genreMovieValue;
         }
 
         private void YearReleaseMovieTextBox_TextChanged(object sender, EventArgs e)
@@ -278,8 +279,8 @@ namespace Programming.View
             try
             {
                 string currentYearRelease = ReleaseYearMovieTextBox.Text;
-                int yearReleaseFilmValue = int.Parse(currentYearRelease);
-                _currentMovie.ReleaseYear = yearReleaseFilmValue;
+                int yearReleaseMovieValue = int.Parse(currentYearRelease);
+                _currentMovie.ReleaseYear = yearReleaseMovieValue;
             }
             catch
             {
@@ -294,8 +295,8 @@ namespace Programming.View
             try
             {
                 string currentDurationMinutes = DurationMinutesMovieTextBox.Text;
-                int durationMinutesFilmValue = int.Parse(currentDurationMinutes);
-                _currentMovie.DurationMinutes = durationMinutesFilmValue;
+                int durationMinutesMovieValue = int.Parse(currentDurationMinutes);
+                _currentMovie.DurationMinutes = durationMinutesMovieValue;
             }
             catch
             {

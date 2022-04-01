@@ -1,8 +1,8 @@
-﻿namespace Programming.Model
+﻿namespace Programming.Model.Enums
 {
     public enum Seasons
     {
-        Winter,
+        Winter = 1,
         Spring,
         Summer,
         Autumn

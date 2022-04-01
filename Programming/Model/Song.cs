@@ -10,17 +10,17 @@
         }
 
         public Song(string author,
-                    string songName,
+                    string name,
                     int durationSeconds)
         {
             Author = author;
-            SongName = songName;
+            Name = name;
             DurationSeconds = durationSeconds;
         }
 
         public string Author { get; set;}
 
-        public string SongName {get; set;}
+        public string Name {get; set;}
 
         public int DurationSeconds
         {
