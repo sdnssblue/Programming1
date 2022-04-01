@@ -9,9 +9,9 @@ namespace Programming.View
 {
     public partial class MainForm : Form
     {
-        private Color _errorColor = Color.LightPink;
+        private readonly Color _errorColor = Color.LightPink;
 
-        private Color _normalColor = Color.White;
+        private readonly Color _correctColor = Color.White;
 
         private const int CountElements = 5;
 
@@ -186,7 +186,7 @@ namespace Programming.View
                 LengthRectangleTextBox.BackColor = _errorColor;
                 return;
             }
-            LengthRectangleTextBox.BackColor = _normalColor;
+            LengthRectangleTextBox.BackColor = _correctColor;
         }
 
         private void WidthRectangleTextBox_TextChanged(object sender, EventArgs e)
@@ -202,7 +202,7 @@ namespace Programming.View
                 WidthRectangleTextBox.BackColor = _errorColor;
                 return;
             }
-            WidthRectangleTextBox.BackColor = _normalColor;
+            WidthRectangleTextBox.BackColor = _correctColor;
         }
 
         private void ColorRectangleTextBox_TextChanged(object sender, EventArgs e)
@@ -247,7 +247,7 @@ namespace Programming.View
                 RatingMovieTextBox.BackColor = _errorColor;
                 return;
             }
-            RatingMovieTextBox.BackColor = _normalColor;
+            RatingMovieTextBox.BackColor = _correctColor;
         }
 
         private void YearReleaseMovieTextBox_TextChanged(object sender, EventArgs e)
@@ -263,7 +263,7 @@ namespace Programming.View
                 ReleaseYearMovieTextBox.BackColor = _errorColor;
                 return;
             }
-            ReleaseYearMovieTextBox.BackColor = _normalColor;
+            ReleaseYearMovieTextBox.BackColor = _correctColor;
         }
 
         private void DurationMinutesMovieTextBox_TextChanged(object sender, EventArgs e)
@@ -279,7 +279,7 @@ namespace Programming.View
                 DurationMinutesMovieTextBox.BackColor = _errorColor;
                 return;
             }
-            DurationMinutesMovieTextBox.BackColor = _normalColor;
+            DurationMinutesMovieTextBox.BackColor = _correctColor;
         }
 
         private void WeekdayParseButton_Click(object sender, EventArgs e)
