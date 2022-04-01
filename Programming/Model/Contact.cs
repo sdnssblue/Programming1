@@ -22,11 +22,11 @@ namespace Programming.Model
             Number = number;
         }
 
-        public string Firstname {get; set;}
+        public string Firstname { get; set; }
 
-        public string Surname {get; set;}
-        
-        public string Address {get; set;}
+        public string Surname { get; set; }
+
+        public string Address { get; set; }
 
         public string Number
         {
@@ -46,6 +46,6 @@ namespace Programming.Model
                 _number = value;
 
             }
-        }       
+        }
     }
 }

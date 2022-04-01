@@ -22,7 +22,7 @@ namespace Programming.Model
             Color = color;
         }
 
-        public string Color {get; set;}
+        public string Color { get; set; }
 
         public double Length
         {

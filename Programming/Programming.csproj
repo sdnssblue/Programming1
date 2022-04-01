@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Discipline.cs" />
+    <Compile Include="Model\Subject.cs" />
     <Compile Include="Model\Contact.cs" />
     <Compile Include="Model\Movie.cs" />
     <Compile Include="Model\Enums\Colors.cs" />

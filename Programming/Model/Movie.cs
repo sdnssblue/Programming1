@@ -28,9 +28,9 @@ namespace Programming.Model
             Genre = genre;
         }
 
-        public string Title {get; set;}
+        public string Title { get; set; }
 
-        public string Genre {get; set;}
+        public string Genre { get; set; }
 
         public int DurationMinutes
         {
@@ -51,7 +51,7 @@ namespace Programming.Model
             get => _releaseYear;
             set
             {
-                if (1900 > value || value > DateTime.Now.Year)
+                if (value < 1900 || value > DateTime.Now.Year)
                 {
                     throw new ArgumentException
                         ($"the release year should be in the range from 1900 to {DateTime.Now.Year}");
@@ -65,7 +65,7 @@ namespace Programming.Model
             get => _rating;
             set
             {
-                if (0 > value || value > 10)
+                if (value < 0 || value > 10)
                 {
                     throw new ArgumentException(
                         "the rating should be in the range from 0 to 10");

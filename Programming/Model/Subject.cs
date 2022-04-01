@@ -2,16 +2,16 @@
 
 namespace Programming.Model
 {
-    public class Discipline
+    public class Subject
     {
         private int _mark;
 
-        public Discipline()
+        public Subject()
         {
 
         }
 
-        public Discipline(string name,
+        public Subject(string name,
                           string examDate,
                           int mark)
         {
@@ -20,16 +20,16 @@ namespace Programming.Model
             Mark = mark;
         }
 
-        public string Name {get; set;}
+        public string Name { get; set; }
 
-        public string ExamDate {get; set;}
+        public string ExamDate { get; set; }
 
         public int Mark
         {
             get => _mark;
             set
             {
-                if (2 > value || value > 5)
+                if (value < 2 || value > 5)
                 {
                     throw new ArgumentException(
                         "the value of the mark field should be between 2 (unsatisfactory) and 5 (excellent)");
