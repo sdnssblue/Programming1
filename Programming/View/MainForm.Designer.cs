@@ -63,9 +63,9 @@ namespace Programming.View
             this.MovieListBox = new System.Windows.Forms.ListBox();
             this.RectangleGroupBox = new System.Windows.Forms.GroupBox();
             this.RectangleFindButton = new System.Windows.Forms.Button();
-            this.RectanglesColorLabel = new System.Windows.Forms.Label();
-            this.RectanglesWidthLabel = new System.Windows.Forms.Label();
-            this.RectanglesLengthLabel = new System.Windows.Forms.Label();
+            this.RectangleColorLabel = new System.Windows.Forms.Label();
+            this.RectangleWidthLabel = new System.Windows.Forms.Label();
+            this.RectangleLengthLabel = new System.Windows.Forms.Label();
             this.RectangleColorTextBox = new System.Windows.Forms.TextBox();
             this.RectangleWidthTextBox = new System.Windows.Forms.TextBox();
             this.RectangleLengthTextBox = new System.Windows.Forms.TextBox();
@@ -421,9 +421,9 @@ namespace Programming.View
             // RectangleGroupBox
             // 
             this.RectangleGroupBox.Controls.Add(this.RectangleFindButton);
-            this.RectangleGroupBox.Controls.Add(this.RectanglesColorLabel);
-            this.RectangleGroupBox.Controls.Add(this.RectanglesWidthLabel);
-            this.RectangleGroupBox.Controls.Add(this.RectanglesLengthLabel);
+            this.RectangleGroupBox.Controls.Add(this.RectangleColorLabel);
+            this.RectangleGroupBox.Controls.Add(this.RectangleWidthLabel);
+            this.RectangleGroupBox.Controls.Add(this.RectangleLengthLabel);
             this.RectangleGroupBox.Controls.Add(this.RectangleColorTextBox);
             this.RectangleGroupBox.Controls.Add(this.RectangleWidthTextBox);
             this.RectangleGroupBox.Controls.Add(this.RectangleLengthTextBox);
@@ -447,32 +447,32 @@ namespace Programming.View
             this.RectangleFindButton.UseVisualStyleBackColor = true;
             this.RectangleFindButton.Click += new System.EventHandler(this.FindRectangleButton_Click);
             // 
-            // RectanglesColorLabel
+            // RectangleColorLabel
             // 
-            this.RectanglesColorLabel.AutoSize = true;
-            this.RectanglesColorLabel.Location = new System.Drawing.Point(190, 119);
-            this.RectanglesColorLabel.Name = "RectanglesColorLabel";
-            this.RectanglesColorLabel.Size = new System.Drawing.Size(34, 13);
-            this.RectanglesColorLabel.TabIndex = 5;
-            this.RectanglesColorLabel.Text = "Color:";
+            this.RectangleColorLabel.AutoSize = true;
+            this.RectangleColorLabel.Location = new System.Drawing.Point(190, 119);
+            this.RectangleColorLabel.Name = "RectangleColorLabel";
+            this.RectangleColorLabel.Size = new System.Drawing.Size(34, 13);
+            this.RectangleColorLabel.TabIndex = 5;
+            this.RectangleColorLabel.Text = "Color:";
             // 
-            // RectanglesWidthLabel
+            // RectangleWidthLabel
             // 
-            this.RectanglesWidthLabel.AutoSize = true;
-            this.RectanglesWidthLabel.Location = new System.Drawing.Point(190, 71);
-            this.RectanglesWidthLabel.Name = "RectanglesWidthLabel";
-            this.RectanglesWidthLabel.Size = new System.Drawing.Size(38, 13);
-            this.RectanglesWidthLabel.TabIndex = 4;
-            this.RectanglesWidthLabel.Text = "Width:";
+            this.RectangleWidthLabel.AutoSize = true;
+            this.RectangleWidthLabel.Location = new System.Drawing.Point(190, 71);
+            this.RectangleWidthLabel.Name = "RectangleWidthLabel";
+            this.RectangleWidthLabel.Size = new System.Drawing.Size(38, 13);
+            this.RectangleWidthLabel.TabIndex = 4;
+            this.RectangleWidthLabel.Text = "Width:";
             // 
-            // RectanglesLengthLabel
+            // RectangleLengthLabel
             // 
-            this.RectanglesLengthLabel.AutoSize = true;
-            this.RectanglesLengthLabel.Location = new System.Drawing.Point(190, 22);
-            this.RectanglesLengthLabel.Name = "RectanglesLengthLabel";
-            this.RectanglesLengthLabel.Size = new System.Drawing.Size(43, 13);
-            this.RectanglesLengthLabel.TabIndex = 1;
-            this.RectanglesLengthLabel.Text = "Length:";
+            this.RectangleLengthLabel.AutoSize = true;
+            this.RectangleLengthLabel.Location = new System.Drawing.Point(190, 22);
+            this.RectangleLengthLabel.Name = "RectangleLengthLabel";
+            this.RectangleLengthLabel.Size = new System.Drawing.Size(43, 13);
+            this.RectangleLengthLabel.TabIndex = 1;
+            this.RectangleLengthLabel.Text = "Length:";
             // 
             // RectangleColorTextBox
             // 
@@ -558,9 +558,9 @@ namespace Programming.View
         private System.Windows.Forms.GroupBox RectangleGroupBox;
         private System.Windows.Forms.ListBox RectangleListBox;
         private System.Windows.Forms.Button RectangleFindButton;
-        private System.Windows.Forms.Label RectanglesColorLabel;
-        private System.Windows.Forms.Label RectanglesWidthLabel;
-        private System.Windows.Forms.Label RectanglesLengthLabel;
+        private System.Windows.Forms.Label RectangleColorLabel;
+        private System.Windows.Forms.Label RectangleWidthLabel;
+        private System.Windows.Forms.Label RectangleLengthLabel;
         private System.Windows.Forms.TextBox RectangleColorTextBox;
         private System.Windows.Forms.TextBox RectangleWidthTextBox;
         private System.Windows.Forms.TextBox RectangleLengthTextBox;
