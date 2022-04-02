@@ -25,7 +25,6 @@ namespace Programming.View
 
         private Random _random;
 
-
         public MainForm()
         {
             InitializeComponent();
@@ -46,16 +45,13 @@ namespace Programming.View
 
             _random = new Random();
 
-            _rectangles = InitRectangles();
-            RectangleListBox.SelectedIndex = 0;
-
-            _movies = InitMovies();
-            RectangleListBox.SelectedIndex = 0;
+            InitRectangles();
+            InitMovies();
         }
 
-        private Rectangle[] InitRectangles()
+        private void InitRectangles()
         {
-            Rectangle[] rectangles = new Rectangle[ElementsCount];
+            _rectangles = new Rectangle[ElementsCount];
 
             var colors = Enum.GetValues(typeof(Colors));
             for (int i = 0; i < ElementsCount; i++)
@@ -64,15 +60,15 @@ namespace Programming.View
                 _currentRectangle.Width = _random.Next(1, 101) / 10.0;
                 _currentRectangle.Length = _random.Next(1, 101) / 10.0;
                 _currentRectangle.Color = colors.GetValue(_random.Next(0, colors.Length)).ToString();
-                rectangles[i] = _currentRectangle;
+                _rectangles[i] = _currentRectangle;
                 RectangleListBox.Items.Add($"Rectangle {i + 1}");
             }
-            return rectangles;
+            RectangleListBox.SelectedIndex = 0;
         }
 
-        private Movie[] InitMovies()
+        private void InitMovies()
         {
-            Movie[] movies = new Movie[ElementsCount];
+            _movies = new Movie[ElementsCount];
 
             var genres = Enum.GetValues(typeof(Genre));
             for (int i = 0; i < ElementsCount; i++)
@@ -83,10 +79,10 @@ namespace Programming.View
                 _currentMovie.Genre = genres.GetValue(_random.Next(0, genres.Length)).ToString();
                 _currentMovie.Title = $"Movie {_currentMovie.Genre} {_currentMovie.ReleaseYear}";
                 _currentMovie.DurationMinutes = _random.Next(40, 200);
-                movies[i] = _currentMovie;
+                _movies[i] = _currentMovie;
                 MovieListBox.Items.Add($"Movie {i + 1}");
             }
-            return movies;
+            MovieListBox.SelectedIndex = 0;
         }
 
         private int FindRectangleWithMaxWidth(Rectangle[] rectangles)
