@@ -29,11 +29,7 @@ namespace Programming.Model
             get => _durationSeconds;
             set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentException(
-                        "the value of the Duration Seconds field must be greater than zero");
-                }
+                Validator.AssertOnPositiveValue(nameof(DurationSeconds), value);
                 _durationSeconds = value;
             }
         }

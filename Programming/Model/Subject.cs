@@ -29,11 +29,7 @@ namespace Programming.Model
             get => _mark;
             set
             {
-                if (value < 2 || value > 5)
-                {
-                    throw new ArgumentException(
-                        "the value of the mark field should be between 2 (unsatisfactory) and 5 (excellent)");
-                }
+                Validator.AssertValueInRange(nameof(Mark), value, 2, 5);
                 _mark = value;
             }
         }

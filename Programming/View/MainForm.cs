@@ -60,8 +60,9 @@ namespace Programming.View
                 _currentRectangle.Width = _random.Next(1, 101) / 10.0;
                 _currentRectangle.Length = _random.Next(1, 101) / 10.0;
                 _currentRectangle.Color = colors.GetValue(_random.Next(0, colors.Length)).ToString();
+                _currentRectangle.Center = new Point2D(_random.Next(1, 100), _random.Next(1, 100));
                 _rectangles[i] = _currentRectangle;
-                RectangleListBox.Items.Add($"Rectangle {i + 1}");
+                RectangleListBox.Items.Add($"Rectangle {_currentRectangle.Id}");
             }
             RectangleListBox.SelectedIndex = 0;
         }
@@ -75,7 +76,7 @@ namespace Programming.View
             {
                 _currentMovie = new Movie();
                 _currentMovie.Rating = _random.Next(101) / 10.0;
-                _currentMovie.ReleaseYear = _random.Next(1900, DateTime.Now.Year);
+                _currentMovie.ReleaseYear = _random.Next(1990, DateTime.Now.Year);
                 _currentMovie.Genre = genres.GetValue(_random.Next(0, genres.Length)).ToString();
                 _currentMovie.Title = $"Movie {_currentMovie.Genre} {_currentMovie.ReleaseYear}";
                 _currentMovie.DurationMinutes = _random.Next(40, 200);
@@ -167,6 +168,9 @@ namespace Programming.View
             RectangleLengthTextBox.Text = _currentRectangle.Length.ToString();
             RectangleWidthTextBox.Text = _currentRectangle.Width.ToString();
             RectangleColorTextBox.Text = _currentRectangle.Color;
+            RectangleXTextBox.Text = _currentRectangle.Center.X.ToString();
+            RectangleYTextBox.Text = _currentRectangle.Center.Y.ToString();
+            RectangleIdTextBox.Text = _currentRectangle.Id.ToString();
         }
 
         private void LengthRectangleTextBox_TextChanged(object sender, EventArgs e)

@@ -29,11 +29,7 @@ namespace Programming.Model
             get => _flightTimeMinutes;
             set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentException(
-                        "the flight time of minutes field must be greater than 0");
-                }
+                Validator.AssertOnPositiveValue(nameof(FlightTimeMinutes), value);
                 _flightTimeMinutes = value;
             }
         }
