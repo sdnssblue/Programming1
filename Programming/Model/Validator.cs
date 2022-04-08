@@ -2,7 +2,7 @@
 
 namespace Programming.Model
 {
-    static class Validator
+    public static class Validator
     {
         public static void AssertOnPositiveValue(string nameProperty, int value)
         {
