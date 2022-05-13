@@ -39,7 +39,7 @@ namespace Programming.Model
             get => _surname;
             set
             {
-                _surname = AssertStringContainsOnlyLetters(nameof(Name), value);
+                _surname = AssertStringContainsOnlyLetters(nameof(Surname), value);
             }
         }
 

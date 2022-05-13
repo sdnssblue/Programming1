@@ -8,8 +8,7 @@ namespace Programming.Model
         {
             if (value <= 0)
             {
-                throw new ArgumentException(
-                    $"the value of the {nameProperty} field must be positive");
+                throw new ArgumentException($"the value of the {nameProperty} field must be positive");
             }
         }
 

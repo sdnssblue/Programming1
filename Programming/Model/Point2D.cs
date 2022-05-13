@@ -17,7 +17,7 @@ namespace Programming.Model
         public int X
         {
             get => _x;
-            private set
+            set
             {
                 Validator.AssertOnPositiveValue(nameof(X), value);
                 _x = value;
@@ -27,7 +27,7 @@ namespace Programming.Model
         public int Y
         {
             get => _y;
-            private set
+            set
             {
                 Validator.AssertOnPositiveValue(nameof(Y), value);
                 _y = value;
