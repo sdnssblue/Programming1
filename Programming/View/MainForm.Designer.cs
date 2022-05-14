@@ -77,6 +77,8 @@ namespace Programming.View
             this.RectangleHeightTextBox = new System.Windows.Forms.TextBox();
             this.RectangleListBox = new System.Windows.Forms.ListBox();
             this.RectanglesTabPage = new System.Windows.Forms.TabPage();
+            this.RemoveSelectedRectangleButton = new System.Windows.Forms.Button();
+            this.AddRectangleButton = new System.Windows.Forms.Button();
             this.RectangleSelectedHeightTextBox = new System.Windows.Forms.TextBox();
             this.RectangleSelectedHeightLabel = new System.Windows.Forms.Label();
             this.RectangleSelectedWidthTextBox = new System.Windows.Forms.TextBox();
@@ -88,11 +90,9 @@ namespace Programming.View
             this.RectangleSelectedIdLabel = new System.Windows.Forms.Label();
             this.RectangleSelectedIdTextBox = new System.Windows.Forms.TextBox();
             this.SelectedRectangleLabel = new System.Windows.Forms.Label();
-            this.RectanglesPanel = new System.Windows.Forms.Panel();
+            this.CanvasPanel = new System.Windows.Forms.Panel();
             this.RectanglesLabel = new System.Windows.Forms.Label();
             this.RectanglesListBox = new System.Windows.Forms.ListBox();
-            this.RemoveSelectedRectangleButton = new System.Windows.Forms.Button();
-            this.AddRectangleButton = new System.Windows.Forms.Button();
             this.EnumsTabPage.SuspendLayout();
             this.SeasonHandleGroupBox.SuspendLayout();
             this.WeekdayParsingGroupBox.SuspendLayout();
@@ -589,7 +589,7 @@ namespace Programming.View
             this.RectangleHeightTextBox.Name = "RectangleHeightTextBox";
             this.RectangleHeightTextBox.Size = new System.Drawing.Size(100, 20);
             this.RectangleHeightTextBox.TabIndex = 1;
-            this.RectangleHeightTextBox.TextChanged += new System.EventHandler(this.LengthRectangleTextBox_TextChanged);
+            this.RectangleHeightTextBox.TextChanged += new System.EventHandler(this.HeightRectangleTextBox_TextChanged);
             // 
             // RectangleListBox
             // 
@@ -615,7 +615,7 @@ namespace Programming.View
             this.RectanglesTabPage.Controls.Add(this.RectangleSelectedIdLabel);
             this.RectanglesTabPage.Controls.Add(this.RectangleSelectedIdTextBox);
             this.RectanglesTabPage.Controls.Add(this.SelectedRectangleLabel);
-            this.RectanglesTabPage.Controls.Add(this.RectanglesPanel);
+            this.RectanglesTabPage.Controls.Add(this.CanvasPanel);
             this.RectanglesTabPage.Controls.Add(this.RectanglesLabel);
             this.RectanglesTabPage.Controls.Add(this.RectanglesListBox);
             this.RectanglesTabPage.Location = new System.Drawing.Point(4, 22);
@@ -625,6 +625,38 @@ namespace Programming.View
             this.RectanglesTabPage.TabIndex = 2;
             this.RectanglesTabPage.Text = "Rectangles";
             this.RectanglesTabPage.UseVisualStyleBackColor = true;
+            // 
+            // RemoveSelectedRectangleButton
+            // 
+            this.RemoveSelectedRectangleButton.FlatAppearance.BorderSize = 0;
+            this.RemoveSelectedRectangleButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.RemoveSelectedRectangleButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.RemoveSelectedRectangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RemoveSelectedRectangleButton.Image = global::Programming.Properties.Resources.rectangle_remove_24x24_uncolor;
+            this.RemoveSelectedRectangleButton.Location = new System.Drawing.Point(206, 139);
+            this.RemoveSelectedRectangleButton.Name = "RemoveSelectedRectangleButton";
+            this.RemoveSelectedRectangleButton.Size = new System.Drawing.Size(75, 26);
+            this.RemoveSelectedRectangleButton.TabIndex = 15;
+            this.RemoveSelectedRectangleButton.UseVisualStyleBackColor = true;
+            this.RemoveSelectedRectangleButton.Click += new System.EventHandler(this.RemoveButton_Click);
+            this.RemoveSelectedRectangleButton.MouseEnter += new System.EventHandler(this.RemoveButton_MouseEnter);
+            this.RemoveSelectedRectangleButton.MouseLeave += new System.EventHandler(this.RemoveButton_MouseLeave);
+            // 
+            // AddRectangleButton
+            // 
+            this.AddRectangleButton.FlatAppearance.BorderSize = 0;
+            this.AddRectangleButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.AddRectangleButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.AddRectangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddRectangleButton.Image = global::Programming.Properties.Resources.rectangle_add_24x24_uncolor;
+            this.AddRectangleButton.Location = new System.Drawing.Point(12, 139);
+            this.AddRectangleButton.Name = "AddRectangleButton";
+            this.AddRectangleButton.Size = new System.Drawing.Size(75, 26);
+            this.AddRectangleButton.TabIndex = 14;
+            this.AddRectangleButton.UseVisualStyleBackColor = true;
+            this.AddRectangleButton.Click += new System.EventHandler(this.AddButton_Click);
+            this.AddRectangleButton.MouseEnter += new System.EventHandler(this.AddButton_MouseEnter);
+            this.AddRectangleButton.MouseLeave += new System.EventHandler(this.AddButton_MouseLeave);
             // 
             // RectangleSelectedHeightTextBox
             // 
@@ -721,16 +753,16 @@ namespace Programming.View
             this.SelectedRectangleLabel.TabIndex = 3;
             this.SelectedRectangleLabel.Text = "Selected Rectangle:";
             // 
-            // RectanglesPanel
+            // CanvasPanel
             // 
-            this.RectanglesPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.CanvasPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.RectanglesPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RectanglesPanel.Location = new System.Drawing.Point(303, 25);
-            this.RectanglesPanel.Name = "RectanglesPanel";
-            this.RectanglesPanel.Size = new System.Drawing.Size(350, 361);
-            this.RectanglesPanel.TabIndex = 2;
+            this.CanvasPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CanvasPanel.Location = new System.Drawing.Point(303, 25);
+            this.CanvasPanel.Name = "CanvasPanel";
+            this.CanvasPanel.Size = new System.Drawing.Size(350, 361);
+            this.CanvasPanel.TabIndex = 2;
             // 
             // RectanglesLabel
             // 
@@ -749,38 +781,6 @@ namespace Programming.View
             this.RectanglesListBox.Size = new System.Drawing.Size(269, 108);
             this.RectanglesListBox.TabIndex = 0;
             this.RectanglesListBox.SelectedIndexChanged += new System.EventHandler(this.RectanglesListBox_SelectedIndexChanged);
-            // 
-            // RemoveSelectedRectangleButton
-            // 
-            this.RemoveSelectedRectangleButton.FlatAppearance.BorderSize = 0;
-            this.RemoveSelectedRectangleButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.RemoveSelectedRectangleButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.RemoveSelectedRectangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RemoveSelectedRectangleButton.Image = global::Programming.Properties.Resources.rectangle_remove_24x24_uncolor;
-            this.RemoveSelectedRectangleButton.Location = new System.Drawing.Point(206, 139);
-            this.RemoveSelectedRectangleButton.Name = "RemoveSelectedRectangleButton";
-            this.RemoveSelectedRectangleButton.Size = new System.Drawing.Size(75, 26);
-            this.RemoveSelectedRectangleButton.TabIndex = 15;
-            this.RemoveSelectedRectangleButton.UseVisualStyleBackColor = true;
-            this.RemoveSelectedRectangleButton.Click += new System.EventHandler(this.RemoveButton_Click);
-            this.RemoveSelectedRectangleButton.MouseEnter += new System.EventHandler(this.button1_MouseEnter);
-            this.RemoveSelectedRectangleButton.MouseLeave += new System.EventHandler(this.RemoveButton_MouseLeave);
-            // 
-            // AddRectangleButton
-            // 
-            this.AddRectangleButton.FlatAppearance.BorderSize = 0;
-            this.AddRectangleButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.AddRectangleButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.AddRectangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddRectangleButton.Image = global::Programming.Properties.Resources.rectangle_add_24x24_uncolor;
-            this.AddRectangleButton.Location = new System.Drawing.Point(12, 139);
-            this.AddRectangleButton.Name = "AddRectangleButton";
-            this.AddRectangleButton.Size = new System.Drawing.Size(75, 26);
-            this.AddRectangleButton.TabIndex = 14;
-            this.AddRectangleButton.UseVisualStyleBackColor = true;
-            this.AddRectangleButton.Click += new System.EventHandler(this.AddButton_Click);
-            this.AddRectangleButton.MouseEnter += new System.EventHandler(this.AddButton_MouseEnter);
-            this.AddRectangleButton.MouseLeave += new System.EventHandler(this.AddButton_MouseLeave);
             // 
             // MainForm
             // 
@@ -875,7 +875,7 @@ namespace Programming.View
         private System.Windows.Forms.Label RectangleSelectedIdLabel;
         private System.Windows.Forms.TextBox RectangleSelectedIdTextBox;
         private System.Windows.Forms.Label SelectedRectangleLabel;
-        private System.Windows.Forms.Panel RectanglesPanel;
+        private System.Windows.Forms.Panel CanvasPanel;
         private System.Windows.Forms.Button AddRectangleButton;
         private System.Windows.Forms.Button RemoveSelectedRectangleButton;
     }
