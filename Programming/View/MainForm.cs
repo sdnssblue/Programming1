@@ -128,9 +128,9 @@ namespace Programming.View
 
         private int FindRectangleWithMaxWidth(List<Rectangle> rectangles)
         {
-            int maxWidthIndex = 0;
-            double max = 0;
-            for (int i = 0; i < ElementsCount; i++)
+            var maxWidthIndex = 0;
+            var max = 0;
+            for (int i = 0; i < rectangles.Count; i++)
             {
                 if (rectangles[i].Width > max)
                 {
