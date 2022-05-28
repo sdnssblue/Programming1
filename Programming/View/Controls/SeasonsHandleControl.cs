@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Programming.Model;
 using Programming.Model.Enums;
 
 namespace Programming.View.Controls
@@ -24,18 +25,20 @@ namespace Programming.View.Controls
             switch (SeasonsComboBox.SelectedItem)
             {
                 case Seasons.Winter:
-                    this.BackColor = DefaultBackColor;
+                    this.BackColor = AppColors.Winter;
                     MessageBox.Show("Бррр! Холодно!");
                     break;
                 case Seasons.Spring:
-                    this.BackColor = ColorTranslator.FromHtml("#559c45");
+                    this.BackColor = AppColors.Spring;
+                    MessageBox.Show("Ура! Тепло!");
                     break;
                 case Seasons.Summer:
-                    this.BackColor = DefaultBackColor;
+                    this.BackColor = AppColors.Summer;
                     MessageBox.Show("Ура! Солнце!");
                     break;
                 case Seasons.Autumn:
-                    this.BackColor = ColorTranslator.FromHtml("#e29c45");
+                    this.BackColor = AppColors.Autumn;
+                    MessageBox.Show("Не люблю осень!");
                     break;
             }
         }

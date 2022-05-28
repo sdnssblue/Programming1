@@ -39,7 +39,7 @@ namespace Programming.View.Controls
         {
             var maxWidthIndex = 0;
             var max = 0;
-            //for (int i = 0; i < rectangles.Count; i++)
+
             for (int i = 0; i < ElementsCount; i++)
             {
                 if (rectangles[i].Width > max)

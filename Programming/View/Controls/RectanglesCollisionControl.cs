@@ -25,7 +25,7 @@ namespace Programming.View.Controls
             _rectanglePanels = new List<Panel>();
         }
 
-        private string RectangleParameters(Rectangle rectangle)
+        private string SetRectangleParameters(Rectangle rectangle)
         {
             return $"{rectangle.Id}: " +
                    $"(X: {rectangle.Center.X};" +
@@ -57,20 +57,11 @@ namespace Programming.View.Controls
         private void ClearRectangleInfo()
         {
             RectanglesListBox.Items.Clear();
-            //RectangleListBox.Items.Clear();
-
             RectangleSelectedIdTextBox.Clear();
             RectangleSelectedXTextBox.Clear();
             RectangleSelectedYTextBox.Clear();
             RectangleSelectedWidthTextBox.Clear();
             RectangleSelectedHeightTextBox.Clear();
-
-            //RectangleWidthTextBox.Clear();
-            //RectangleHeightTextBox.Clear();
-            //RectangleColorTextBox.Clear();
-            //RectangleIdTextBox.Clear();
-            //RectangleXTextBox.Clear();
-            //RectangleYTextBox.Clear();
         }
 
         private Panel InitPanel()
@@ -90,7 +81,7 @@ namespace Programming.View.Controls
 
             if (index == -1) return;
 
-            RectanglesListBox.Items[index] = RectangleParameters(rectangle);
+            RectanglesListBox.Items[index] = SetRectangleParameters(rectangle);
         }
 
         private void AddButton_MouseEnter(object sender, EventArgs e)
@@ -117,8 +108,7 @@ namespace Programming.View.Controls
         {
             _currentRectangle = RectangleFactory.Randomize(CanvasPanel.Width, CanvasPanel.Height);
             _rectangles.Add(_currentRectangle);
-            //RectangleListBox.Items.Add($"Rectangle {_currentRectangle.Id}");
-            RectanglesListBox.Items.Add(RectangleParameters(_currentRectangle));
+            RectanglesListBox.Items.Add(SetRectangleParameters(_currentRectangle));
 
             Panel rectanglePanel = InitPanel();
             _rectanglePanels.Add(rectanglePanel);
@@ -140,8 +130,7 @@ namespace Programming.View.Controls
 
             foreach (var rectangle in _rectangles)
             {
-                RectanglesListBox.Items.Add(RectangleParameters(rectangle));
-                //RectangleListBox.Items.Add($"Rectangle {rectangle.Id}");
+                RectanglesListBox.Items.Add(SetRectangleParameters(rectangle));
                 RectanglesListBox.SelectedIndex = 0;
             }
 

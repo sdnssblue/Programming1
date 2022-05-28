@@ -58,15 +58,5 @@ namespace Programming.View.Controls
                 ValuesListBox.Items.Add(value);
             }
         }
-
-        private void ValuesListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            IntValueTextBox.Text = ((int)(ValuesListBox.SelectedItem)).ToString();
-        }
-
-        private void ValuesListBox_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }

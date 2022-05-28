@@ -15,7 +15,6 @@ namespace Programming.Model.Geometry
             Center = center;
             OuterRadius = outerRadius;
             InnerRadius = innerRadius;
-
         }
 
         public Point2D Center { get; set; }

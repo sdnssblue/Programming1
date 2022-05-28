@@ -16,8 +16,8 @@ namespace Programming.Model
 
         public static Color Autumn = Color.FromArgb(226, 156, 69);
 
-        public static Color Winter = Color.FromArgb(69, 83, 226);
+        public static Color Winter = Color.FromArgb(48, 213, 200);
 
-        public static Color Summer = Color.FromArgb(85, 156, 69);
+        public static Color Summer = Color.FromArgb(88, 214, 49);
     }
 }

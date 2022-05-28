@@ -34,7 +34,7 @@ namespace Programming.View.Controls
                 movies.Add(_currentMovie);
                 MovieListBox.Items.Add($"Movie {_currentMovie.Id}");
             }
-            return _movies;
+            return movies;
         }
 
         private int FindMovieWithMaxRating(List<Movie> movies)
