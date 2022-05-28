@@ -1,0 +1,115 @@
+﻿using System;
+using Programming.Model.Geometry;
+using System.Drawing;
+using System.Windows.Forms;
+using Rectangle = Programming.Model.Geometry.Rectangle;
+using Programming.Model;
+
+namespace Programming.View.Controls
+{
+    public partial class RectanglesControl : UserControl
+    {
+        private const int ElementsCount = 5;
+
+        private Rectangle[] _rectangles;
+
+        private Rectangle _currentRectangle;
+
+        public RectanglesControl()
+        {
+            InitializeComponent();
+
+            _rectangles = CreateRectangles();
+            RectangleListBox.SelectedIndex = 0;
+        }
+
+        private Rectangle[] CreateRectangles()
+        {
+            Rectangle[] rectangles = new Rectangle[ElementsCount];
+            for (int i = 0; i < ElementsCount; i++)
+            {
+                _currentRectangle = RectangleFactory.Randomize();
+                rectangles[i] = _currentRectangle;
+                RectangleListBox.Items.Add($"Rectangle {_currentRectangle.Id}");
+            }
+            return rectangles;
+        }
+
+        private int FindRectangleWithMaxWidth(Rectangle[] rectangles)
+        {
+            var maxWidthIndex = 0;
+            var max = 0;
+            //for (int i = 0; i < rectangles.Count; i++)
+            for (int i = 0; i < ElementsCount; i++)
+            {
+                if (rectangles[i].Width > max)
+                {
+                    max = rectangles[i].Width;
+                    maxWidthIndex = i;
+                }
+            }
+            return maxWidthIndex;
+        }
+
+        private void RectangleListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedIndexRectangle = RectangleListBox.SelectedIndex;
+            _currentRectangle = _rectangles[selectedIndexRectangle];
+            RectangleHeightTextBox.Text = _currentRectangle.Height.ToString();
+            RectangleWidthTextBox.Text = _currentRectangle.Width.ToString();
+            RectangleColorTextBox.Text = _currentRectangle.Color;
+            RectangleXTextBox.Text = _currentRectangle.Center.X.ToString();
+            RectangleYTextBox.Text = _currentRectangle.Center.Y.ToString();
+            RectangleIdTextBox.Text = _currentRectangle.Id.ToString();
+        }
+
+        private void HeightRectangleTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (RectangleListBox.SelectedIndex == -1) return;
+
+            try
+            {
+                string currentLength = RectangleHeightTextBox.Text;
+                int heightRectangle = int.Parse(currentLength);
+                _currentRectangle.Height = heightRectangle;
+            }
+            catch
+            {
+                RectangleHeightTextBox.BackColor = AppColors.ErrorColor;
+                return;
+            }
+            RectangleHeightTextBox.BackColor = AppColors.CorrectColor;
+        }
+
+        private void WidthRectangleTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (RectangleListBox.SelectedIndex == -1) return;
+
+            try
+            {
+                string currentWidthRectangle = RectangleWidthTextBox.Text;
+                int widthRectangle = int.Parse(currentWidthRectangle);
+                _currentRectangle.Width = widthRectangle;
+            }
+            catch
+            {
+                RectangleWidthTextBox.BackColor = AppColors.ErrorColor;
+                return;
+            }
+            RectangleWidthTextBox.BackColor = AppColors.CorrectColor;
+        }
+
+        private void ColorRectangleTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string colorRectangle = RectangleColorTextBox.Text;
+            _currentRectangle.Color = colorRectangle;
+        }
+
+        private void FindRectangleButton_Click(object sender, EventArgs e)
+        {
+            int findMaxWidthIndex = FindRectangleWithMaxWidth(_rectangles);
+            if (RectangleListBox.SelectedIndex == -1) return;
+            RectangleListBox.SelectedIndex = findMaxWidthIndex;
+        }
+    }
+}

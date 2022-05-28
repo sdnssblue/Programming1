@@ -4,15 +4,20 @@ namespace Programming.Model
 {
     public class Movie
     {
+        private static int _allMoviesCount;
+
         private int _releaseYear;
 
         private double _rating;
 
         private int _durationMinutes;
 
+        private int _id;
+
         public Movie()
         {
-
+            _allMoviesCount++;
+            _id = _allMoviesCount;
         }
 
         public Movie(int releaseYear,
@@ -26,7 +31,11 @@ namespace Programming.Model
             Rating = rating;
             Title = title;
             Genre = genre;
+            _allMoviesCount++;
+            _id = _allMoviesCount;
         }
+
+        public int Id => _id;
 
         public string Title { get; set; }
 

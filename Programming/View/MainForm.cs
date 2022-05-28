@@ -13,14 +13,6 @@ namespace Programming.View
     {
         private const int ElementsCount = 5;
 
-        private readonly Color _errorColor = Color.LightPink;
-
-        private readonly Color _correctColor = Color.White;
-
-        private readonly Color _inContact = Color.FromArgb(127, 255, 127, 127);
-
-        private readonly Color _unContact = Color.FromArgb(127, 127, 255, 127);
-
         private List<Rectangle> _rectangles;
 
         private List<Panel> _rectanglePanels;
@@ -102,7 +94,7 @@ namespace Programming.View
             rectanglePanel.Width = _currentRectangle.Width;
             rectanglePanel.Height = _currentRectangle.Height;
             rectanglePanel.Location = new Point(_currentRectangle.Center.X, _currentRectangle.Center.Y);
-            rectanglePanel.BackColor = _unContact;
+            rectanglePanel.BackColor = AppColors.UnContact;
 
             return rectanglePanel;
         }
@@ -160,7 +152,7 @@ namespace Programming.View
         {
             for (int k = 0; k < _rectangles.Count; k++)
             {
-                CanvasPanel.Controls[k].BackColor = _unContact;
+                CanvasPanel.Controls[k].BackColor = AppColors.UnContact;
             }
 
             for (int i = 0; i < _rectangles.Count - 1; i++)
@@ -169,8 +161,8 @@ namespace Programming.View
                 {
                     if (CollisionManager.IsCollision(_rectangles[i], _rectangles[j]))
                     {
-                        CanvasPanel.Controls[i].BackColor = _inContact;
-                        CanvasPanel.Controls[j].BackColor = _inContact;
+                        CanvasPanel.Controls[i].BackColor = AppColors.InContact;
+                        CanvasPanel.Controls[j].BackColor = AppColors.InContact;
                     }
                 }
             }
@@ -245,10 +237,10 @@ namespace Programming.View
             }
             catch
             {
-                RectangleHeightTextBox.BackColor = _errorColor;
+                RectangleHeightTextBox.BackColor = AppColors.ErrorColor;
                 return;
             }
-            RectangleHeightTextBox.BackColor = _correctColor;
+            RectangleHeightTextBox.BackColor = AppColors.CorrectColor;
         }
 
         private void WidthRectangleTextBox_TextChanged(object sender, EventArgs e)
@@ -263,10 +255,10 @@ namespace Programming.View
             }
             catch
             {
-                RectangleWidthTextBox.BackColor = _errorColor;
+                RectangleWidthTextBox.BackColor = AppColors.ErrorColor;
                 return;
             }
-            RectangleWidthTextBox.BackColor = _correctColor;
+            RectangleWidthTextBox.BackColor = AppColors.CorrectColor;
         }
 
         private void ColorRectangleTextBox_TextChanged(object sender, EventArgs e)
@@ -308,10 +300,10 @@ namespace Programming.View
             }
             catch
             {
-                MovieRatingTextBox.BackColor = _errorColor;
+                MovieRatingTextBox.BackColor = AppColors.ErrorColor;
                 return;
             }
-            MovieRatingTextBox.BackColor = _correctColor;
+            MovieRatingTextBox.BackColor = AppColors.CorrectColor;
         }
 
         private void ReleaseYearMovieTextBox_TextChanged(object sender, EventArgs e)
@@ -324,10 +316,10 @@ namespace Programming.View
             }
             catch
             {
-                MovieReleaseYearTextBox.BackColor = _errorColor;
+                MovieReleaseYearTextBox.BackColor = AppColors.ErrorColor;
                 return;
             }
-            MovieReleaseYearTextBox.BackColor = _correctColor;
+            MovieReleaseYearTextBox.BackColor = AppColors.CorrectColor;
         }
 
         private void DurationMinutesMovieTextBox_TextChanged(object sender, EventArgs e)
@@ -340,10 +332,10 @@ namespace Programming.View
             }
             catch
             {
-                MovieDurationMinutesTextBox.BackColor = _errorColor;
+                MovieDurationMinutesTextBox.BackColor = AppColors.ErrorColor;
                 return;
             }
-            MovieDurationMinutesTextBox.BackColor = _correctColor;
+            MovieDurationMinutesTextBox.BackColor = AppColors.CorrectColor;
         }
 
         private void WeekdayParseButton_Click(object sender, EventArgs e)
@@ -384,6 +376,7 @@ namespace Programming.View
         private void FindRectangleButton_Click(object sender, EventArgs e)
         {
             int findMaxWidthIndex = FindRectangleWithMaxWidth(_rectangles);
+            if (RectangleListBox.SelectedIndex == -1) return;
             RectangleListBox.SelectedIndex = findMaxWidthIndex;
         }
 
@@ -464,10 +457,10 @@ namespace Programming.View
             }
             catch
             {
-                RectangleSelectedXTextBox.BackColor = _errorColor;
+                RectangleSelectedXTextBox.BackColor = AppColors.ErrorColor;
                 return;
             }
-            RectangleSelectedXTextBox.BackColor = _correctColor;
+            RectangleSelectedXTextBox.BackColor = AppColors.CorrectColor;
         }
 
         private void RectanglesYTextBox_TextChanged(object sender, EventArgs e)
@@ -486,10 +479,10 @@ namespace Programming.View
             }
             catch
             {
-                RectangleSelectedYTextBox.BackColor = _errorColor;
+                RectangleSelectedYTextBox.BackColor = AppColors.ErrorColor;
                 return;
             }
-            RectangleSelectedYTextBox.BackColor = _correctColor;
+            RectangleSelectedYTextBox.BackColor = AppColors.CorrectColor;
         }
 
         private void RectanglesWidthTextBox_TextChanged(object sender, EventArgs e)
@@ -501,17 +494,16 @@ namespace Programming.View
                 string currentWidthRectangle = RectangleSelectedWidthTextBox.Text;
                 int widthRectangleValue = int.Parse(currentWidthRectangle);
                 _currentRectangle.Width = widthRectangleValue;
-                UpdateRectangleInfo(_currentRectangle);
                 CanvasPanel.Controls[RectanglesListBox.SelectedIndex].Width = _currentRectangle.Width;
                 FindCollisions();
                 UpdateRectangleInfo(_currentRectangle);
             }
             catch
             {
-                RectangleSelectedWidthTextBox.BackColor = _errorColor;
+                RectangleSelectedWidthTextBox.BackColor = AppColors.ErrorColor;
                 return;
             }
-            RectangleSelectedWidthTextBox.BackColor = _correctColor;
+            RectangleSelectedWidthTextBox.BackColor = AppColors.CorrectColor;
         }
 
         private void RectanglesHeightTextBox_TextChanged(object sender, EventArgs e)
@@ -529,10 +521,10 @@ namespace Programming.View
             }
             catch
             {
-                RectangleSelectedHeightTextBox.BackColor = _errorColor;
+                RectangleSelectedHeightTextBox.BackColor = AppColors.ErrorColor;
                 return;
             }
-            RectangleSelectedHeightTextBox.BackColor = _correctColor;
+            RectangleSelectedHeightTextBox.BackColor = AppColors.CorrectColor;
         }
 
         private void RectanglesListBox_SelectedIndexChanged(object sender, EventArgs e)
