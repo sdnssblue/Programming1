@@ -3,15 +3,28 @@ using Programming.Model.Enums;
 
 namespace Programming.Model.Movies
 {
+    /// <summary>
+    /// Предоставляет методы для создания фильмов.
+    /// </summary>
     public static class MovieFactory
     {
+        /// <summary>
+        /// Генерация случайных значений.
+        /// </summary>
         private static Random _random;
 
+        /// <summary>
+        /// Создаёт экземпляр класса <see cref="MovieFactory"/>.
+        /// </summary>
         static MovieFactory()
         {
             _random = new Random();
         }
 
+        /// <summary>
+        /// Создаёт фильм со случайными значениями рейтинга, года релиза, жанра, названия и продолжительности в минутах.
+        /// </summary>
+        /// <returns>Возвращает объект Movie.</returns>
         public static Movie Randomize()
         {
             var genres = Enum.GetValues(typeof(Genre));

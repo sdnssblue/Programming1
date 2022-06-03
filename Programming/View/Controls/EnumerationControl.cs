@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Windows.Forms;
-using Programming.Model;
 using Programming.Model.Enums;
 
 namespace Programming.View.Controls
 {
+    /// <summary>
+    /// Реализация представления перечислений.
+    /// </summary>
     public partial class EnumerationControl : UserControl
     {
+        /// <summary>
+        /// Создаёт экземпляр класса <see cref="EnumerationControl"/>.
+        /// </summary>
         public EnumerationControl()
         {
             InitializeComponent();
@@ -57,6 +62,12 @@ namespace Programming.View.Controls
             {
                 ValuesListBox.Items.Add(value);
             }
+        }
+        private void ValueListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ValuesListBox.SelectedItem == null) return;
+
+            IntValueTextBox.Text = ((int)ValuesListBox.SelectedItem).ToString();
         }
     }
 }

@@ -1,21 +1,40 @@
-﻿using System;
-using System.Text.RegularExpressions;
-
-namespace Programming.Model
+﻿namespace Programming.Model
 {
+    /// <summary>
+    /// Хранит данные о контакте человека.
+    /// </summary>
     public class Contact
     {
+        /// <summary>
+        /// Номер контакта.
+        /// </summary>
         private string _number;
 
+        /// <summary>
+        /// Имя контакта.
+        /// </summary>
         private string _name;
 
+        /// <summary>
+        /// Фамилия контакта.
+        /// </summary>
         private string _surname;
 
+        /// <summary>
+        /// Конструктор по умолчанию. Создаёт экземпляр класса <see cref="Contact"/>.
+        /// </summary>
         public Contact()
         {
 
         }
 
+        /// <summary>
+        /// Создаёт экземпляр класса <see cref="Contact"/>.
+        /// </summary>
+        /// <param name="name">Имя контакта. Значение должно состоять только из букв английского алфавита.</param>
+        /// <param name="surname">Фамилия контакта. Значение должно состоять только из букв английского алфавита.</param>
+        /// <param name="number">Номер контакта. Значение должно состоять только из цифр.
+        /// Должен иметь одиннадцать символов.</param>
         public Contact(string name,
                        string surname,
                        string number)
@@ -25,55 +44,44 @@ namespace Programming.Model
             Number = number;
         }
 
+        /// <summary>
+        /// Возвращает и задаёт имя контакта. Значение должно состоять только из букв английского алфавита.
+        /// </summary>
         public string Name
         {
             get => _name;
             set
             {
-                _name = AssertStringContainsOnlyLetters(nameof(Name), value);
+                Validator.AssertStringContainsOnlyLetters(nameof(Name), value);
+                _name = value;
             }
         }
 
+        /// <summary>
+        /// Возвращает и задаёт фамилию контакта. Значение должно состоять только из букв английского алфавита.
+        /// </summary>
         public string Surname
         {
             get => _surname;
             set
             {
-                _surname = AssertStringContainsOnlyLetters(nameof(Surname), value);
+                Validator.AssertStringContainsOnlyLetters(nameof(Surname), value);
+                _surname = value;
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает номер контакта. Значение должно состоять только из цифр. Значение должно иметь только одиннадцать символов.
+        /// </summary>
         public string Number
         {
             get => _number;
             set
             {
-                if (!long.TryParse(value, out long num))
-                {
-                    throw new ArgumentException(
-                        $"the value of the {nameof(Number)} field must consist of digits only");
-                }
-                if (value.Length != 11)
-                {
-                    throw new ArgumentException(
-                        $"the value of the {nameof(Number)} field must consist of 11 digits");
-                }
+                Validator.AssertValueContainsOnlyDigits(nameof(Number), value);
+                Validator.AssertNumberContainsOnlyElevenDigits(nameof(Number), value);
                 _number = value;
-
             }
-        }
-
-        private string AssertStringContainsOnlyLetters(string nameProperty, string value)
-        {
-            for (int i = 0; i < value.Length; i++)
-            {
-                if (!char.IsLetter(value[i]))
-                {
-                    throw new ArgumentException(
-                        $"the value of the {nameProperty} field should consist only of English letters.");
-                }
-            }
-            return value;
         }
     }
 }

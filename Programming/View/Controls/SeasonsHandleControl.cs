@@ -1,13 +1,18 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 using Programming.Model;
 using Programming.Model.Enums;
 
 namespace Programming.View.Controls
 {
+    /// <summary>
+    /// Реализация изменения цвета фона главного окна.
+    /// </summary>
     public partial class SeasonsHandleControl : UserControl
     {
+        /// <summary>
+        /// Создаёт экземпляр класса <see cref="SeasonHandleControl"/>.
+        /// </summary>
         public SeasonsHandleControl()
         {
             InitializeComponent();

@@ -1,20 +1,34 @@
 ﻿using System;
 using Programming.Model.Geometry;
-using System.Drawing;
 using System.Windows.Forms;
 using Rectangle = Programming.Model.Geometry.Rectangle;
 using Programming.Model;
 
 namespace Programming.View.Controls
 {
+    /// <summary>
+    /// Реализация представления прямоугольников, генерируемых программой.
+    /// </summary>
     public partial class RectanglesControl : UserControl
     {
+        /// <summary>
+        /// Количество элементов.
+        /// </summary>
         private const int ElementsCount = 5;
 
+        /// <summary>
+        /// Коллекция прямоугольников.
+        /// </summary>
         private Rectangle[] _rectangles;
 
+        /// <summary>
+        /// Выбранный прямоугольник.
+        /// </summary>
         private Rectangle _currentRectangle;
 
+        /// <summary>
+        /// Создаёт экземпляр класса <see cref="RectanglesControl"/>.
+        /// </summary>
         public RectanglesControl()
         {
             InitializeComponent();
@@ -23,6 +37,10 @@ namespace Programming.View.Controls
             RectangleListBox.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Создаёт коллекцию прямоугольников.
+        /// </summary>
+        /// <returns>Возвращает коллекцию прямоугольников.</returns>
         private Rectangle[] CreateRectangles()
         {
             Rectangle[] rectangles = new Rectangle[ElementsCount];
@@ -35,6 +53,11 @@ namespace Programming.View.Controls
             return rectangles;
         }
 
+        /// <summary>
+        /// Находит прямоугольник с наибольшей шириной.
+        /// </summary>
+        /// <param name="rectangles">Прямоугольник.</param>
+        /// <returns>Индекс элемента коллекции с наибольшей шириной.</returns>
         private int FindRectangleWithMaxWidth(Rectangle[] rectangles)
         {
             var maxWidthIndex = 0;

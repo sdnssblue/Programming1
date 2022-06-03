@@ -7,14 +7,29 @@ using System.Collections.Generic;
 
 namespace Programming.View.Controls
 {
+    /// <summary>
+    /// Реализация представления фильмов.
+    /// </summary>
     public partial class MoviesControl : UserControl
     {
+        /// <summary>
+        /// Количество элементов.
+        /// </summary>
         private const int ElementsCount = 5;
 
+        /// <summary>
+        /// Коллекция фильмов.
+        /// </summary>
         private List<Movie> _movies;
 
+        /// <summary>
+        /// Выбранный фильм.
+        /// </summary>
         private Movie _currentMovie;
 
+        /// <summary>
+        /// Создаёт экземпляр класса <see cref="MoviesControl"/>.
+        /// </summary>
         public MoviesControl()
         {
             InitializeComponent();
@@ -23,6 +38,10 @@ namespace Programming.View.Controls
             MovieListBox.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Инициализирует коллекцию фильмов.
+        /// </summary>
+        /// <returns>Возвращает коллекцию фильмов.</returns>
         private List<Movie> InitMovies()
         {
             List<Movie> movies = new List<Movie>();
@@ -37,6 +56,11 @@ namespace Programming.View.Controls
             return movies;
         }
 
+        /// <summary>
+        /// Находит фильм с наивысшим рейтингом.
+        /// </summary>
+        /// <param name="movies">Коллекция фильмов.</param>
+        /// <returns>Возвращает индекс элемента коллекции, чей рейтинг больше остальных.</returns>
         private int FindMovieWithMaxRating(List<Movie> movies)
         {
             int maxRatingIndex = 0;
