@@ -52,7 +52,7 @@
             this.EmployeesListBox.Location = new System.Drawing.Point(8, 11);
             this.EmployeesListBox.Margin = new System.Windows.Forms.Padding(2);
             this.EmployeesListBox.Name = "EmployeesListBox";
-            this.EmployeesListBox.Size = new System.Drawing.Size(190, 287);
+            this.EmployeesListBox.Size = new System.Drawing.Size(252, 378);
             this.EmployeesListBox.TabIndex = 0;
             this.EmployeesListBox.SelectedIndexChanged += new System.EventHandler(this.ListBoxEmployees_SelectedIndexChanged);
             // 
@@ -68,11 +68,11 @@
             this.SelectedEmployeeGroupBox.Controls.Add(this.DateLabel);
             this.SelectedEmployeeGroupBox.Controls.Add(this.PostLabel);
             this.SelectedEmployeeGroupBox.Controls.Add(this.FullNameLabel);
-            this.SelectedEmployeeGroupBox.Location = new System.Drawing.Point(206, 11);
+            this.SelectedEmployeeGroupBox.Location = new System.Drawing.Point(271, 11);
             this.SelectedEmployeeGroupBox.Margin = new System.Windows.Forms.Padding(2);
             this.SelectedEmployeeGroupBox.Name = "SelectedEmployeeGroupBox";
             this.SelectedEmployeeGroupBox.Padding = new System.Windows.Forms.Padding(2);
-            this.SelectedEmployeeGroupBox.Size = new System.Drawing.Size(389, 133);
+            this.SelectedEmployeeGroupBox.Size = new System.Drawing.Size(395, 133);
             this.SelectedEmployeeGroupBox.TabIndex = 1;
             this.SelectedEmployeeGroupBox.TabStop = false;
             this.SelectedEmployeeGroupBox.Text = "Selected Employee";
@@ -163,7 +163,7 @@
             this.RemoveEmployeeButton.FlatAppearance.BorderSize = 0;
             this.RemoveEmployeeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RemoveEmployeeButton.Image = global::ListOfEmployees.Properties.Resources.minus_24x24_uncolor;
-            this.RemoveEmployeeButton.Location = new System.Drawing.Point(168, 300);
+            this.RemoveEmployeeButton.Location = new System.Drawing.Point(310, 148);
             this.RemoveEmployeeButton.Margin = new System.Windows.Forms.Padding(2);
             this.RemoveEmployeeButton.Name = "RemoveEmployeeButton";
             this.RemoveEmployeeButton.Size = new System.Drawing.Size(35, 32);
@@ -179,7 +179,7 @@
             this.AddEmployeeButton.FlatAppearance.BorderSize = 0;
             this.AddEmployeeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddEmployeeButton.Image = global::ListOfEmployees.Properties.Resources.plus_24x24_uncolor;
-            this.AddEmployeeButton.Location = new System.Drawing.Point(8, 300);
+            this.AddEmployeeButton.Location = new System.Drawing.Point(271, 148);
             this.AddEmployeeButton.Margin = new System.Windows.Forms.Padding(2);
             this.AddEmployeeButton.Name = "AddEmployeeButton";
             this.AddEmployeeButton.Size = new System.Drawing.Size(35, 32);
@@ -194,7 +194,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(603, 341);
+            this.ClientSize = new System.Drawing.Size(674, 432);
             this.Controls.Add(this.RemoveEmployeeButton);
             this.Controls.Add(this.AddEmployeeButton);
             this.Controls.Add(this.SelectedEmployeeGroupBox);

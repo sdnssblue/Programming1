@@ -12,17 +12,17 @@ namespace Employees.Model
         /// <summary>
         /// Максимальное количество символов для <see cref="Employee.FullName"/>.
         /// </summary>
-        public const int MaxLengthFullName = 80;
+        public const int MaxLengthFullName = 100;
 
         /// <summary>
         /// Максимальное количество символов для <see cref="Employee.Post"/>.
         /// </summary>
-        public const int MaxLengthPost = 40;
+        public const int MaxLengthPost = 50;
 
         /// <summary>
         /// Максимальное значение для <see cref="Employee.Salary"/>
         /// </summary>
-        public const int MaxValueSalary = 1000000;
+        public const int MaxValueSalary = 500000;
 
         /// <summary>
         /// Минимальное значение для <see cref="Employee.Salary"/>

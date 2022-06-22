@@ -41,7 +41,7 @@ namespace Employees.Model.Employees
         }
 
         /// <summary>
-        /// Возвращает и задает полное имя сотрудника. Не более 80 символов.
+        /// Возвращает и задает полное имя сотрудника. Не более 100 символов.
         /// </summary>
         public string FullName
         {
@@ -54,7 +54,7 @@ namespace Employees.Model.Employees
         }
 
         /// <summary>
-        /// Возвращает и задает занимаемую должность. Не более 40 символов.
+        /// Возвращает и задает занимаемую должность. Не более 50 символов.
         /// </summary>
         public string Post
         {
@@ -67,7 +67,7 @@ namespace Employees.Model.Employees
         }
 
         /// <summary>
-        /// Возвращает и задает зарплату сотрудника. От 0 до 1000000
+        /// Возвращает и задает зарплату сотрудника. От 0 до 500000
         /// </summary>
         public int Salary
         {
@@ -104,9 +104,9 @@ namespace Employees.Model.Employees
         /// <summary>
         /// Создает экземпляр класса <see cref="Employee"/>.
         /// </summary>
-        /// <param name="fullName">Полное имя. Не более 80 символов.</param>
-        /// <param name="post">Занимаемая должность. Не более 40 символов.</param>
-        /// <param name="salary">Зарплата. От 0 до 1000000.</param>
+        /// <param name="fullName">Полное имя. Не более 100 символов.</param>
+        /// <param name="post">Занимаемая должность. Не более 50 символов.</param>
+        /// <param name="salary">Зарплата. От 0 до 500000.</param>
         /// <param name="dateOfEmployment">Дата трудоустройства.</param>
         public Employee(string fullName, string post, int salary, DateTime dateOfEmployment)
         {
