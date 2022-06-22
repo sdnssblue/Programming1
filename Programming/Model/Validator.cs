@@ -12,7 +12,7 @@ namespace Programming.Model
         /// Проверка на то, что число является положительным.
         /// </summary>
         /// <param name="nameProperty">Имя свойства, откуда был вызван метод.</param>
-        /// <param name="value">Число. </param>
+        /// <param name="value">Число.</param>
         /// <exception cref="ArgumentException">Выбрасывается, когда число меньше или равно нулю.</exception>
         public static void AssertOnPositiveValue(string nameProperty, int value)
         {
