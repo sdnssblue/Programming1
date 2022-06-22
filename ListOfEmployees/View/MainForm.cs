@@ -1,11 +1,11 @@
-﻿using Employees.Model;
-using Employees.Model.Employees;
-using ListOfEmployees.Properties;
+﻿using ListOfEmployees.Properties;
+using ListOfEmployees.Model;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using ListOfEmployees.Model.Employees;
 
-namespace Employees.View
+namespace ListOfEmployees.View
 {
     /// <summary>
     /// Предоставляет реализацию расположения элементов на форме.
@@ -55,7 +55,7 @@ namespace Employees.View
         private void UpdateEmployeeInfo(int selectedIndex)
         {
             EmployeesListBox.Items.Clear();
-            _employees = Sorting.SortedEmployees(_employees);
+            _employees = Sorter.SortEmployeesByFullName(_employees);
             foreach (Employee employee in _employees)
             {
                 EmployeesListBox.Items.Add($"{employee.FullName}");
@@ -90,7 +90,7 @@ namespace Employees.View
             _employees.Add(_currentEmployee);
             EmployeesListBox.Items.Add(_currentEmployee.FullName);
             int index = _employees.IndexOf(_currentEmployee);
-            Sorting.SortedEmployees(_employees);
+            Sorter.SortEmployeesByFullName(_employees);
             UpdateEmployeeInfo(index);
         }
 
@@ -135,6 +135,7 @@ namespace Employees.View
             {
                 string employeeCurrentFullName = FullNameTextBox.Text;
                 _currentEmployee.FullName = employeeCurrentFullName;
+                _employees = Sorter.SortEmployeesByFullName(_employees);
                 int index = _employees.IndexOf(_currentEmployee);
                 UpdateEmployeeInfo(index);
                 Serializer.Serialize(_employees);

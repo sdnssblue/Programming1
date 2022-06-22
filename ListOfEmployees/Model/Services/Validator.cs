@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Employees.Model
+namespace ListOfEmployees.Model
 {
     /// <summary>
     /// Предоставляет методы для проверки входных данных.
@@ -36,11 +36,6 @@ namespace Employees.Model
             {
                 throw new ArgumentException($"the value of the {nameProperty} field should be between {min} and {max} (inclusive)");
             }
-        }
-
-        internal static void AssertValueInRange(object nameof, int value, int minValueSalary, int maxValueSalary)
-        {
-            throw new NotImplementedException();
         }
     }
 }

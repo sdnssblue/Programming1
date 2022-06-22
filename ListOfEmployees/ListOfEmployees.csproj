@@ -56,9 +56,9 @@
     <Compile Include="Model\Employees\Employee.cs" />
     <Compile Include="Model\Employees\EmployeeFactory.cs" />
     <Compile Include="Model\Constants.cs" />
-    <Compile Include="Model\Serializer.cs" />
-    <Compile Include="Model\Sorting.cs" />
-    <Compile Include="Model\Validator.cs" />
+    <Compile Include="Model\Services\Serializer.cs" />
+    <Compile Include="Model\Services\Sorter.cs" />
+    <Compile Include="Model\Services\Validator.cs" />
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

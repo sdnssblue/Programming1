@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Employees.Model.Employees
+namespace ListOfEmployees.Model.Employees
 {
     /// <summary>
     /// Класс создает шаблон для заполнения информации о рабочем.

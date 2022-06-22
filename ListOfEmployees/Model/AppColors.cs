@@ -1,7 +1,6 @@
 ﻿using System.Drawing;
 
-
-namespace Employees.Model
+namespace ListOfEmployees.Model
 {
     /// <summary>
     /// Хранит данные о вызываемых цветах.

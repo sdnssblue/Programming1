@@ -1,6 +1,4 @@
-﻿using Employees.Model.Employees;
-
-namespace Employees.Model
+﻿namespace ListOfEmployees.Model
 {
     /// <summary>
     /// Хранит данные о максимальных и минимальных константах.

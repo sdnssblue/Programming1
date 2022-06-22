@@ -1,4 +1,4 @@
-﻿namespace Employees.View
+﻿namespace ListOfEmployees.View
 {
     partial class MainForm
     {
@@ -45,7 +45,7 @@
             // 
             // EmployeesListBox
             // 
-            this.EmployeesListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.EmployeesListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.EmployeesListBox.FormattingEnabled = true;
             this.EmployeesListBox.IntegralHeight = false;
@@ -58,7 +58,7 @@
             // 
             // SelectedEmployeeGroupBox
             // 
-            this.SelectedEmployeeGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.SelectedEmployeeGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SelectedEmployeeGroupBox.Controls.Add(this.DateTimePicker);
             this.SelectedEmployeeGroupBox.Controls.Add(this.PostTextBox);

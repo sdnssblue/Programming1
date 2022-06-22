@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Employees.Model.Employees
+namespace ListOfEmployees.Model.Employees
 {
     /// <summary>
     /// Хранит данные о сотрудниках.
@@ -48,7 +48,7 @@ namespace Employees.Model.Employees
             get => (_fullName == null) ? null : _fullName;
             set
             {
-                Validator.NoMoreThan(value, InitialConstants.MaxLengthFullName, FullName);
+                Validator.AssertValueInRange(FullName, value.Length, 1, InitialConstants.MaxLengthFullName);
                 _fullName = value;
             }
         }

@@ -1,8 +1,7 @@
-﻿using Employees.View;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
-namespace ListOfEmployees
+namespace ListOfEmployees.View
 {
     static class Program
     {
