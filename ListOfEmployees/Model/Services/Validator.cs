@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ListOfEmployees.Model
+namespace ListOfEmployees.Model.Services
 {
     /// <summary>
     /// Предоставляет методы для проверки входных данных.
@@ -18,7 +18,8 @@ namespace ListOfEmployees.Model
         {
             if (value.Length > maxLength)
             {
-                throw new ArgumentException($"the value of the {nameProperty} more than {maxLength}");
+                throw new ArgumentException($"the value of the {nameProperty} more " +
+                    $"than {maxLength}");
             }
         }
 
@@ -34,7 +35,8 @@ namespace ListOfEmployees.Model
         {
             if (value < min || value > max)
             {
-                throw new ArgumentException($"the value of the {nameProperty} field should be between {min} and {max} (inclusive)");
+                throw new ArgumentException($"the value of the {nameProperty} field should be" +
+                    $"between {min} and {max} (inclusive)");
             }
         }
     }

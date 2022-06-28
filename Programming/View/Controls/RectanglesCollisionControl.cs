@@ -89,6 +89,10 @@ namespace Programming.View.Controls
             RectangleSelectedHeightTextBox.Clear();
         }
 
+        /// <summary>
+        /// Создает треугольник на панеле.
+        /// </summary>
+        /// <returns>Возвращает созданный треугольник.</returns>
         private Panel InitPanel()
         {
             Panel rectanglePanel = new Panel();

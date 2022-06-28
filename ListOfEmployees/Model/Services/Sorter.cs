@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ListOfEmployees.Model
+namespace ListOfEmployees.Model.Services
 {
     /// <summary>
     /// Класс реализует сортировку данных.

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using static System.Environment;
 
-namespace ListOfEmployees.Model
+namespace ListOfEmployees.Model.Services
 {
     /// <summary>
     /// Класс реализует сериализацию и десериализацию данных.

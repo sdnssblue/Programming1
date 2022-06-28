@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using ListOfEmployees.Model.Employees;
+using ListOfEmployees.Model.Services;
 
 namespace ListOfEmployees.View
 {

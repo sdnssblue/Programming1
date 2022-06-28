@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ListOfEmployees.Model.Services;
+using System;
 
 namespace ListOfEmployees.Model.Employees
 {
@@ -31,14 +32,6 @@ namespace ListOfEmployees.Model.Employees
         /// Уникальный идентификатор для всех объектов класса.
         /// </summary>
         private int _id;
-
-        /// <summary>
-        /// Возвращает и задает количество всех сотрудников.
-        /// </summary>
-        public static int AllEmployeesCount
-        {
-            get => _allEmployeesCount;
-        }
 
         /// <summary>
         /// Возвращает и задает полное имя сотрудника. Не более 100 символов.
