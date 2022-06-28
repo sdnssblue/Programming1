@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "ListOfEmployees"
-#define MyAppVersion "1"
+#define MyAppVersion "1.1"
 #define MyAppPublisher "Medyankin Inc."
 #define MyAppURL "https://github.com/sdnssblue/"
 #define MyAppExeName "ListOfEmployees.exe"

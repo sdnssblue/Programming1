@@ -45,7 +45,7 @@
             // 
             // EmployeesListBox
             // 
-            this.EmployeesListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.EmployeesListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.EmployeesListBox.FormattingEnabled = true;
             this.EmployeesListBox.IntegralHeight = false;
@@ -58,7 +58,7 @@
             // 
             // SelectedEmployeeGroupBox
             // 
-            this.SelectedEmployeeGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.SelectedEmployeeGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SelectedEmployeeGroupBox.Controls.Add(this.DateTimePicker);
             this.SelectedEmployeeGroupBox.Controls.Add(this.PostTextBox);
@@ -82,7 +82,7 @@
             this.DateTimePicker.Location = new System.Drawing.Point(112, 75);
             this.DateTimePicker.Margin = new System.Windows.Forms.Padding(2);
             this.DateTimePicker.Name = "DateTimePicker";
-            this.DateTimePicker.Size = new System.Drawing.Size(154, 20);
+            this.DateTimePicker.Size = new System.Drawing.Size(144, 20);
             this.DateTimePicker.TabIndex = 5;
             this.DateTimePicker.ValueChanged += new System.EventHandler(this.DateTimePicker_ValueChanged);
             // 
@@ -91,7 +91,7 @@
             this.PostTextBox.Location = new System.Drawing.Point(112, 50);
             this.PostTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.PostTextBox.Name = "PostTextBox";
-            this.PostTextBox.Size = new System.Drawing.Size(154, 20);
+            this.PostTextBox.Size = new System.Drawing.Size(274, 20);
             this.PostTextBox.TabIndex = 7;
             this.PostTextBox.TextChanged += new System.EventHandler(this.PostTextBox_TextChanged);
             // 
@@ -100,7 +100,7 @@
             this.SalaryTextBox.Location = new System.Drawing.Point(112, 102);
             this.SalaryTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.SalaryTextBox.Name = "SalaryTextBox";
-            this.SalaryTextBox.Size = new System.Drawing.Size(154, 20);
+            this.SalaryTextBox.Size = new System.Drawing.Size(144, 20);
             this.SalaryTextBox.TabIndex = 6;
             this.SalaryTextBox.TextChanged += new System.EventHandler(this.SalaryTextBox_TextChanged);
             // 
@@ -163,7 +163,7 @@
             this.RemoveEmployeeButton.FlatAppearance.BorderSize = 0;
             this.RemoveEmployeeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RemoveEmployeeButton.Image = global::ListOfEmployees.Properties.Resources.minus_24x24_uncolor;
-            this.RemoveEmployeeButton.Location = new System.Drawing.Point(310, 148);
+            this.RemoveEmployeeButton.Location = new System.Drawing.Point(225, 393);
             this.RemoveEmployeeButton.Margin = new System.Windows.Forms.Padding(2);
             this.RemoveEmployeeButton.Name = "RemoveEmployeeButton";
             this.RemoveEmployeeButton.Size = new System.Drawing.Size(35, 32);
@@ -179,7 +179,7 @@
             this.AddEmployeeButton.FlatAppearance.BorderSize = 0;
             this.AddEmployeeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddEmployeeButton.Image = global::ListOfEmployees.Properties.Resources.plus_24x24_uncolor;
-            this.AddEmployeeButton.Location = new System.Drawing.Point(271, 148);
+            this.AddEmployeeButton.Location = new System.Drawing.Point(8, 393);
             this.AddEmployeeButton.Margin = new System.Windows.Forms.Padding(2);
             this.AddEmployeeButton.Name = "AddEmployeeButton";
             this.AddEmployeeButton.Size = new System.Drawing.Size(35, 32);
