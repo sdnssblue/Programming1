@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Programming", "Programming\Programming.csproj", "{1DD04410-3EBC-4E39-89C8-C5FE0B3909EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListOfEmployees", "ListOfEmployees\ListOfEmployees.csproj", "{F79F5A70-6AC0-4AC9-B13D-C97076DDEEBC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zxc", "ListOfEmployees\zxc.csproj", "{F79F5A70-6AC0-4AC9-B13D-C97076DDEEBC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
