@@ -29,21 +29,6 @@ namespace Programming.Model.Geometry
         /// <summary>
         /// Создание прямоугольника со случайными значениями ширины, высоты и координат.
         /// </summary>
-        /// <returns>Возвращает объект Rectangle.</returns>
-        public static Rectangle Randomize()
-        {
-            var colors = Enum.GetValues(typeof(Colors));
-            Rectangle rectangle = new Rectangle();
-            rectangle.Width = _random.Next(30, 101);
-            rectangle.Height = _random.Next(30, 101);
-            rectangle.Center = new Point2D(_random.Next(1, 300), _random.Next(1, 300));
-            rectangle.Color = colors.GetValue(_random.Next(0, colors.Length)).ToString();
-            return rectangle;
-        }
-
-        /// <summary>
-        /// Создание прямоугольника со случайными значениями ширины, высоты и координат.
-        /// </summary>
         /// <param name="widthCanvas">Ширина элемента размещения.</param>
         /// <param name="heightCanvas">Высота элемента размещения.</param>
         /// <returns>Возвращает объект Rectangle.</returns>
@@ -57,6 +42,15 @@ namespace Programming.Model.Geometry
                                            _random.Next(Margin, heightCanvas - rectangle.Height - Margin));
             rectangle.Color = colors.GetValue(_random.Next(0, colors.Length)).ToString();
             return rectangle;
+        }
+
+        /// <summary>
+        /// Создание прямоугольника со случайными значениями ширины, высоты и координат.
+        /// </summary>
+        /// <returns>Возвращает объект Rectangle.</returns>
+        public static Rectangle Randomize()
+        {
+            return Randomize(300, 300);
         }
     }
 }
