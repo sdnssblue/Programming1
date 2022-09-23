@@ -29,7 +29,7 @@ namespace ListOfEmployees.Model.Services
         /// Проводит сериализацию данных.
         /// </summary>
         /// <param name="employees">Коллекция класса <see cref="Employee"/></param>
-        public static void Serialize(List<Employee> movies)
+        public static void Serialize(List<Employee> employees)
         {
             if (!File.Exists(Path))
             {
@@ -38,7 +38,7 @@ namespace ListOfEmployees.Model.Services
 
             using (StreamWriter writer = new StreamWriter(Path + FileName))
             {
-                writer.Write(JsonConvert.SerializeObject(movies));
+                writer.Write(JsonConvert.SerializeObject(employees));
             }
         }
 
