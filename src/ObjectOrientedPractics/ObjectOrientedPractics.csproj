@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,6 +52,10 @@
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\InitialConstans.cs" />
     <Compile Include="Model\Item.cs" />
+    <Compile Include="Services\AppColors.cs" />
+    <Compile Include="Services\CustomerFactory.cs" />
+    <Compile Include="Services\ItemFactory.cs" />
+    <Compile Include="Services\ProjectSerializer.cs" />
     <Compile Include="Services\ValueValidator.cs" />
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
@@ -58,6 +65,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Tabs\ItemsTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Tabs\ItemsTab.Designer.cs">
+      <DependentUpon>ItemsTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Tabs\CustomersTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Tabs\CustomersTab.Designer.cs">
+      <DependentUpon>CustomersTab.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -66,7 +85,18 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Tabs\ItemsTab.resx">
+      <DependentUpon>ItemsTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Tabs\CustomersTab.resx">
+      <DependentUpon>CustomersTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -80,6 +110,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
