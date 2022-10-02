@@ -2,8 +2,15 @@
 
 namespace ObjectOrientedPractics.Services
 {
+    /// <summary>
+    /// Класс создает шаблон для заполнения информации о товаре.
+    /// </summary>
     public static class ItemFactory
     {
+        /// <summary>
+        /// Создание шаблона для заполнения информации о товаре.
+        /// </summary>
+        /// <returns>Шаблон для заполнения информации о товаре.</returns>
         public static Item DefaultItem()
         {
             Item item = new Item();

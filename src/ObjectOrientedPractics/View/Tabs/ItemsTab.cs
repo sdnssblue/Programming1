@@ -6,19 +6,46 @@ using ObjectOrientedPractics.Services;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
+    /// <summary>
+    /// Реализация по представлению товаров.
+    /// </summary>
     public partial class ItemsTab : UserControl
     {
+        /// <summary>
+        /// Коллекция товаров.
+        /// </summary>
         private List<Item> _items;
 
+        /// <summary>
+        /// Выбранный товар.
+        /// </summary>
         private Item _currentItem;
 
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Item"/>
+        /// </summary>
         public ItemsTab()
         {
             InitializeComponent();
             
             _items = new List<Item>();
+
+            if (ProjectSerializer.IsFile(nameof(Item)))
+            {
+                _items = ProjectSerializer.Deserialize<Item>(nameof(Item));
+
+                foreach (var item in _items)
+                {
+                    ItemsListBox.Items.Add(item.Name);
+                }
+
+                ItemsListBox.SelectedIndex = _items.Count - 1;
+            }   
         }
 
+        /// <summary>
+        /// Очищает информацию с текстовых полей.
+        /// </summary>
         private void ClearItemsInfo()
         {
             IDTextBox.Clear();
@@ -27,11 +54,10 @@ namespace ObjectOrientedPractics.View.Tabs
             DescriptionTextBox.Clear();
         }
 
-        private string FormattedText(Item item)
-        {
-            return $"{item.Id} {item.Name}";
-        }
-
+        /// <summary>
+        /// Обновляет информацию в списке.
+        /// </summary>
+        /// <param name="selectedIndex">Выбранный индекс.</param>
         private void UpdateItemInfo(int selectedIndex)
         {
             ItemsListBox.Items.Clear();
@@ -44,6 +70,11 @@ namespace ObjectOrientedPractics.View.Tabs
             if (selectedIndex == -1) return;
 
             ItemsListBox.SelectedIndex = selectedIndex;
+        }
+
+        private string FormattedText(Item item)
+        {
+            return $"{item.Id}: " + $"{item.Name};";
         }
 
         private void AddButton_Click(object sender, System.EventArgs e)
@@ -90,7 +121,6 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentItem.Cost = itemCost;
                 int index = _items.IndexOf(_currentItem);
                 UpdateItemInfo(index);
-                ProjectSerializer.Serialize(_items);
             }
             catch
             {
@@ -110,7 +140,6 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentItem.Name = itemCurrentName;
                 int index = _items.IndexOf(_currentItem);
                 UpdateItemInfo(index);
-                ProjectSerializer.Serialize(_items);
             }
             catch
             {
@@ -130,7 +159,6 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentItem.Info = itemCurrentDescription;
                 int index = _items.IndexOf(_currentItem);
                 UpdateItemInfo(index);
-                ProjectSerializer.Serialize(_items);
             }
             catch
             {
@@ -138,6 +166,11 @@ namespace ObjectOrientedPractics.View.Tabs
                 return;
             }
             DescriptionTextBox.BackColor = AppColors.CorrectColor;
+        }
+
+        public void SaveItemsData()
+        {
+            ProjectSerializer.Serialize(nameof(Item), _items);
         }
     }
 }
