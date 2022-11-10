@@ -30,6 +30,11 @@ namespace ObjectOrientedPractics.View.Tabs
             
             _items = new List<Item>();
 
+            var category = Enum.GetValues(typeof(Category));
+
+            foreach (var value in category)
+                CategoryComboBox.Items.Add(value);
+
             if (ProjectSerializer.IsFile(nameof(Item)))
             {
                 _items = ProjectSerializer.Deserialize<Item>(nameof(Item));
@@ -107,6 +112,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 CostTextBox.Text = _currentItem.Cost.ToString();
                 NameTextBox.Text = _currentItem.Name;
                 DescriptionTextBox.Text = _currentItem.Info;
+                CategoryComboBox.SelectedIndex = (int)_currentItem.Category;
             }
         }
 

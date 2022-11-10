@@ -29,9 +29,8 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void InitializeComponent()
         {
+            ObjectOrientedPractics.Model.Address address1 = new ObjectOrientedPractics.Model.Address();
             this.SelectedCustomerLabel = new System.Windows.Forms.Label();
-            this.AddressTextBox = new System.Windows.Forms.TextBox();
-            this.AddressLabel = new System.Windows.Forms.Label();
             this.FullNameTextBox = new System.Windows.Forms.TextBox();
             this.FullNameLabel = new System.Windows.Forms.Label();
             this.IDLabel = new System.Windows.Forms.Label();
@@ -41,6 +40,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.RemoveButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.IDTextBox = new System.Windows.Forms.TextBox();
+            this.AddressControl = new ObjectOrientedPractics.View.Controls.AddressControl();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,31 +48,11 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             this.SelectedCustomerLabel.AutoSize = true;
             this.SelectedCustomerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SelectedCustomerLabel.Location = new System.Drawing.Point(342, 9);
+            this.SelectedCustomerLabel.Location = new System.Drawing.Point(349, 9);
             this.SelectedCustomerLabel.Name = "SelectedCustomerLabel";
             this.SelectedCustomerLabel.Size = new System.Drawing.Size(113, 13);
             this.SelectedCustomerLabel.TabIndex = 34;
             this.SelectedCustomerLabel.Text = "Selected Customer";
-            // 
-            // AddressTextBox
-            // 
-            this.AddressTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddressTextBox.Location = new System.Drawing.Point(421, 93);
-            this.AddressTextBox.Multiline = true;
-            this.AddressTextBox.Name = "AddressTextBox";
-            this.AddressTextBox.Size = new System.Drawing.Size(302, 141);
-            this.AddressTextBox.TabIndex = 31;
-            this.AddressTextBox.TextChanged += new System.EventHandler(this.AddressTextBox_TextChanged);
-            // 
-            // AddressLabel
-            // 
-            this.AddressLabel.AutoSize = true;
-            this.AddressLabel.Location = new System.Drawing.Point(356, 93);
-            this.AddressLabel.Name = "AddressLabel";
-            this.AddressLabel.Size = new System.Drawing.Size(48, 13);
-            this.AddressLabel.TabIndex = 30;
-            this.AddressLabel.Text = "Address:";
             // 
             // FullNameTextBox
             // 
@@ -81,7 +61,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.FullNameTextBox.Location = new System.Drawing.Point(421, 61);
             this.FullNameTextBox.MinimumSize = new System.Drawing.Size(100, 20);
             this.FullNameTextBox.Name = "FullNameTextBox";
-            this.FullNameTextBox.Size = new System.Drawing.Size(302, 20);
+            this.FullNameTextBox.Size = new System.Drawing.Size(336, 20);
             this.FullNameTextBox.TabIndex = 29;
             this.FullNameTextBox.TextChanged += new System.EventHandler(this.FullNameTextBox_TextChanged);
             // 
@@ -171,25 +151,32 @@ namespace ObjectOrientedPractics.View.Tabs
             this.IDTextBox.MinimumSize = new System.Drawing.Size(100, 20);
             this.IDTextBox.Name = "IDTextBox";
             this.IDTextBox.ReadOnly = true;
-            this.IDTextBox.Size = new System.Drawing.Size(100, 20);
+            this.IDTextBox.Size = new System.Drawing.Size(142, 20);
             this.IDTextBox.TabIndex = 36;
+            // 
+            // AddressControl
+            // 
+            this.AddressControl.Address = address1;
+            this.AddressControl.Location = new System.Drawing.Point(342, 87);
+            this.AddressControl.Name = "AddressControl";
+            this.AddressControl.Size = new System.Drawing.Size(428, 136);
+            this.AddressControl.TabIndex = 37;
             // 
             // CustomersTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.AddressControl);
             this.Controls.Add(this.IDTextBox);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.SelectedCustomerLabel);
-            this.Controls.Add(this.AddressTextBox);
-            this.Controls.Add(this.AddressLabel);
             this.Controls.Add(this.FullNameTextBox);
             this.Controls.Add(this.FullNameLabel);
             this.Controls.Add(this.IDLabel);
             this.Controls.Add(this.CustomersListBox);
             this.Controls.Add(this.CustomersLabel);
             this.Name = "CustomersTab";
-            this.Size = new System.Drawing.Size(731, 504);
+            this.Size = new System.Drawing.Size(773, 504);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -199,8 +186,6 @@ namespace ObjectOrientedPractics.View.Tabs
         #endregion
 
         private System.Windows.Forms.Label SelectedCustomerLabel;
-        private System.Windows.Forms.TextBox AddressTextBox;
-        private System.Windows.Forms.Label AddressLabel;
         private System.Windows.Forms.TextBox FullNameTextBox;
         private System.Windows.Forms.Label FullNameLabel;
         private System.Windows.Forms.Label IDLabel;
@@ -210,5 +195,6 @@ namespace ObjectOrientedPractics.View.Tabs
         private System.Windows.Forms.Button RemoveButton;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.TextBox IDTextBox;
+        private Controls.AddressControl AddressControl;
     }
 }

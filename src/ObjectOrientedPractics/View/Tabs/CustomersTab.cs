@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Services;
+using ObjectOrientedPractics.View.Controls;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
@@ -50,7 +51,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             IDTextBox.Clear();
             FullNameTextBox.Clear();
-            AddressTextBox.Clear();
+            AddressControl.Clear();
         }
 
         /// <summary>
@@ -67,7 +68,7 @@ namespace ObjectOrientedPractics.View.Tabs
             }
 
             if (selectedIndex == -1) return;
-
+            
             CustomersListBox.SelectedIndex = selectedIndex;
         }
 
@@ -76,7 +77,7 @@ namespace ObjectOrientedPractics.View.Tabs
             return $"{customer.Id}: " + $"{customer.FullName};";
         }
 
-        private void AddButton_Click(object sender, System.EventArgs e)
+        private void AddButton_Click(object sender, EventArgs e)
         {
             Customer customer = CustomerFactory.DefaultCustomer();
             _currentCustomer = customer;
@@ -84,7 +85,7 @@ namespace ObjectOrientedPractics.View.Tabs
             _customers.Add(customer);
         }
 
-        private void RemoveButton_Click(object sender, System.EventArgs e)
+        private void RemoveButton_Click(object sender, EventArgs e)
         {
             int index = CustomersListBox.SelectedIndex;
 
@@ -104,14 +105,14 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentCustomer = _customers[indexSelectedCustomer];
                 IDTextBox.Text = _currentCustomer.Id.ToString();
                 FullNameTextBox.Text = _currentCustomer.FullName;
-                AddressTextBox.Text = _currentCustomer.Address;
+                AddressControl.Address = _currentCustomer.Address;
             }
         }
 
         private void FullNameTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (CustomersListBox.SelectedIndex == -1)
-                return;
+            if (CustomersListBox.SelectedIndex == -1) return;
+
             try
             {
                 string customerCurrentFullName = FullNameTextBox.Text;
@@ -125,25 +126,6 @@ namespace ObjectOrientedPractics.View.Tabs
                 return;
             }
             FullNameTextBox.BackColor = AppColors.CorrectColor;
-        }
-
-        private void AddressTextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (CustomersListBox.SelectedIndex == -1)
-                return;
-            try
-            {
-                string customerCurrentAddress = AddressTextBox.Text;
-                _currentCustomer.Address = customerCurrentAddress;
-                int index = _customers.IndexOf(_currentCustomer);
-                UpdateCustomerInfo(index);
-            }
-            catch
-            {
-                AddressTextBox.BackColor = AppColors.ErrorColor;
-                return;
-            }
-            AddressTextBox.BackColor = AppColors.CorrectColor;
         }
 
         public void SaveCustomersData()

@@ -34,8 +34,26 @@ namespace ObjectOrientedPractics.Services
         public static void AssertStringOnLength(string nameProperty, string value, int maxLength)
         {
             if (value.Length > maxLength)
+            {
                 throw new ArgumentException(
                     $"number of characters in the field {nameProperty} must be less than {maxLength}.");
+            }
+        }
+
+        /// <summary>
+        /// Проверка на то, что количество цифр в числе совпадает с нужным количеством.
+        /// </summary>
+        /// <param name="nameProperty">Имя свойства, откуда был вызван метод.</param>
+        /// <param name="length">Заданная длина.</param>
+        /// <param name="value">Число.</param>
+        /// <exception cref="ArgumentException">Выбрасывается, когда количество цифр числа не равно заданному.</exception>
+        public static void AssertStringLength(string nameProperty, int value, int length)
+        {
+            if (value.ToString().Length != length)
+            {
+                throw new ArgumentException(
+                    $"the number of digits in {nameProperty} must be equal to {length}.");
+            }
         }
     }
 }

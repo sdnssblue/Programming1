@@ -49,7 +49,13 @@ namespace ObjectOrientedPractics.Model
         }
 
         /// <summary>
-        /// Возвращает и задает название товара. Название товара должно занимать не более 200 символов.
+        /// Возвращает и задает категорию товара.
+        /// </summary>
+        public Category Category { get; set; }
+
+        /// <summary>
+        /// Возвращает и задает название товара. 
+        /// Название товара должно занимать не более 200 символов.
         /// </summary>
         public string Name
         {
@@ -62,7 +68,8 @@ namespace ObjectOrientedPractics.Model
         }
 
         /// <summary>
-        /// Возвращает и создает описание товара. Описание должно занимать не более 1000 символов.
+        /// Возвращает и создает описание товара.
+        /// Описание должно занимать не более 1000 символов.
         /// </summary>
         public string Info
         {
@@ -75,7 +82,8 @@ namespace ObjectOrientedPractics.Model
         }
 
         /// <summary>
-        /// Возвращает и создает цену товара. Цена товара должна быть значением от 0 до 100000.
+        /// Возвращает и создает цену товара.
+        /// Цена товара должна быть значением от 0 до 100000.
         /// </summary>
         public double Cost
         {
@@ -101,12 +109,14 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         /// <param name="name">Название товара. Не более 200 символов.</param>
         /// <param name="info">Описание товара. Не более 1000 символов.</param>
-        /// <param name="cost"> Цена товара. Значение должно быть числом от 0 до 100000.</param>
-        public Item(string name, string info, double cost)
+        /// <param name="cost">Цена товара. Значение должно быть числом от 0 до 100000.</param>
+        /// /// <param name="category">Категория товара.</param>
+        public Item(string name, string info, double cost, Category category)
         {
             Name = name;
             Info = info;
             Cost = cost;
+            Category = category;
             _allItemsCount++;
             _id = _allItemsCount;
         }
