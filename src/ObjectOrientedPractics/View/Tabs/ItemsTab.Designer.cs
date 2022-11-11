@@ -220,7 +220,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.CategoryComboBox.Name = "CategoryComboBox";
             this.CategoryComboBox.Size = new System.Drawing.Size(142, 21);
             this.CategoryComboBox.TabIndex = 24;
-            this.CategoryComboBox.SelectedIndexChanged += new System.EventHandler(this.ListBoxItems_SelectedIndexChanged);
+            this.CategoryComboBox.SelectedIndexChanged += new System.EventHandler(this.CategoryComboBox_SelectedIndexChanged);
             // 
             // ItemsTab
             // 

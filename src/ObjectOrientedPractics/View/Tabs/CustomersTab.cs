@@ -28,19 +28,20 @@ namespace ObjectOrientedPractics.View.Tabs
         public CustomersTab()
         {
             InitializeComponent();
-
             _customers = new List<Customer>();
+        }
 
-            if (ProjectSerializer.IsFile(nameof(Customer)))
+        public List<Customer> Customers
+        {
+            get => _customers;
+            set
             {
-                _customers = ProjectSerializer.Deserialize<Customer>(nameof(Customer));
+                _customers = value;
 
-                foreach (var item in _customers)
+                if (_customers != null)
                 {
-                    CustomersListBox.Items.Add(item.FullName);
+                    UpdateCustomerInfo(-1);
                 }
-
-                CustomersListBox.SelectedIndex = _customers.Count - 1;
             }
         }
 
@@ -126,11 +127,6 @@ namespace ObjectOrientedPractics.View.Tabs
                 return;
             }
             FullNameTextBox.BackColor = AppColors.CorrectColor;
-        }
-
-        public void SaveCustomersData()
-        {
-            ProjectSerializer.Serialize(nameof(Customer), _customers);
         }
     }
 }

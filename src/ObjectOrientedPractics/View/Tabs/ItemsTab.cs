@@ -27,25 +27,27 @@ namespace ObjectOrientedPractics.View.Tabs
         public ItemsTab()
         {
             InitializeComponent();
-            
-            _items = new List<Item>();
 
             var category = Enum.GetValues(typeof(Category));
 
             foreach (var value in category)
-                CategoryComboBox.Items.Add(value);
-
-            if (ProjectSerializer.IsFile(nameof(Item)))
             {
-                _items = ProjectSerializer.Deserialize<Item>(nameof(Item));
+                CategoryComboBox.Items.Add(value);
+            }
+        }
 
-                foreach (var item in _items)
+        public List<Item> Items
+        {
+            get =>_items;
+            set
+            {
+                _items = value;
+
+                if (_items != null)
                 {
-                    ItemsListBox.Items.Add(item.Name);
+                    UpdateItemInfo(-1);
                 }
-
-                ItemsListBox.SelectedIndex = _items.Count - 1;
-            }   
+            }
         }
 
         /// <summary>
@@ -112,7 +114,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 CostTextBox.Text = _currentItem.Cost.ToString();
                 NameTextBox.Text = _currentItem.Name;
                 DescriptionTextBox.Text = _currentItem.Info;
-                CategoryComboBox.SelectedIndex = (int)_currentItem.Category;
+                CategoryComboBox.SelectedItem = _currentItem.Category;
             }
         }
 
@@ -174,9 +176,13 @@ namespace ObjectOrientedPractics.View.Tabs
             DescriptionTextBox.BackColor = AppColors.CorrectColor;
         }
 
-        public void SaveItemsData()
+        private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ProjectSerializer.Serialize(nameof(Item), _items);
+            if (ItemsListBox == null) return;
+
+            _currentItem.Category = (Category)CategoryComboBox.SelectedItem;
+            int index = _items.IndexOf(_currentItem);
+            UpdateItemInfo(index);
         }
     }
 }
