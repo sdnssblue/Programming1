@@ -1,4 +1,5 @@
 ﻿using ObjectOrientedPractics.Services;
+using System.Collections.Generic;
 
 namespace ObjectOrientedPractics.Model
 {
@@ -28,15 +29,21 @@ namespace ObjectOrientedPractics.Model
         private Address _address;
 
         /// <summary>
-        /// Возвращает и задает адрес доставки для покупателя.
+        /// Корзина товаров покупателя.
         /// </summary>
-        public Address Address
+        private Cart _cart;
+
+        /// <summary>
+        /// Коллекция заказов.
+        /// </summary>
+        private List<Order> _orders;
+
+        /// <summary>
+        /// Возвращает и задает количество всех покупателей.
+        /// </summary>
+        public static int AllCustomersCount
         {
-            get => _address;
-            set
-            {
-                _address = value;
-            }
+            get => _allCustomersCount;
         }
 
         /// <summary>
@@ -45,14 +52,6 @@ namespace ObjectOrientedPractics.Model
         public int Id
         {
             get => _id;
-        }
-
-        /// <summary>
-        /// Возвращает и задает количество всех покупателей.
-        /// </summary>
-        public static int AllCustomersCount
-        {
-            get => _allCustomersCount;
         }
 
         /// <summary>
@@ -69,12 +68,50 @@ namespace ObjectOrientedPractics.Model
         }
 
         /// <summary>
+        /// Возвращает и задает адрес доставки для покупателя.
+        /// </summary>
+        public Address Address
+        {
+            get => _address;
+            set
+            {
+                _address = value;
+            }
+        }
+
+        /// <summary>
+        /// Возвращает и задает корзину товаров покупателя.
+        /// </summary>
+        public Cart Cart
+        {
+            get => _cart;
+            set
+            {
+                _cart = value;
+            }
+        }
+
+        /// <summary>
+        /// Возвращает и задает коллекцию заказов.
+        /// </summary>
+        public List<Order> Orders
+        {
+            get => _orders;
+            set
+            {
+                _orders = value;
+            }
+        }
+
+        /// <summary>
         /// Создает экземпляр класса <see cref="Customer"/>
         /// </summary>
         public Customer()
         {
             _allCustomersCount++;
             _id = _allCustomersCount;
+            Cart = new Cart();
+            Orders = new List<Order>();
         }
 
         /// <summary>
@@ -82,10 +119,12 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         /// <param name="fullname">Полное имя покупателя. Не более 200 символов.</param>
         /// <param name="address">Aдрес доставки для покупателя.</param>
-        public Customer(string fullname, Address address)
+        public Customer(string fullname, Address address, Cart cart, List<Order> orders)
         {
             FullName = fullname;
             Address = address;
+            Cart = cart;
+            Orders = orders;
             _allCustomersCount++;
             _id = _allCustomersCount;
         }

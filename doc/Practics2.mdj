@@ -1095,7 +1095,7 @@
 							},
 							"font": "Arial;13;0",
 							"left": 504,
-							"top": 176,
+							"top": 168,
 							"width": 45.419921875,
 							"height": 25,
 							"text": "«use»"
@@ -1908,7 +1908,7 @@
 							"font": "Arial;20;0",
 							"left": 416,
 							"top": 200,
-							"width": 17.783203125,
+							"width": 20,
 							"height": 32,
 							"text": "*"
 						},
@@ -1921,7 +1921,7 @@
 							"font": "Arial;20;0",
 							"left": 752,
 							"top": 200,
-							"width": 17.783203125,
+							"width": 20,
 							"height": 32,
 							"text": "*"
 						},
@@ -3972,7 +3972,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGEZrQvcZvElKY="
 							},
-							"name": "Meat"
+							"name": "Meat",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3980,7 +3981,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGEZrQvcZvElKY="
 							},
-							"name": "Fish"
+							"name": "Fish",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3988,7 +3990,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGEZrQvcZvElKY="
 							},
-							"name": "Milk"
+							"name": "Milk",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3996,7 +3999,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGEZrQvcZvElKY="
 							},
-							"name": "Grocery"
+							"name": "Grocery",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4004,7 +4008,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGEZrQvcZvElKY="
 							},
-							"name": "Vegetable"
+							"name": "Vegetable",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4012,7 +4017,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGEZrQvcZvElKY="
 							},
-							"name": "Fruit"
+							"name": "Fruit",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4020,7 +4026,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGEZrQvcZvElKY="
 							},
-							"name": "Drink"
+							"name": "Drink",
+							"type": ""
 						}
 					]
 				}
