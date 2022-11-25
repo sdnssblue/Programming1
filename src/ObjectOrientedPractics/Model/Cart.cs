@@ -23,7 +23,7 @@ namespace ObjectOrientedPractics.Model
         public Cart()
         {
             Items = new List<Item>();
-            _amount = 0;
+            _amount = 0.00;
         }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace ObjectOrientedPractics.Model
         {
             get
             {
-                _amount = 0;
+                _amount = 0.00;
 
                 if (_items == null)
                    {

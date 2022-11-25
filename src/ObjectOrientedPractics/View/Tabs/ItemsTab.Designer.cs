@@ -42,10 +42,10 @@ namespace ObjectOrientedPractics.View.Tabs
             this.CostLabel = new System.Windows.Forms.Label();
             this.IDLabel = new System.Windows.Forms.Label();
             this.SelectedItemLabel = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.ButtonsPanel = new System.Windows.Forms.TableLayoutPanel();
             this.CategoryLabel = new System.Windows.Forms.Label();
             this.CategoryComboBox = new System.Windows.Forms.ComboBox();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.ButtonsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // RemoveButton
@@ -185,21 +185,21 @@ namespace ObjectOrientedPractics.View.Tabs
             this.SelectedItemLabel.TabIndex = 21;
             this.SelectedItemLabel.Text = "Selected Item";
             // 
-            // tableLayoutPanel1
+            // ButtonsPanel
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Controls.Add(this.RemoveButton, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.AddButton, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 451);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(330, 45);
-            this.tableLayoutPanel1.TabIndex = 22;
+            this.ButtonsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ButtonsPanel.ColumnCount = 3;
+            this.ButtonsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.ButtonsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.ButtonsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.ButtonsPanel.Controls.Add(this.RemoveButton, 1, 0);
+            this.ButtonsPanel.Controls.Add(this.AddButton, 0, 0);
+            this.ButtonsPanel.Location = new System.Drawing.Point(6, 451);
+            this.ButtonsPanel.Name = "ButtonsPanel";
+            this.ButtonsPanel.RowCount = 1;
+            this.ButtonsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.ButtonsPanel.Size = new System.Drawing.Size(330, 45);
+            this.ButtonsPanel.TabIndex = 22;
             // 
             // CategoryLabel
             // 
@@ -228,7 +228,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.CategoryComboBox);
             this.Controls.Add(this.CategoryLabel);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.ButtonsPanel);
             this.Controls.Add(this.SelectedItemLabel);
             this.Controls.Add(this.DescriptionTextBox);
             this.Controls.Add(this.DescriptionLabel);
@@ -243,7 +243,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.MinimumSize = new System.Drawing.Size(773, 504);
             this.Name = "ItemsTab";
             this.Size = new System.Drawing.Size(773, 504);
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.ButtonsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,7 +263,7 @@ namespace ObjectOrientedPractics.View.Tabs
         private System.Windows.Forms.Label CostLabel;
         private System.Windows.Forms.Label IDLabel;
         private System.Windows.Forms.Label SelectedItemLabel;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel ButtonsPanel;
         private System.Windows.Forms.Label CategoryLabel;
         private System.Windows.Forms.ComboBox CategoryComboBox;
     }

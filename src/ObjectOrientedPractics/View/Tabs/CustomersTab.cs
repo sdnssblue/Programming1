@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Services;
 using ObjectOrientedPractics.View.Controls;
+using System.ComponentModel;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
     /// <summary>
-    /// Реализация по представлению пользователей.
+    /// Реализация по представлению покупателей.
     /// </summary>
     public partial class CustomersTab : UserControl
     {
@@ -31,6 +32,12 @@ namespace ObjectOrientedPractics.View.Tabs
             _customers = new List<Customer>();
         }
 
+        /// <summary>
+        /// Возвращает и задает коллекцию покупателей.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public List<Customer> Customers
         {
             get => _customers;

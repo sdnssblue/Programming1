@@ -97,7 +97,7 @@ namespace ObjectOrientedPractics.Model
         {
             get
             {
-                _amount = 0;
+                _amount = 0.00;
 
                 if (_items == null)
                 {

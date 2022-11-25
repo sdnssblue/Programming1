@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Services;
+using System.ComponentModel;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
@@ -36,9 +37,15 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает коллекцию товаров.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public List<Item> Items
         {
-            get =>_items;
+            get => _items;
             set
             {
                 _items = value;

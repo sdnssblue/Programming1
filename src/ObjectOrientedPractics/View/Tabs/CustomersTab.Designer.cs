@@ -29,19 +29,19 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void InitializeComponent()
         {
-            ObjectOrientedPractics.Model.Address address1 = new ObjectOrientedPractics.Model.Address();
+            ObjectOrientedPractics.Model.Address address2 = new ObjectOrientedPractics.Model.Address();
             this.SelectedCustomerLabel = new System.Windows.Forms.Label();
             this.FullNameTextBox = new System.Windows.Forms.TextBox();
             this.FullNameLabel = new System.Windows.Forms.Label();
             this.IDLabel = new System.Windows.Forms.Label();
             this.CustomersListBox = new System.Windows.Forms.ListBox();
             this.CustomersLabel = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.ButtonsPanel = new System.Windows.Forms.TableLayoutPanel();
             this.RemoveButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.IDTextBox = new System.Windows.Forms.TextBox();
             this.AddressControl = new ObjectOrientedPractics.View.Controls.AddressControl();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.ButtonsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // SelectedCustomerLabel
@@ -105,21 +105,21 @@ namespace ObjectOrientedPractics.View.Tabs
             this.CustomersLabel.TabIndex = 22;
             this.CustomersLabel.Text = "Customers";
             // 
-            // tableLayoutPanel1
+            // ButtonsPanel
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Controls.Add(this.RemoveButton, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.AddButton, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 451);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(330, 45);
-            this.tableLayoutPanel1.TabIndex = 35;
+            this.ButtonsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ButtonsPanel.ColumnCount = 3;
+            this.ButtonsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.ButtonsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.ButtonsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.ButtonsPanel.Controls.Add(this.RemoveButton, 1, 0);
+            this.ButtonsPanel.Controls.Add(this.AddButton, 0, 0);
+            this.ButtonsPanel.Location = new System.Drawing.Point(6, 451);
+            this.ButtonsPanel.Name = "ButtonsPanel";
+            this.ButtonsPanel.RowCount = 1;
+            this.ButtonsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.ButtonsPanel.Size = new System.Drawing.Size(330, 45);
+            this.ButtonsPanel.TabIndex = 35;
             // 
             // RemoveButton
             // 
@@ -156,7 +156,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // AddressControl
             // 
-            this.AddressControl.Address = address1;
+            this.AddressControl.Address = address2;
             this.AddressControl.Location = new System.Drawing.Point(342, 87);
             this.AddressControl.Name = "AddressControl";
             this.AddressControl.Size = new System.Drawing.Size(428, 136);
@@ -168,7 +168,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.AddressControl);
             this.Controls.Add(this.IDTextBox);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.ButtonsPanel);
             this.Controls.Add(this.SelectedCustomerLabel);
             this.Controls.Add(this.FullNameTextBox);
             this.Controls.Add(this.FullNameLabel);
@@ -177,7 +177,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.Controls.Add(this.CustomersLabel);
             this.Name = "CustomersTab";
             this.Size = new System.Drawing.Size(773, 504);
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.ButtonsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,7 +191,7 @@ namespace ObjectOrientedPractics.View.Tabs
         private System.Windows.Forms.Label IDLabel;
         private System.Windows.Forms.ListBox CustomersListBox;
         private System.Windows.Forms.Label CustomersLabel;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel ButtonsPanel;
         private System.Windows.Forms.Button RemoveButton;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.TextBox IDTextBox;
