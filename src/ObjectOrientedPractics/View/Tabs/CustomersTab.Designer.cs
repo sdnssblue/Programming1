@@ -29,7 +29,7 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void InitializeComponent()
         {
-            ObjectOrientedPractics.Model.Address address2 = new ObjectOrientedPractics.Model.Address();
+            ObjectOrientedPractics.Model.Address address1 = new ObjectOrientedPractics.Model.Address();
             this.SelectedCustomerLabel = new System.Windows.Forms.Label();
             this.FullNameTextBox = new System.Windows.Forms.TextBox();
             this.FullNameLabel = new System.Windows.Forms.Label();
@@ -156,7 +156,13 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // AddressControl
             // 
-            this.AddressControl.Address = address2;
+            address1.Apartment = "";
+            address1.Building = "";
+            address1.City = "";
+            address1.Country = "";
+            address1.Index = 100000;
+            address1.Street = "";
+            this.AddressControl.Address = address1;
             this.AddressControl.Location = new System.Drawing.Point(342, 87);
             this.AddressControl.Name = "AddressControl";
             this.AddressControl.Size = new System.Drawing.Size(428, 136);
@@ -175,6 +181,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.Controls.Add(this.IDLabel);
             this.Controls.Add(this.CustomersListBox);
             this.Controls.Add(this.CustomersLabel);
+            this.MinimumSize = new System.Drawing.Size(773, 504);
             this.Name = "CustomersTab";
             this.Size = new System.Drawing.Size(773, 504);
             this.ButtonsPanel.ResumeLayout(false);
