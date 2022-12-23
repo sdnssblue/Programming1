@@ -12,10 +12,40 @@ namespace ObjectOrientedPractics.View.Controls
     {
         private Address _address;
 
+        /// <summary>
+        /// Только для чтения.
+        /// </summary>
+        private bool _readOnly;
+
         public AddressControl()
         {
             _address = new Address();
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Возвращает и задает поле ReadOnly.
+        /// </summary>
+        public bool ReadOnly
+        {
+            get
+            {
+                return _readOnly;
+            }
+            set
+            {
+                _readOnly = value;
+
+                if (value)
+                {
+                    PostIndexTextBox.ReadOnly = true;
+                    CountryTextBox.ReadOnly = true;
+                    CityTextBox.ReadOnly = true;
+                    StreetTextBox.ReadOnly = true;
+                    BuildingTextBox.ReadOnly = true;
+                    ApartmentTextBox.ReadOnly = true;
+                }
+            }
         }
 
         public Address Address

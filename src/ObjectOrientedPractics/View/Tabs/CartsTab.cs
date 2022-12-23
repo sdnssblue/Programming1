@@ -193,8 +193,8 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void ClearCartButton_Click(object sender, EventArgs e)
         {
+            if (CurrentCustomer == null) return;
             CurrentCustomer.Cart = new Cart();
-
             UpdateCartListBox(-1);
             AmountDigitLabel.Text = CurrentCustomer.Cart.Amount.ToString();
         }
@@ -202,6 +202,7 @@ namespace ObjectOrientedPractics.View.Tabs
         private void CreateOrderButton_Click(object sender, EventArgs e)
         {
             Order order = new Order();
+            if (CurrentCustomer == null) return;
             order.Address = CurrentCustomer.Address;
             order.Items = CurrentCustomer.Cart.Items;
             order.Status = OrderStatus.New;
