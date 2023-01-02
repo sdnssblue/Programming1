@@ -34,6 +34,11 @@ namespace ObjectOrientedPractics.Model
         private Cart _cart;
 
         /// <summary>
+        /// Приоритетный покупатель.
+        /// </summary>
+        private bool _isPriority;
+
+        /// <summary>
         /// Коллекция заказов.
         /// </summary>
         private List<Order> _orders;
@@ -80,6 +85,18 @@ namespace ObjectOrientedPractics.Model
         }
 
         /// <summary>
+        /// Возвращает и задает булевое значение, является ли покупатель приоритетным или нет.
+        /// </summary>
+        public bool IsPriority
+        {
+            get => _isPriority;
+            set
+            {
+                _isPriority = value;
+            }
+        }
+
+        /// <summary>
         /// Возвращает и задает корзину товаров покупателя.
         /// </summary>
         public Cart Cart
@@ -112,6 +129,7 @@ namespace ObjectOrientedPractics.Model
             _id = _allCustomersCount;
             Cart = new Cart();
             Orders = new List<Order>();
+            IsPriority = false;
         }
 
         /// <summary>
@@ -119,7 +137,7 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         /// <param name="fullname">Полное имя покупателя. Не более 200 символов.</param>
         /// <param name="address">Aдрес доставки для покупателя.</param>
-        public Customer(string fullname, Address address, Cart cart, List<Order> orders)
+        public Customer(string fullname, Address address, Cart cart, List<Order> orders, bool isPriority)
         {
             FullName = fullname;
             Address = address;
@@ -127,6 +145,7 @@ namespace ObjectOrientedPractics.Model
             Orders = orders;
             _allCustomersCount++;
             _id = _allCustomersCount;
+            IsPriority = isPriority;
         }
     }
 }

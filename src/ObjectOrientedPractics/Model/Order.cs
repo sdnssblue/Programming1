@@ -42,6 +42,16 @@ namespace ObjectOrientedPractics.Model
             _dateOfCreate = DateTime.Today.ToString();
         }
 
+        public Order(OrderStatus status, Address address, List<Item> items)
+        {
+            Status = status;
+            Address = address;
+            Items = items;
+            _allOrdersCount++;
+            _id = _allOrdersCount;
+            _dateOfCreate = DateTime.Today.ToString();
+        }
+
         /// <summary>
         /// Возвращает и задает уникальный индефикатор.
         /// </summary>

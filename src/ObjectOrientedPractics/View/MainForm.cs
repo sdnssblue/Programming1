@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.View.Tabs;
 using ObjectOrientedPractics.Services;
@@ -35,6 +36,8 @@ namespace ObjectOrientedPractics.View
             CustomersTab.Customers = _store.Customers;
             CartsTab.Items = _store.Items;
             CartsTab.Customers = _store.Customers;
+
+            //PriorityOrdersTab.Items = _store.Items;
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -42,7 +45,7 @@ namespace ObjectOrientedPractics.View
             ProjectSerializer.Serialize("Store", _store);
         }
 
-        private void TabControl_SelectedIndexChanged(object sender, System.EventArgs e)
+        private void TabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (TabControl.SelectedIndex == 2)
             {

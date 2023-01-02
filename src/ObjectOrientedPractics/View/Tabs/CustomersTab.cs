@@ -30,6 +30,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             InitializeComponent();
             _customers = new List<Customer>();
+            IsPriorityCheckBox.Enabled = false;
         }
 
         /// <summary>
@@ -60,6 +61,7 @@ namespace ObjectOrientedPractics.View.Tabs
             IDTextBox.Clear();
             FullNameTextBox.Clear();
             AddressControl.Clear();
+            IsPriorityCheckBox.Checked = false;
         }
 
         /// <summary>
@@ -76,7 +78,6 @@ namespace ObjectOrientedPractics.View.Tabs
             }
 
             if (selectedIndex == -1) return;
-            
             CustomersListBox.SelectedIndex = selectedIndex;
         }
 
@@ -109,12 +110,24 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             if (CustomersListBox.SelectedItem != null)
             {
+                int index = CustomersListBox.SelectedIndex;
+
+                if (index == -1)
+                {
+                    AddressControl.Enabled = false;
+                    IsPriorityCheckBox.Enabled = false;
+                    return;
+                }
+
                 int indexSelectedCustomer = CustomersListBox.SelectedIndex;
                 _currentCustomer = _customers[indexSelectedCustomer];
                 IDTextBox.Text = _currentCustomer.Id.ToString();
                 FullNameTextBox.Text = _currentCustomer.FullName;
                 AddressControl.Address = _currentCustomer.Address;
+                IsPriorityCheckBox.Enabled = true;
+                AddressControl.Enabled = true;
             }
+
         }
 
         private void FullNameTextBox_TextChanged(object sender, EventArgs e)
@@ -134,6 +147,11 @@ namespace ObjectOrientedPractics.View.Tabs
                 return;
             }
             FullNameTextBox.BackColor = AppColors.CorrectColor;
+        }
+
+        private void IsPriorityCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            _currentCustomer.IsPriority = IsPriorityCheckBox.Checked;
         }
     }
 }

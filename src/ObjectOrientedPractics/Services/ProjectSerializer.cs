@@ -22,6 +22,11 @@ namespace ObjectOrientedPractics.Services
             Path = @"..\..\Data\";
         }
 
+        private static JsonSerializerSettings settings = new JsonSerializerSettings
+        {
+            TypeNameHandling = TypeNameHandling.All
+        };
+
         /// <summary>
         /// Проверка на существование файла.
         /// </summary>
@@ -41,7 +46,7 @@ namespace ObjectOrientedPractics.Services
         {
             using (StreamWriter writer = new StreamWriter(Path + nameFile))
             {
-                writer.Write(JsonConvert.SerializeObject(obj));
+                writer.Write(JsonConvert.SerializeObject(obj, settings));
             }
         }
 
@@ -61,8 +66,9 @@ namespace ObjectOrientedPractics.Services
             
             using (StreamReader reader = new StreamReader(Path + nameFile))
             {
-                    store = JsonConvert.DeserializeObject<Store>(reader.ReadToEnd());
+                    store = JsonConvert.DeserializeObject<Store>(reader.ReadToEnd(), settings);
             }
+
             return store;
         }
     }
