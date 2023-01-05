@@ -1,5 +1,7 @@
-﻿using ObjectOrientedPractics.Services;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using ObjectOrientedPractics.Services;
+using ObjectOrientedPractics.Model.Discounts;
+using ObjectOrientedPractics.Model.Orders;
 
 namespace ObjectOrientedPractics.Model
 {
@@ -8,11 +10,6 @@ namespace ObjectOrientedPractics.Model
     /// </summary>
     public class Customer
     {
-        /// <summary>
-        /// Количество всех покупателей.
-        /// </summary>
-        private static int _allCustomersCount;
-
         /// <summary>
         /// Уникальный идентификатор покупателя.
         /// </summary>
@@ -42,6 +39,11 @@ namespace ObjectOrientedPractics.Model
         /// Коллекция заказов.
         /// </summary>
         private List<Order> _orders;
+
+        /// <summary>
+        /// Количество всех покупателей.
+        /// </summary>
+        private static int _allCustomersCount;
 
         /// <summary>
         /// Возвращает и задает количество всех покупателей.
@@ -120,6 +122,8 @@ namespace ObjectOrientedPractics.Model
             }
         }
 
+        public List<IDiscount> Discounts { get; set; }
+
         /// <summary>
         /// Создает экземпляр класса <see cref="Customer"/>
         /// </summary>
@@ -130,13 +134,14 @@ namespace ObjectOrientedPractics.Model
             Cart = new Cart();
             Orders = new List<Order>();
             IsPriority = false;
+            Discounts = new List<IDiscount>();
         }
 
         /// <summary>
         /// Создает экземпляр класса <see cref="Customer"/>
         /// </summary>
         /// <param name="fullname">Полное имя покупателя. Не более 200 символов.</param>
-        /// <param name="address">Aдрес доставки для покупателя.</param>
+        /// <param name="address">Aдрес доставки для покупателя. Не более 500 символов.</param>
         public Customer(string fullname, Address address, Cart cart, List<Order> orders, bool isPriority)
         {
             FullName = fullname;
@@ -146,6 +151,8 @@ namespace ObjectOrientedPractics.Model
             _allCustomersCount++;
             _id = _allCustomersCount;
             IsPriority = isPriority;
+            Discounts = new List<IDiscount>();
+            Discounts.Add(new PointsDiscount());
         }
     }
 }

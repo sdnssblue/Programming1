@@ -42,6 +42,12 @@
             this.ClearCartButton = new System.Windows.Forms.Button();
             this.AmountLabel = new System.Windows.Forms.Label();
             this.AmountDigitLabel = new System.Windows.Forms.Label();
+            this.TotalDigitLabel = new System.Windows.Forms.Label();
+            this.TotalLabel = new System.Windows.Forms.Label();
+            this.DiscountCheckedListBox = new System.Windows.Forms.CheckedListBox();
+            this.DiscountsLabel = new System.Windows.Forms.Label();
+            this.DiscountAmountDigitLabel = new System.Windows.Forms.Label();
+            this.DiscountAmountLabel = new System.Windows.Forms.Label();
             this.ButtonsPanel.SuspendLayout();
             this.ButtonsPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -201,10 +207,75 @@
             this.AmountDigitLabel.TabIndex = 30;
             this.AmountDigitLabel.Text = "0";
             // 
+            // TotalDigitLabel
+            // 
+            this.TotalDigitLabel.AutoSize = true;
+            this.TotalDigitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TotalDigitLabel.Location = new System.Drawing.Point(647, 434);
+            this.TotalDigitLabel.Name = "TotalDigitLabel";
+            this.TotalDigitLabel.Size = new System.Drawing.Size(21, 24);
+            this.TotalDigitLabel.TabIndex = 32;
+            this.TotalDigitLabel.Text = "0";
+            // 
+            // TotalLabel
+            // 
+            this.TotalLabel.AutoSize = true;
+            this.TotalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TotalLabel.Location = new System.Drawing.Point(648, 421);
+            this.TotalLabel.Name = "TotalLabel";
+            this.TotalLabel.Size = new System.Drawing.Size(51, 13);
+            this.TotalLabel.TabIndex = 31;
+            this.TotalLabel.Text = "TOTAL:";
+            // 
+            // DiscountCheckedListBox
+            // 
+            this.DiscountCheckedListBox.FormattingEnabled = true;
+            this.DiscountCheckedListBox.Location = new System.Drawing.Point(359, 364);
+            this.DiscountCheckedListBox.Name = "DiscountCheckedListBox";
+            this.DiscountCheckedListBox.Size = new System.Drawing.Size(174, 94);
+            this.DiscountCheckedListBox.TabIndex = 33;
+            this.DiscountCheckedListBox.SelectedIndexChanged += new System.EventHandler(this.DiscountCheckedListBox_SelectedIndexChanged);
+            // 
+            // DiscountsLabel
+            // 
+            this.DiscountsLabel.AutoSize = true;
+            this.DiscountsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DiscountsLabel.Location = new System.Drawing.Point(359, 348);
+            this.DiscountsLabel.Name = "DiscountsLabel";
+            this.DiscountsLabel.Size = new System.Drawing.Size(67, 13);
+            this.DiscountsLabel.TabIndex = 40;
+            this.DiscountsLabel.Text = "Discounts:";
+            // 
+            // DiscountAmountDigitLabel
+            // 
+            this.DiscountAmountDigitLabel.AutoSize = true;
+            this.DiscountAmountDigitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DiscountAmountDigitLabel.Location = new System.Drawing.Point(647, 377);
+            this.DiscountAmountDigitLabel.Name = "DiscountAmountDigitLabel";
+            this.DiscountAmountDigitLabel.Size = new System.Drawing.Size(21, 24);
+            this.DiscountAmountDigitLabel.TabIndex = 42;
+            this.DiscountAmountDigitLabel.Text = "0";
+            // 
+            // DiscountAmountLabel
+            // 
+            this.DiscountAmountLabel.AutoSize = true;
+            this.DiscountAmountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DiscountAmountLabel.Location = new System.Drawing.Point(648, 364);
+            this.DiscountAmountLabel.Name = "DiscountAmountLabel";
+            this.DiscountAmountLabel.Size = new System.Drawing.Size(107, 13);
+            this.DiscountAmountLabel.TabIndex = 41;
+            this.DiscountAmountLabel.Text = "Discount Amount:";
+            // 
             // CartsTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.DiscountAmountDigitLabel);
+            this.Controls.Add(this.DiscountAmountLabel);
+            this.Controls.Add(this.DiscountsLabel);
+            this.Controls.Add(this.DiscountCheckedListBox);
+            this.Controls.Add(this.TotalDigitLabel);
+            this.Controls.Add(this.TotalLabel);
             this.Controls.Add(this.AmountDigitLabel);
             this.Controls.Add(this.AmountLabel);
             this.Controls.Add(this.ButtonsPanel2);
@@ -241,5 +312,11 @@
         private System.Windows.Forms.Label AmountDigitLabel;
         private System.Windows.Forms.Button RemoveItemButton;
         private System.Windows.Forms.Button ClearCartButton;
+        private System.Windows.Forms.Label TotalDigitLabel;
+        private System.Windows.Forms.Label TotalLabel;
+        private System.Windows.Forms.CheckedListBox DiscountCheckedListBox;
+        private System.Windows.Forms.Label DiscountsLabel;
+        private System.Windows.Forms.Label DiscountAmountDigitLabel;
+        private System.Windows.Forms.Label DiscountAmountLabel;
     }
 }

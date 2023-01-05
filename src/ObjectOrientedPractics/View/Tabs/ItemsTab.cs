@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Services;
 using System.ComponentModel;
+using ObjectOrientedPractics.Model.Enums;
 
 namespace ObjectOrientedPractics.View.Tabs
 {

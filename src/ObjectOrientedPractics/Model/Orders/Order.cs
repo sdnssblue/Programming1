@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using ObjectOrientedPractics.Model.Enums;
 
-namespace ObjectOrientedPractics.Model
+namespace ObjectOrientedPractics.Model.Orders
 {
     public class Order
     {
-        /// <summary>
-        /// Количество всех заказов.
-        /// </summary>
-        private static int _allOrdersCount;
-
         /// <summary>
         /// Уникальный идентификатор заказа.
         /// </summary>
@@ -35,6 +31,14 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         private double _amount;
 
+        /// <summary>
+        /// Количество всех заказов.
+        /// </summary>
+        private static int _allOrdersCount;
+
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Order"/>. 
+        /// </summary>
         public Order()
         {
             _allOrdersCount++;
@@ -42,6 +46,12 @@ namespace ObjectOrientedPractics.Model
             _dateOfCreate = DateTime.Today.ToString();
         }
 
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Order"/>. 
+        /// </summary>
+        /// <param name="status">Статус заказа.</param>
+        /// <param name="address">Адрес.</param>
+        /// <param name="items">Товары.</param>
         public Order(OrderStatus status, Address address, List<Item> items)
         {
             Status = status;
@@ -50,6 +60,14 @@ namespace ObjectOrientedPractics.Model
             _allOrdersCount++;
             _id = _allOrdersCount;
             _dateOfCreate = DateTime.Today.ToString();
+        }
+
+        /// <summary>
+        /// Возвращает итоговую стоимость заказа.
+        /// </summary>
+        public double Total
+        {
+            get => Amount - DiscountAmount;
         }
 
         /// <summary>
@@ -122,6 +140,11 @@ namespace ObjectOrientedPractics.Model
 
             }
         }
+
+        /// <summary>
+        /// Возвращает и задает скидку на товары.
+        /// </summary>
+        public double DiscountAmount { get; set; }
 
         /// <summary>
         /// Возвращает и задает состояние заказа.

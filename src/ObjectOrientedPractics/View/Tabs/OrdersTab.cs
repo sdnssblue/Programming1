@@ -3,6 +3,8 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using ObjectOrientedPractics.Model;
 using System.ComponentModel;
+using ObjectOrientedPractics.Model.Orders;
+using ObjectOrientedPractics.Model.Enums;
 
 namespace ObjectOrientedPractics.View.Tabs
 {

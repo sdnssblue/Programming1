@@ -14,7 +14,7 @@ namespace ObjectOrientedPractics.Services
         /// <param name="value">Число.</param>
         /// <param name="minValueCost">Левая граница диапазона (минимальное значение).</param>
         /// <param name="maxValueCost">Правая граница диапазона (максимальное значение).</param>
-        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentException">Выбрасывается, если число находится вне установленного диапазона.</exception>
         public static void AssertValueInRange(string nameProperty, double value, double minValueCost, double maxValueCost)
         {
             if (value < minValueCost || value > maxValueCost)
@@ -30,7 +30,7 @@ namespace ObjectOrientedPractics.Services
         /// <param name="nameProperty">Имя свойства, откуда был вызван метод.</param>
         /// <param name="value">Число.</param>
         /// <param name="maxLength">Максимальная длина.</param>
-        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentException">Выбрасывается, когда количество символов строки превышает предел.</exception>
         public static void AssertStringOnLength(string nameProperty, string value, int maxLength)
         {
             if (value.Length > maxLength)
@@ -53,6 +53,21 @@ namespace ObjectOrientedPractics.Services
             {
                 throw new ArgumentException(
                     $"the number of digits in {nameProperty} must be equal to {length}.");
+            }
+        }
+
+        /// <summary>
+        /// Проверка на то, что значение является положительным числом.
+        /// </summary>
+        /// <param name="nameProperty">Имя свойства, откуда был вызван метод.</param>
+        /// <param name="value">Число.</param>
+        /// <exception cref="ArgumentException">Выбрасывается, когда число меньше или равно нулю.</exception>
+        public static void AssertOnPositiveValue(string nameProperty, double value)
+        {
+            if (value < 0)
+            {
+                throw new ArgumentException(
+                    $"the value of the {nameProperty} field must be positive");
             }
         }
     }
