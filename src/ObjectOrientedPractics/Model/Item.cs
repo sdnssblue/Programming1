@@ -1,4 +1,5 @@
-﻿using ObjectOrientedPractics.Model.Enums;
+﻿using System;
+using ObjectOrientedPractics.Model.Enums;
 using ObjectOrientedPractics.Services;
 
 namespace ObjectOrientedPractics.Model
@@ -8,6 +9,12 @@ namespace ObjectOrientedPractics.Model
     /// </summary>
     public class Item
     {
+        public event EventHandler<EventArgs> NameChanged;
+
+        public event EventHandler<EventArgs> InfoChanged;
+
+        public event EventHandler<EventArgs> CostChanged;
+
         /// <summary>
         /// Количество всех товаров.
         /// </summary>
@@ -64,7 +71,11 @@ namespace ObjectOrientedPractics.Model
             set
             {
                 ValueValidator.AssertStringOnLength(nameof(Name), value, InitialConstants.MaxLengthName);
-                _name = value;
+                if (_name != value)
+                {
+                    _name = value;
+                    NameChanged?.Invoke(this, EventArgs.Empty);
+                }
             }
         }
 
@@ -78,7 +89,11 @@ namespace ObjectOrientedPractics.Model
             set
             {
                 ValueValidator.AssertStringOnLength(nameof(Info), value, InitialConstants.MaxLengthInfo);
-                _info = value;
+                if (_info != value)
+                {
+                    _info = value;
+                    InfoChanged?.Invoke(this, EventArgs.Empty);
+                }
             }
         }
 
@@ -92,7 +107,11 @@ namespace ObjectOrientedPractics.Model
             set
             {
                 ValueValidator.AssertValueInRange(nameof(Cost), value, InitialConstants.MinValueCost, InitialConstants.MaxValueCost);
-                _cost = value;
+                if (_cost != value)
+                {
+                    _cost = value;
+                    CostChanged?.Invoke(this, EventArgs.Empty);
+                }
             }
         }
 

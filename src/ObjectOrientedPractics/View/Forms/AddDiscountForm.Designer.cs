@@ -64,6 +64,7 @@
             // 
             // OkeyButton
             // 
+            this.OkeyButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.OkeyButton.Location = new System.Drawing.Point(108, 80);
             this.OkeyButton.Name = "OkeyButton";
             this.OkeyButton.Size = new System.Drawing.Size(104, 39);

@@ -36,8 +36,8 @@ namespace ObjectOrientedPractics.View
             CustomersTab.Customers = _store.Customers;
             CartsTab.Items = _store.Items;
             CartsTab.Customers = _store.Customers;
-
-            //PriorityOrdersTab.Items = _store.Items;
+            OrdersTab.Customers = _store.Customers;
+            ItemsTab.ItemsChanged += ItemsTab_ItemsChanged;
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -45,19 +45,28 @@ namespace ObjectOrientedPractics.View
             ProjectSerializer.Serialize("Store", _store);
         }
 
-        private void TabControl_SelectedIndexChanged(object sender, EventArgs e)
+        private void ItemsTab_ItemsChanged(object sender, EventArgs args)
         {
-            if (TabControl.SelectedIndex == 2)
-            {
-                CartsTab.Items = ItemsTab.Items;
-                CartsTab.Customers = CustomersTab.Customers;
-                CartsTab.RefreshData();
-            }
-            else if (TabControl.SelectedIndex == 3)
-            {
-                OrdersTab.Customers = CartsTab.Customers;
-                OrdersTab.RefreshData();
-            }
+            CartsTab.Items = ItemsTab.Items;
+            CartsTab.Customers = CustomersTab.Customers;
+            OrdersTab.Customers = CartsTab.Customers;
+            OrdersTab.RefreshData();
+            CartsTab.RefreshData();
         }
+
+        //private void TabControl_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (TabControl.SelectedIndex == 2)
+        //    {
+        //        CartsTab.Items = ItemsTab.Items;
+        //        CartsTab.Customers = CustomersTab.Customers;
+        //        CartsTab.RefreshData();
+        //    }
+        //    else if (TabControl.SelectedIndex == 3)
+        //    {
+        //        OrdersTab.Customers = CartsTab.Customers;
+        //        OrdersTab.RefreshData();
+        //    }
+        //}
     }
 }

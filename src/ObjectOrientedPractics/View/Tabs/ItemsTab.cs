@@ -13,6 +13,8 @@ namespace ObjectOrientedPractics.View.Tabs
     /// </summary>
     public partial class ItemsTab : UserControl
     {
+        public event EventHandler<EventArgs> ItemsChanged;
+
         /// <summary>
         /// Коллекция товаров.
         /// </summary>
@@ -98,6 +100,7 @@ namespace ObjectOrientedPractics.View.Tabs
             _currentItem = item;
             ItemsListBox.Items.Add(FormattedText(_currentItem));
             _items.Add(item);
+            ItemsChanged?.Invoke(this, EventArgs.Empty);
         }
 
         private void RemoveButton_Click(object sender, System.EventArgs e)
@@ -108,7 +111,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
             _items.RemoveAt(index);
             ItemsListBox.Items.RemoveAt(index);
-
+            ItemsChanged?.Invoke(this, EventArgs.Empty);
             ClearItemsInfo();
         }
 
@@ -136,6 +139,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 int itemCost = int.Parse(itemCurrentCost);
                 _currentItem.Cost = itemCost;
                 int index = _items.IndexOf(_currentItem);
+                ItemsChanged?.Invoke(this, EventArgs.Empty);
                 UpdateItemInfo(index);
             }
             catch
@@ -155,6 +159,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 string itemCurrentName = NameTextBox.Text;
                 _currentItem.Name = itemCurrentName;
                 int index = _items.IndexOf(_currentItem);
+                ItemsChanged?.Invoke(this, EventArgs.Empty);
                 UpdateItemInfo(index);
             }
             catch
@@ -167,13 +172,14 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void DescriptionTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (ItemsListBox.SelectedIndex == -1)
-                return;
+            if (ItemsListBox.SelectedIndex == -1) return;
+
             try
             {
                 string itemCurrentDescription = DescriptionTextBox.Text;
                 _currentItem.Info = itemCurrentDescription;
                 int index = _items.IndexOf(_currentItem);
+                ItemsChanged?.Invoke(this, EventArgs.Empty);
                 UpdateItemInfo(index);
             }
             catch
@@ -190,6 +196,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
             _currentItem.Category = (Category)CategoryComboBox.SelectedItem;
             int index = _items.IndexOf(_currentItem);
+            ItemsChanged?.Invoke(this, EventArgs.Empty);
             UpdateItemInfo(index);
         }
     }
