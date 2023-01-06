@@ -182,10 +182,11 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // DiscountsListBox
             // 
+            this.DiscountsListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DiscountsListBox.FormattingEnabled = true;
             this.DiscountsListBox.Location = new System.Drawing.Point(352, 265);
             this.DiscountsListBox.Name = "DiscountsListBox";
-            this.DiscountsListBox.Size = new System.Drawing.Size(295, 95);
+            this.DiscountsListBox.Size = new System.Drawing.Size(295, 91);
             this.DiscountsListBox.TabIndex = 40;
             // 
             // AddDiscountButton

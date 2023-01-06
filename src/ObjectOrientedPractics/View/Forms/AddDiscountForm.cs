@@ -35,17 +35,5 @@ namespace ObjectOrientedPractics.View.Forms
         {
             Close();
         }
-
-        //private void OkeyButton_Click(object sender, EventArgs e)
-        //{
-        //    PercentDiscount percentDiscount = new PercentDiscount((Category)CategoryComboBox.SelectedItem);
-        //    PercentDiscount = percentDiscount;
-        //    Close();
-        //}
-
-        //private void CancelButton_Click(object sender, EventArgs e)
-        //{
-        //    Close();
-        //}
     }
 }

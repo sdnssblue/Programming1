@@ -17,6 +17,7 @@ namespace ObjectOrientedPractics.Services
             item.Cost = 0;
             item.Name = "Name";
             item.Info = "Description";
+
             return item;
         }
     }

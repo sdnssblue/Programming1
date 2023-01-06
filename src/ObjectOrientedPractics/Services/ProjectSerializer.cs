@@ -66,7 +66,7 @@ namespace ObjectOrientedPractics.Services
             
             using (StreamReader reader = new StreamReader(Path + nameFile))
             {
-                    store = JsonConvert.DeserializeObject<Store>(reader.ReadToEnd());
+                    store = JsonConvert.DeserializeObject<Store>(reader.ReadToEnd(), settings);
             }
 
             return store;

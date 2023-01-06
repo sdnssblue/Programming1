@@ -96,7 +96,8 @@ namespace ObjectOrientedPractics.View.Tabs
                 {
                     _orders.Add(order);
                     OrdersDataGridView.Rows.Add(order.Id.ToString(), order.DateOfCreate,
-                        order.Status, customer.FullName, fullAddress, order.Amount.ToString());
+                        order.Status, customer.FullName, fullAddress, 
+                        order.Amount.ToString(), order.Total.ToString());
                 }
             }
         }
