@@ -29,50 +29,35 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void InitializeComponent()
         {
+            ObjectOrientedPractics.Model.Address address1 = new ObjectOrientedPractics.Model.Address();
             this.SelectedCustomerLabel = new System.Windows.Forms.Label();
-            this.AddressTextBox = new System.Windows.Forms.TextBox();
-            this.AddressLabel = new System.Windows.Forms.Label();
             this.FullNameTextBox = new System.Windows.Forms.TextBox();
             this.FullNameLabel = new System.Windows.Forms.Label();
             this.IDLabel = new System.Windows.Forms.Label();
             this.CustomersListBox = new System.Windows.Forms.ListBox();
             this.CustomersLabel = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.ButtonsPanel = new System.Windows.Forms.TableLayoutPanel();
             this.RemoveButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.IDTextBox = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.IsPriorityCheckBox = new System.Windows.Forms.CheckBox();
+            this.DiscountsLabel = new System.Windows.Forms.Label();
+            this.DiscountsListBox = new System.Windows.Forms.ListBox();
+            this.AddDiscountButton = new System.Windows.Forms.Button();
+            this.RemoveDiscountButton = new System.Windows.Forms.Button();
+            this.AddressControl = new ObjectOrientedPractics.View.Controls.AddressControl();
+            this.ButtonsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // SelectedCustomerLabel
             // 
             this.SelectedCustomerLabel.AutoSize = true;
             this.SelectedCustomerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SelectedCustomerLabel.Location = new System.Drawing.Point(342, 9);
+            this.SelectedCustomerLabel.Location = new System.Drawing.Point(349, 9);
             this.SelectedCustomerLabel.Name = "SelectedCustomerLabel";
             this.SelectedCustomerLabel.Size = new System.Drawing.Size(113, 13);
             this.SelectedCustomerLabel.TabIndex = 34;
             this.SelectedCustomerLabel.Text = "Selected Customer";
-            // 
-            // AddressTextBox
-            // 
-            this.AddressTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddressTextBox.Location = new System.Drawing.Point(421, 93);
-            this.AddressTextBox.Multiline = true;
-            this.AddressTextBox.Name = "AddressTextBox";
-            this.AddressTextBox.Size = new System.Drawing.Size(302, 141);
-            this.AddressTextBox.TabIndex = 31;
-            this.AddressTextBox.TextChanged += new System.EventHandler(this.AddressTextBox_TextChanged);
-            // 
-            // AddressLabel
-            // 
-            this.AddressLabel.AutoSize = true;
-            this.AddressLabel.Location = new System.Drawing.Point(356, 93);
-            this.AddressLabel.Name = "AddressLabel";
-            this.AddressLabel.Size = new System.Drawing.Size(48, 13);
-            this.AddressLabel.TabIndex = 30;
-            this.AddressLabel.Text = "Address:";
             // 
             // FullNameTextBox
             // 
@@ -81,7 +66,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.FullNameTextBox.Location = new System.Drawing.Point(421, 61);
             this.FullNameTextBox.MinimumSize = new System.Drawing.Size(100, 20);
             this.FullNameTextBox.Name = "FullNameTextBox";
-            this.FullNameTextBox.Size = new System.Drawing.Size(302, 20);
+            this.FullNameTextBox.Size = new System.Drawing.Size(336, 20);
             this.FullNameTextBox.TabIndex = 29;
             this.FullNameTextBox.TextChanged += new System.EventHandler(this.FullNameTextBox_TextChanged);
             // 
@@ -125,21 +110,21 @@ namespace ObjectOrientedPractics.View.Tabs
             this.CustomersLabel.TabIndex = 22;
             this.CustomersLabel.Text = "Customers";
             // 
-            // tableLayoutPanel1
+            // ButtonsPanel
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Controls.Add(this.RemoveButton, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.AddButton, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 451);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(330, 45);
-            this.tableLayoutPanel1.TabIndex = 35;
+            this.ButtonsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ButtonsPanel.ColumnCount = 3;
+            this.ButtonsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.ButtonsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.ButtonsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.ButtonsPanel.Controls.Add(this.RemoveButton, 1, 0);
+            this.ButtonsPanel.Controls.Add(this.AddButton, 0, 0);
+            this.ButtonsPanel.Location = new System.Drawing.Point(6, 451);
+            this.ButtonsPanel.Name = "ButtonsPanel";
+            this.ButtonsPanel.RowCount = 1;
+            this.ButtonsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.ButtonsPanel.Size = new System.Drawing.Size(330, 45);
+            this.ButtonsPanel.TabIndex = 35;
             // 
             // RemoveButton
             // 
@@ -171,26 +156,96 @@ namespace ObjectOrientedPractics.View.Tabs
             this.IDTextBox.MinimumSize = new System.Drawing.Size(100, 20);
             this.IDTextBox.Name = "IDTextBox";
             this.IDTextBox.ReadOnly = true;
-            this.IDTextBox.Size = new System.Drawing.Size(100, 20);
+            this.IDTextBox.Size = new System.Drawing.Size(142, 20);
             this.IDTextBox.TabIndex = 36;
+            // 
+            // IsPriorityCheckBox
+            // 
+            this.IsPriorityCheckBox.AutoSize = true;
+            this.IsPriorityCheckBox.Location = new System.Drawing.Point(359, 87);
+            this.IsPriorityCheckBox.Name = "IsPriorityCheckBox";
+            this.IsPriorityCheckBox.Size = new System.Drawing.Size(68, 17);
+            this.IsPriorityCheckBox.TabIndex = 38;
+            this.IsPriorityCheckBox.Text = "Is Priority";
+            this.IsPriorityCheckBox.UseVisualStyleBackColor = true;
+            this.IsPriorityCheckBox.CheckedChanged += new System.EventHandler(this.IsPriorityCheckBox_CheckedChanged);
+            // 
+            // DiscountsLabel
+            // 
+            this.DiscountsLabel.AutoSize = true;
+            this.DiscountsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DiscountsLabel.Location = new System.Drawing.Point(349, 249);
+            this.DiscountsLabel.Name = "DiscountsLabel";
+            this.DiscountsLabel.Size = new System.Drawing.Size(63, 13);
+            this.DiscountsLabel.TabIndex = 39;
+            this.DiscountsLabel.Text = "Discounts";
+            // 
+            // DiscountsListBox
+            // 
+            this.DiscountsListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DiscountsListBox.FormattingEnabled = true;
+            this.DiscountsListBox.Location = new System.Drawing.Point(352, 265);
+            this.DiscountsListBox.Name = "DiscountsListBox";
+            this.DiscountsListBox.Size = new System.Drawing.Size(295, 91);
+            this.DiscountsListBox.TabIndex = 40;
+            // 
+            // AddDiscountButton
+            // 
+            this.AddDiscountButton.Location = new System.Drawing.Point(653, 265);
+            this.AddDiscountButton.Name = "AddDiscountButton";
+            this.AddDiscountButton.Size = new System.Drawing.Size(104, 39);
+            this.AddDiscountButton.TabIndex = 41;
+            this.AddDiscountButton.Text = "Add";
+            this.AddDiscountButton.UseVisualStyleBackColor = true;
+            this.AddDiscountButton.Click += new System.EventHandler(this.AddDiscountButton_Click);
+            // 
+            // RemoveDiscountButton
+            // 
+            this.RemoveDiscountButton.Location = new System.Drawing.Point(653, 310);
+            this.RemoveDiscountButton.Name = "RemoveDiscountButton";
+            this.RemoveDiscountButton.Size = new System.Drawing.Size(104, 39);
+            this.RemoveDiscountButton.TabIndex = 42;
+            this.RemoveDiscountButton.Text = "Remove";
+            this.RemoveDiscountButton.UseVisualStyleBackColor = true;
+            this.RemoveDiscountButton.Click += new System.EventHandler(this.RemoveDiscountButton_Click);
+            // 
+            // AddressControl
+            // 
+            address1.Apartment = "";
+            address1.Building = "";
+            address1.City = "";
+            address1.Country = "";
+            address1.Index = 100000;
+            address1.Street = "";
+            this.AddressControl.Address = address1;
+            this.AddressControl.Location = new System.Drawing.Point(342, 110);
+            this.AddressControl.Name = "AddressControl";
+            this.AddressControl.ReadOnly = false;
+            this.AddressControl.Size = new System.Drawing.Size(428, 136);
+            this.AddressControl.TabIndex = 37;
             // 
             // CustomersTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.RemoveDiscountButton);
+            this.Controls.Add(this.AddDiscountButton);
+            this.Controls.Add(this.DiscountsListBox);
+            this.Controls.Add(this.DiscountsLabel);
+            this.Controls.Add(this.IsPriorityCheckBox);
+            this.Controls.Add(this.AddressControl);
             this.Controls.Add(this.IDTextBox);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.ButtonsPanel);
             this.Controls.Add(this.SelectedCustomerLabel);
-            this.Controls.Add(this.AddressTextBox);
-            this.Controls.Add(this.AddressLabel);
             this.Controls.Add(this.FullNameTextBox);
             this.Controls.Add(this.FullNameLabel);
             this.Controls.Add(this.IDLabel);
             this.Controls.Add(this.CustomersListBox);
             this.Controls.Add(this.CustomersLabel);
+            this.MinimumSize = new System.Drawing.Size(773, 504);
             this.Name = "CustomersTab";
-            this.Size = new System.Drawing.Size(731, 504);
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.Size = new System.Drawing.Size(773, 504);
+            this.ButtonsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,16 +254,20 @@ namespace ObjectOrientedPractics.View.Tabs
         #endregion
 
         private System.Windows.Forms.Label SelectedCustomerLabel;
-        private System.Windows.Forms.TextBox AddressTextBox;
-        private System.Windows.Forms.Label AddressLabel;
         private System.Windows.Forms.TextBox FullNameTextBox;
         private System.Windows.Forms.Label FullNameLabel;
         private System.Windows.Forms.Label IDLabel;
         private System.Windows.Forms.ListBox CustomersListBox;
         private System.Windows.Forms.Label CustomersLabel;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel ButtonsPanel;
         private System.Windows.Forms.Button RemoveButton;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.TextBox IDTextBox;
+        private Controls.AddressControl AddressControl;
+        private System.Windows.Forms.CheckBox IsPriorityCheckBox;
+        private System.Windows.Forms.Label DiscountsLabel;
+        private System.Windows.Forms.ListBox DiscountsListBox;
+        private System.Windows.Forms.Button AddDiscountButton;
+        private System.Windows.Forms.Button RemoveDiscountButton;
     }
 }
