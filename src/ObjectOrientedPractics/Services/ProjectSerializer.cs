@@ -1,6 +1,5 @@
 ﻿using System.IO;
 using Newtonsoft.Json;
-using System.Collections.Generic;
 using ObjectOrientedPractics.Model;
 
 namespace ObjectOrientedPractics.Services
@@ -23,6 +22,16 @@ namespace ObjectOrientedPractics.Services
             Path = @"..\..\Data\";
         }
 
+        private static JsonSerializerSettings settings = new JsonSerializerSettings
+        {
+            TypeNameHandling = TypeNameHandling.All
+        };
+
+        /// <summary>
+        /// Проверка на существование файла.
+        /// </summary>
+        /// <param name="nameFile">Имя файла.</param>
+        /// <returns></returns>
         public static bool IsFile(string nameFile)
         {
             return File.Exists(Path + nameFile);
@@ -31,33 +40,36 @@ namespace ObjectOrientedPractics.Services
         /// <summary>
         /// Проводит сериализацию данных.
         /// </summary>
-        /// <param name="listObject">Коллекция класса <see cref="Item"/></param>
-        public static void Serialize<T>(string nameFile, List<T> listObject)
+        /// <param name="nameFile">Имя файла для сохранения.</param>
+        /// <param name="obj">Имя объекта для сохранения.</param>
+        public static void Serialize(string nameFile, object obj)
         {
             using (StreamWriter writer = new StreamWriter(Path + nameFile))
             {
-                writer.Write(JsonConvert.SerializeObject(listObject));
+                writer.Write(JsonConvert.SerializeObject(obj, settings));
             }
         }
 
         /// <summary>
         /// Проводит десериализацию данных.
         /// </summary>
-        /// <returns>Возвращает коллекцию товаров.</returns>
-        public static List<T> Deserialize<T>(string nameFile)
+        /// <param name="nameFile">Имя файла для загрузки объектов.</param>
+        /// <returns>Объект типа <see cref="Store"/></returns>
+        public static Store Deserialize(string nameFile)
         {
             if (!File.Exists(Path))
             {
                 Directory.CreateDirectory(Path);
             }
 
-            var items = new List<T>();
+            Store store;
             
             using (StreamReader reader = new StreamReader(Path + nameFile))
             {
-                    items = JsonConvert.DeserializeObject<List<T>>(reader.ReadToEnd());
+                    store = JsonConvert.DeserializeObject<Store>(reader.ReadToEnd(), settings);
             }
-            return items;
+
+            return store;
         }
     }
 }

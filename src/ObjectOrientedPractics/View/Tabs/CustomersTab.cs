@@ -3,11 +3,15 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Services;
+using ObjectOrientedPractics.View.Controls;
+using System.ComponentModel;
+using ObjectOrientedPractics.View.Forms;
+using ObjectOrientedPractics.Model.Discounts;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
     /// <summary>
-    /// Реализация по представлению пользователей.
+    /// Реализация по представлению покупателей.
     /// </summary>
     public partial class CustomersTab : UserControl
     {
@@ -27,19 +31,27 @@ namespace ObjectOrientedPractics.View.Tabs
         public CustomersTab()
         {
             InitializeComponent();
-
             _customers = new List<Customer>();
+            IsPriorityCheckBox.Enabled = false;
+        }
 
-            if (ProjectSerializer.IsFile(nameof(Customer)))
+        /// <summary>
+        /// Возвращает и задает коллекцию покупателей.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public List<Customer> Customers
+        {
+            get => _customers;
+            set
             {
-                _customers = ProjectSerializer.Deserialize<Customer>(nameof(Customer));
+                _customers = value;
 
-                foreach (var item in _customers)
+                if (_customers != null)
                 {
-                    CustomersListBox.Items.Add(item.FullName);
+                    UpdateCustomerInfo(-1);
                 }
-
-                CustomersListBox.SelectedIndex = _customers.Count - 1;
             }
         }
 
@@ -50,7 +62,19 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             IDTextBox.Clear();
             FullNameTextBox.Clear();
-            AddressTextBox.Clear();
+            AddressControl.Clear();
+            DiscountsListBox.Items.Clear();
+            IsPriorityCheckBox.Checked = false;
+        }
+
+        private void UpdateDiscountsListBox()
+        {
+            DiscountsListBox.Items.Clear();
+
+            foreach (var discount in _currentCustomer.Discounts)
+            {
+                DiscountsListBox.Items.Add(discount.Info);
+            }
         }
 
         /// <summary>
@@ -63,11 +87,10 @@ namespace ObjectOrientedPractics.View.Tabs
 
             foreach (Customer customer in _customers)
             {
-                CustomersListBox.Items.Add($"{customer.Id}: " + $"{customer.FullName};");
+                CustomersListBox.Items.Add(FormattedText(customer));
             }
 
-            if (selectedIndex == -1) return;
-
+            if (selectedIndex == -1) AddressControl.Enabled = false;
             CustomersListBox.SelectedIndex = selectedIndex;
         }
 
@@ -76,15 +99,16 @@ namespace ObjectOrientedPractics.View.Tabs
             return $"{customer.Id}: " + $"{customer.FullName};";
         }
 
-        private void AddButton_Click(object sender, System.EventArgs e)
+        private void AddButton_Click(object sender, EventArgs e)
         {
             Customer customer = CustomerFactory.DefaultCustomer();
             _currentCustomer = customer;
             CustomersListBox.Items.Add(FormattedText(_currentCustomer));
             _customers.Add(customer);
+            UpdateCustomerInfo(0);
         }
 
-        private void RemoveButton_Click(object sender, System.EventArgs e)
+        private void RemoveButton_Click(object sender, EventArgs e)
         {
             int index = CustomersListBox.SelectedIndex;
 
@@ -92,7 +116,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
             _customers.RemoveAt(index);
             CustomersListBox.Items.RemoveAt(index);
-
+            UpdateCustomerInfo(-1);
             ClearCustomersInfo();
         }
 
@@ -100,18 +124,33 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             if (CustomersListBox.SelectedItem != null)
             {
-                int indexSelectedCustomer = CustomersListBox.SelectedIndex;
-                _currentCustomer = _customers[indexSelectedCustomer];
+                int index = CustomersListBox.SelectedIndex;
+
+                if (index == -1)
+                {
+                    AddressControl.Enabled = false;
+                    IsPriorityCheckBox.Enabled = false;
+                    return;
+                }
+
+                AddressControl.Enabled = true;
+                IsPriorityCheckBox.Enabled = true;
+
+                _currentCustomer = _customers[index];
+
+                IsPriorityCheckBox.Checked = _currentCustomer.IsPriority;
                 IDTextBox.Text = _currentCustomer.Id.ToString();
                 FullNameTextBox.Text = _currentCustomer.FullName;
-                AddressTextBox.Text = _currentCustomer.Address;
+                AddressControl.Address = _currentCustomer.Address;
+                UpdateDiscountsListBox();
             }
+
         }
 
         private void FullNameTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (CustomersListBox.SelectedIndex == -1)
-                return;
+            if (CustomersListBox.SelectedIndex == -1) return;
+
             try
             {
                 string customerCurrentFullName = FullNameTextBox.Text;
@@ -127,28 +166,34 @@ namespace ObjectOrientedPractics.View.Tabs
             FullNameTextBox.BackColor = AppColors.CorrectColor;
         }
 
-        private void AddressTextBox_TextChanged(object sender, EventArgs e)
+        private void IsPriorityCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (CustomersListBox.SelectedIndex == -1)
-                return;
-            try
-            {
-                string customerCurrentAddress = AddressTextBox.Text;
-                _currentCustomer.Address = customerCurrentAddress;
-                int index = _customers.IndexOf(_currentCustomer);
-                UpdateCustomerInfo(index);
-            }
-            catch
-            {
-                AddressTextBox.BackColor = AppColors.ErrorColor;
-                return;
-            }
-            AddressTextBox.BackColor = AppColors.CorrectColor;
+            _currentCustomer.IsPriority = IsPriorityCheckBox.Checked;
         }
 
-        public void SaveCustomersData()
+        private void AddDiscountButton_Click(object sender, EventArgs e)
         {
-            ProjectSerializer.Serialize(nameof(Customer), _customers);
+            AddDiscountForm addDiscountForm = new AddDiscountForm();
+            if (addDiscountForm.ShowDialog() == DialogResult.OK)
+            {
+                foreach (var discount in _currentCustomer.Discounts)
+                {
+                    if (discount is PointsDiscount) continue;
+                    if (((PercentDiscount)discount).Category ==
+                        addDiscountForm.PercentDiscount.Category) return;
+                }
+                _currentCustomer.Discounts.Add(addDiscountForm.PercentDiscount);
+                UpdateDiscountsListBox();
+            }
+        }
+
+        private void RemoveDiscountButton_Click(object sender, EventArgs e)
+        {
+            int index = DiscountsListBox.SelectedIndex;
+            if (index == -1) return;
+            if (index == 0) return;
+            _currentCustomer.Discounts.RemoveAt(index);
+            UpdateDiscountsListBox();
         }
     }
 }

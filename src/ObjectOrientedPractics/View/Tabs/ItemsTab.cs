@@ -3,6 +3,8 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Services;
+using System.ComponentModel;
+using ObjectOrientedPractics.Model.Enums;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
@@ -11,6 +13,8 @@ namespace ObjectOrientedPractics.View.Tabs
     /// </summary>
     public partial class ItemsTab : UserControl
     {
+        public event EventHandler<EventArgs> ItemsChanged;
+
         /// <summary>
         /// Коллекция товаров.
         /// </summary>
@@ -27,20 +31,33 @@ namespace ObjectOrientedPractics.View.Tabs
         public ItemsTab()
         {
             InitializeComponent();
-            
-            _items = new List<Item>();
 
-            if (ProjectSerializer.IsFile(nameof(Item)))
+            var category = Enum.GetValues(typeof(Category));
+
+            foreach (var value in category)
             {
-                _items = ProjectSerializer.Deserialize<Item>(nameof(Item));
+                CategoryComboBox.Items.Add(value);
+            }
+        }
 
-                foreach (var item in _items)
+        /// <summary>
+        /// Возвращает и задает коллекцию товаров.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public List<Item> Items
+        {
+            get => _items;
+            set
+            {
+                _items = value;
+
+                if (_items != null)
                 {
-                    ItemsListBox.Items.Add(item.Name);
+                    UpdateItemInfo(-1);
                 }
-
-                ItemsListBox.SelectedIndex = _items.Count - 1;
-            }   
+            }
         }
 
         /// <summary>
@@ -83,6 +100,7 @@ namespace ObjectOrientedPractics.View.Tabs
             _currentItem = item;
             ItemsListBox.Items.Add(FormattedText(_currentItem));
             _items.Add(item);
+            ItemsChanged?.Invoke(this, EventArgs.Empty);
         }
 
         private void RemoveButton_Click(object sender, System.EventArgs e)
@@ -93,7 +111,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
             _items.RemoveAt(index);
             ItemsListBox.Items.RemoveAt(index);
-
+            ItemsChanged?.Invoke(this, EventArgs.Empty);
             ClearItemsInfo();
         }
 
@@ -107,6 +125,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 CostTextBox.Text = _currentItem.Cost.ToString();
                 NameTextBox.Text = _currentItem.Name;
                 DescriptionTextBox.Text = _currentItem.Info;
+                CategoryComboBox.SelectedItem = _currentItem.Category;
             }
         }
 
@@ -120,6 +139,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 int itemCost = int.Parse(itemCurrentCost);
                 _currentItem.Cost = itemCost;
                 int index = _items.IndexOf(_currentItem);
+                ItemsChanged?.Invoke(this, EventArgs.Empty);
                 UpdateItemInfo(index);
             }
             catch
@@ -139,6 +159,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 string itemCurrentName = NameTextBox.Text;
                 _currentItem.Name = itemCurrentName;
                 int index = _items.IndexOf(_currentItem);
+                ItemsChanged?.Invoke(this, EventArgs.Empty);
                 UpdateItemInfo(index);
             }
             catch
@@ -151,13 +172,14 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void DescriptionTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (ItemsListBox.SelectedIndex == -1)
-                return;
+            if (ItemsListBox.SelectedIndex == -1) return;
+
             try
             {
                 string itemCurrentDescription = DescriptionTextBox.Text;
                 _currentItem.Info = itemCurrentDescription;
                 int index = _items.IndexOf(_currentItem);
+                ItemsChanged?.Invoke(this, EventArgs.Empty);
                 UpdateItemInfo(index);
             }
             catch
@@ -168,9 +190,14 @@ namespace ObjectOrientedPractics.View.Tabs
             DescriptionTextBox.BackColor = AppColors.CorrectColor;
         }
 
-        public void SaveItemsData()
+        private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ProjectSerializer.Serialize(nameof(Item), _items);
+            if (ItemsListBox == null) return;
+
+            _currentItem.Category = (Category)CategoryComboBox.SelectedItem;
+            int index = _items.IndexOf(_currentItem);
+            ItemsChanged?.Invoke(this, EventArgs.Empty);
+            UpdateItemInfo(index);
         }
     }
 }
