@@ -4,12 +4,11 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
-    <AssemblyName>Contacts</AssemblyName>
-    <RootNamespace>Contacts</RootNamespace>
+    <AssemblyName>View</AssemblyName>
+    <RootNamespace>View</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Model\" />
     <Folder Include="ViewModel\" />
   </ItemGroup>
 

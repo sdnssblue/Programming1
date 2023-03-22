@@ -5,8 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Contacts"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+        Title="MainWindow" Height="400" Width="500"
+        MinHeight="400" MinWidth="500">
+    <Grid Margin="15px">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.125*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="9px"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <GroupBox x:Name="EditContactGroupBox" Grid.Row="0" Grid.Column="0" Header="Edit Contact">
+            <StackPanel>
+                <TextBlock Text="Name:" Margin="3px"/>
+                <TextBox Margin="3"/>
+                <TextBlock Text="PhoneNumber:" Margin="3px"/>
+                <TextBox Margin="3"/>
+                <TextBlock Text="Email:" Margin="3px"/>
+                <TextBox Margin="3"/>
+            </StackPanel>
+        </GroupBox>
+        <GridSplitter Grid.Row="0" Grid.Column="1"/>
+        <GroupBox x:Name="ReadContactGroupBox" Grid.Row="0" Grid.Column="2" Header="Read Contact">
+            <StackPanel>
+                <TextBlock Text="Name:" Margin="3px"/>
+                <TextBlock Margin="3" FontWeight="Bold"/>
+                <TextBlock Text="PhoneNumber:" Margin="3px"/>
+                <TextBlock Margin="3" FontWeight="Bold"/>
+                <TextBlock Text="Email:" Margin="3px"/>
+                <TextBlock Margin="3" FontWeight="Bold"/>
+            </StackPanel>
+        </GroupBox>
+        <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal" FlowDirection="RightToLeft">
+            <Button x:Name="LoadButton" Content="Load" Margin="3" Width="75" Height="25"/>
+            <Button x:Name="SaveButton" Content="Save" Margin="3" Width="75" Height="25"/>
+        </StackPanel>
     </Grid>
 </Window>
