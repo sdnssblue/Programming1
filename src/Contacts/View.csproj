@@ -20,8 +20,4 @@
     <Resource Include="contacts_96x96.ico" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Model\Services\" />
-  </ItemGroup>
-
 </Project>
