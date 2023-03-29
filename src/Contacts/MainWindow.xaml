@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Contacts"
         mc:Ignorable="d"
-        Icon="/contacts_96x96.ico"
+        Icon="Resources/contacts_96x96.ico"
         Title="Contacts" 
         Height="400px"
         Width="500px"
