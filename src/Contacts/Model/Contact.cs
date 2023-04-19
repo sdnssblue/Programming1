@@ -5,6 +5,13 @@
     /// </summary>
     public class Contact
     {
+        private string _name;
+
+        private string _phoneNumber;
+
+        private string _email;
+
+
         /// <summary>
         /// Создает экземпляр класса <see cref="Contact"/>
         /// </summary>
@@ -29,16 +36,37 @@
         /// <summary>
         /// Возвращает и задает имя контакта.
         /// </summary>
-        public string Name { get; set; }
+        public string Name
+        {
+            get => _name;
+            set
+            {
+                _name = value;
+            }
+        }
 
         /// <summary>
         /// Возвращает и задает номер телефона контакта.
         /// </summary>
-        public string PhoneNumber { get; set; }
+        public string PhoneNumber
+        {
+            get => _phoneNumber;
+            set
+            {
+                _phoneNumber = value;
+            }
+        }
 
         /// <summary>
         /// Возвращает и задает адрес электронной почты контакта.
         /// </summary>
-        public string Email { get; set; }
+        public string Email
+        {
+            get => _email;
+            set
+            {
+                _email = value;
+            }
+        }
     }
 }
