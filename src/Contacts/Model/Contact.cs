@@ -5,10 +5,19 @@
     /// </summary>
     public class Contact
     {
+        /// <summary>
+        /// Имя контакта.
+        /// </summary>
         private string _name;
 
+        /// <summary>
+        /// Номер телефона контакта.
+        /// </summary>
         private string _phoneNumber;
 
+        /// <summary>
+        /// Адрес электронной почты контакта.
+        /// </summary>
         private string _email;
 
 

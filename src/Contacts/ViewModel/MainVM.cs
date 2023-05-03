@@ -65,13 +65,10 @@ namespace View.ViewModel
         /// </summary>
         public ICommand SaveCommand
         {
-            get
+            get => new RelayCommand((obj) =>
             {
-                return new RelayCommand((obj) =>
-                {
                     ContactSerializer.Serialize(Contact, Path);
-                });
-            }
+            });
         }
 
         /// <summary>

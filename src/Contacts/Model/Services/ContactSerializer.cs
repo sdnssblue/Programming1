@@ -3,10 +3,13 @@ using System.IO;
 
 namespace View.Model.Services
 {
+    /// <summary>
+    /// Предоставляет реализацию сериалайзера./> 
+    /// </summary>
     public static class ContactSerializer
     {
         /// <summary>
-        /// Сериализацию данных.
+        /// Сериализация данных.
         /// </summary>
         /// <param name="contact">Контакт.</param>
         /// <param name="path">Путь сериализации.</param>
