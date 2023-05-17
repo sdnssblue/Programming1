@@ -7,19 +7,19 @@ using View.ViewModel;
 namespace View.Model.Services
 {
     /// <summary>
-    /// Предоставляет реализацию сериалайзера./> 
+    /// Представляет реализацию сериалайзера./> 
     /// </summary>
     public static class ContactSerializer
     {
         /// <summary>
-        /// Возвращает и задает путь сохранения файла.
+        /// Возвращает и задает путь сохранения файла (Мои документы).
         /// </summary>
         public static string Path { get; set; }
             = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
             + @"\contacts.json";
 
         /// <summary>
-        ///  Проводит сериализацию данных.
+        /// Проводит сериализацию данных.
         /// </summary>
         /// <param name="contacts">Коллекция контактов.</param>
         /// <param name="path">Путь сериализации.</param>
@@ -37,22 +37,20 @@ namespace View.Model.Services
         }
 
         /// <summary>
-        ///  Проводит десериализацию данных.
+        /// Проводит десериализацию данных.
         /// </summary>
         /// <param name="path">Путь десериализации.</param>
         /// <returns>Список контактов.</returns>
         public static ObservableCollection<ContactVM> Deserialize()
         {
-            var contacts = new ObservableCollection<ContactVM>();
+            ObservableCollection<ContactVM> contacts = new ObservableCollection<ContactVM>();
 
             if (File.Exists(Path))
             {
                 using (StreamReader sr = new StreamReader(Path))
                 {
-                    contacts
-                        = JsonConvert.
-                        DeserializeObject<ObservableCollection<ContactVM>>
-                        (sr.ReadToEnd());
+                    contacts = JsonConvert.DeserializeObject
+                    <ObservableCollection<ContactVM>>(sr.ReadToEnd());
                 }
             }
             else

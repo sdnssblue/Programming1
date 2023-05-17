@@ -1,7 +1,5 @@
-﻿using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Xml.Linq;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 using View.Model;
 
 namespace View.ViewModel
@@ -9,13 +7,8 @@ namespace View.ViewModel
     /// <summary>
     /// ViewModel, агрегирующий в себе класс <see cref="Model.Contact"/>
     /// </summary>
-    public class ContactVM : INotifyPropertyChanged, ICloneable
+    public class ContactVM : ObservableObject, ICloneable
     {
-        /// <summary>
-        /// Событие изменения свойства.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
         /// <summary>
         /// Возвращает и получает объект класса <see cref="Model.Contact"/>
         /// </summary>
@@ -35,7 +28,7 @@ namespace View.ViewModel
         }
 
         /// <summary>
-        /// Возвращает и получает телефон контакта.
+        /// Возвращает и получает номер телефона контакта.
         /// </summary>
         public string PhoneNumber
         {
@@ -48,7 +41,7 @@ namespace View.ViewModel
         }
 
         /// <summary>
-        /// Возвращает и получает электронную почту контакта.
+        /// Возвращает и получает адрес электронной почты контакта.
         /// </summary>
         public string Email
         {
@@ -70,16 +63,7 @@ namespace View.ViewModel
         }
 
         /// <summary>
-        /// Вызывает событие при изменении свойств объекта.
-        /// </summary>
-        /// <param name="property">Свойство, вызвавшее событие.</param>
-        public void OnPropertyChanged([CallerMemberName] string property = "")
-        {
-            PropertyChanged.Invoke(this, new PropertyChangedEventArgs(property));
-        }
-
-        /// <summary>
-        /// Создает клон объекта.
+        /// Создает копию объекта.
         /// </summary>
         /// <returns>Объект класса <see cref="ContactVM"/>.</returns>
         public object Clone()
