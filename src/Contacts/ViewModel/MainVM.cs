@@ -66,7 +66,6 @@ namespace View.ViewModel
                 }
 
                 _selectedContact = value;
-                IsReadOnly = true;
 
                 if (SelectedContact == null)
                 {
@@ -179,7 +178,6 @@ namespace View.ViewModel
             {
                 Contacts.Add(SelectedContact);
             }
-            IsReadOnly = true;
             ContactClone = null;
             IsEdit = true;
             IsReadOnly = true;

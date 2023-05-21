@@ -35,19 +35,39 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <Button Grid.Column="0" Height="25" Margin="3" 
-                                    Command="{Binding AddCommand}" Content="Add" IsEnabled="{Binding IsReadOnly}"/>
-                            <Button Grid.Column="1" Height="25" Margin="3" 
-                                    Command="{Binding EditCommand}" Content="Edit" IsEnabled="{Binding IsEdit}"/>
-                            <Button Grid.Column="2" Height="25" Margin="3" 
-                                    Command="{Binding RemoveCommand}" Content="Remove" IsEnabled="{Binding IsEdit}"/>
+                            <Button Grid.Column="0" 
+                                    Height="25" 
+                                    Margin="3" 
+                                    Command="{Binding AddCommand}" 
+                                    Content="Add" 
+                                    IsEnabled="{Binding IsReadOnly}"/>
+                            <Button Grid.Column="1" 
+                                    Height="25" 
+                                    Margin="3" 
+                                    Command="{Binding EditCommand}" 
+                                    Content="Edit" 
+                                    IsEnabled="{Binding IsEdit}"/>
+                            <Button Grid.Column="2" 
+                                    Height="25" 
+                                    Margin="3" 
+                                    Command="{Binding RemoveCommand}" 
+                                    Content="Remove" 
+                                    IsEnabled="{Binding IsEdit}"/>
                         </Grid>
-                        <ListBox Margin="3" DisplayMemberPath="Name" DockPanel.Dock="Top" ItemsSource="{Binding Path=Contacts}"
+                        <ListBox Margin="3" 
+                                 DisplayMemberPath="Name" 
+                                 DockPanel.Dock="Top" 
+                                 ItemsSource="{Binding Path=Contacts}"
                                  SelectedItem="{Binding Path=SelectedContact, UpdateSourceTrigger=PropertyChanged}"/>
                     </DockPanel>
                 </DockPanel>
             </Grid>
-            <GridSplitter Grid.Column="1" Width="3" HorizontalAlignment="Center" ShowsPreview="False" Background="#FFFF"/>
+            <GridSplitter 
+                Grid.Column="1" 
+                Width="3" 
+                HorizontalAlignment="Center" 
+                ShowsPreview="False" 
+                Background="#FFFF"/>
             <Grid Grid.Column="2" Margin="8" Background="#FFFF">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
@@ -57,20 +77,33 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Image Grid.Row="1" Grid.Column="0" Width="100" Height="100" Margin="3"
-                           VerticalAlignment="Top" Source="Resources/Images/photo_placeholder_100x100.png"/>
+                <Image Grid.Row="1" 
+                       Grid.Column="0" 
+                       Width="100" 
+                       Height="100" 
+                       Margin="3"
+                       VerticalAlignment="Top" 
+                       Source="Resources/Images/photo_placeholder_100x100.png"/>
                 <TextBlock Grid.Row="0" Grid.Column="1" Margin="3" Text="Name:"/>
                 <StackPanel Grid.Row="1" Grid.Column="1">
-                    <TextBox Margin="3" IsReadOnly="{Binding Path=IsReadOnly, UpdateSourceTrigger=PropertyChanged}"
-                            Text="{Binding Path=SelectedContact.Name, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBox Margin="3" 
+                             IsReadOnly="{Binding Path=IsReadOnly, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding Path=SelectedContact.Name, UpdateSourceTrigger=PropertyChanged}"/>
                     <TextBlock Margin="3" Text="Phone Number:"/>
-                    <TextBox Margin="3" IsReadOnly="{Binding Path=IsReadOnly, UpdateSourceTrigger=PropertyChanged}"
-                            Text="{Binding Path=SelectedContact.PhoneNumber, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBox Margin="3" 
+                             IsReadOnly="{Binding Path=IsReadOnly, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding Path=SelectedContact.PhoneNumber, UpdateSourceTrigger=PropertyChanged}"/>
                     <TextBlock Margin="3" Text="Email:"/>
-                    <TextBox Margin="3" IsReadOnly="{Binding Path=IsReadOnly, UpdateSourceTrigger=PropertyChanged}"
-                            Text="{Binding Path=SelectedContact.Email, UpdateSourceTrigger=PropertyChanged}"/>
-                    <Button Width="75" Height="25" Margin="3 50 3 3" HorizontalAlignment="Left" Content="Apply"
-                            Command="{Binding ApplyCommand}" Visibility="{Binding IsReadOnly, Converter={StaticResource VisibilityConverter}}"/>
+                    <TextBox Margin="3" 
+                             IsReadOnly="{Binding Path=IsReadOnly, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding Path=SelectedContact.Email, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Button Width="75" 
+                            Height="25" 
+                            Margin="3 50 3 3" 
+                            HorizontalAlignment="Left" 
+                            Content="Apply"
+                            Command="{Binding ApplyCommand}" 
+                            Visibility="{Binding IsReadOnly, Converter={StaticResource VisibilityConverter}}"/>
                 </StackPanel>
             </Grid>
         </Grid>
