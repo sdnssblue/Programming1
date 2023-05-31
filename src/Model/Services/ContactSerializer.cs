@@ -1,10 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using Model;
+using Newtonsoft.Json;
 using System;
 using System.Collections.ObjectModel;
 using System.IO;
-using View.ViewModel;
 
-namespace View.Model.Services
+namespace Model.Services
 {
     /// <summary>
     /// Представляет реализацию сериалайзера. 
@@ -23,7 +23,7 @@ namespace View.Model.Services
         /// </summary>
         /// <param name="contacts">Коллекция контактов.</param>
         /// <param name="path">Путь сериализации.</param>
-        public static void Serialize(ObservableCollection<ContactVM> contacts)
+        public static void Serialize(ObservableCollection<Contact> contacts)
         {
             if (!File.Exists(Path))
             {
@@ -41,16 +41,16 @@ namespace View.Model.Services
         /// </summary>
         /// <param name="path">Путь десериализации.</param>
         /// <returns>Список контактов.</returns>
-        public static ObservableCollection<ContactVM> Deserialize()
+        public static ObservableCollection<Contact> Deserialize()
         {
-            ObservableCollection<ContactVM> contacts = new ObservableCollection<ContactVM>();
+            ObservableCollection<Contact> contacts = new ObservableCollection<Contact>();
 
             if (File.Exists(Path))
             {
                 using (StreamReader sr = new StreamReader(Path))
                 {
                     contacts = JsonConvert.DeserializeObject
-                    <ObservableCollection<ContactVM>>(sr.ReadToEnd());
+                    <ObservableCollection<Contact>>(sr.ReadToEnd());
                 }
             }
             else

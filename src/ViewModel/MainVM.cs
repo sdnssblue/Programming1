@@ -2,10 +2,10 @@
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using View.Model;
-using View.Model.Services;
+using Model;
+using Model.Services;
 
-namespace View.ViewModel
+namespace ViewModel
 {
     /// <summary>
     /// ViewModel для окна MainWindow.
@@ -25,7 +25,7 @@ namespace View.ViewModel
         /// <summary>
         /// Текущий контакт.
         /// </summary>
-        private ContactVM _selectedContact;
+        private Contact _selectedContact;
 
         /// <summary>
         /// Создаёт экземпляр класса <see cref="MainVM"/>.
@@ -44,17 +44,17 @@ namespace View.ViewModel
         /// <summary>
         /// Возвращает и задаёт коллекцию контактов.
         /// </summary>
-        public ObservableCollection<ContactVM> Contacts { get; set; }
+        public ObservableCollection<Contact> Contacts { get; set; }
 
         /// <summary>
         /// Возвращает и задает исходную версию редактируемого контакта.
         /// </summary>
-        public ContactVM ContactClone { get; set; }
+        public Contact ContactClone { get; set; }
 
         /// <summary>
         /// Возвращает и задает выбранный контакт.
         /// </summary>
-        public ContactVM SelectedContact
+        public Contact SelectedContact
         {
             get => _selectedContact;
             set
@@ -135,7 +135,7 @@ namespace View.ViewModel
         /// </summary>
         private void EditContact()
         {
-            ContactClone = (ContactVM)SelectedContact.Clone();
+            ContactClone = (Contact)SelectedContact.Clone();
             IsReadOnly = false;
             IsEdit = false;
         }

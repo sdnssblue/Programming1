@@ -1,10 +1,10 @@
-﻿using System.Text.RegularExpressions;
+﻿using Model;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using View.ViewModel;
 
-namespace View.Control
+namespace View.Controls
 {
     /// <summary>
     /// Interaction logic for ContactControl.xaml
@@ -15,7 +15,7 @@ namespace View.Control
         /// Регистрирует свойство зависимости для SelectedContact.
         /// </summary>
         public static readonly DependencyProperty SelectedContactProperty =
-            DependencyProperty.Register("SelectedContact", typeof(ContactVM),
+            DependencyProperty.Register("SelectedContact", typeof(Contact),
             typeof(ContactControl), new UIPropertyMetadata(null));
 
         public ContactControl()
@@ -26,9 +26,9 @@ namespace View.Control
         /// <summary>
         /// Возвращает и задаёт выбранный контакт.
         /// </summary>
-        public ContactVM SelectedContact
+        public Contact SelectedContact
         {
-            get => (ContactVM)GetValue(SelectedContactProperty);
+            get => (Contact)GetValue(SelectedContactProperty);
             set => SetValue(SelectedContactProperty, value);
         }
 
