@@ -7,7 +7,7 @@ using View.ViewModel;
 namespace View.Model.Services
 {
     /// <summary>
-    /// Представляет реализацию сериалайзера./> 
+    /// Представляет реализацию сериалайзера. 
     /// </summary>
     public static class ContactSerializer
     {

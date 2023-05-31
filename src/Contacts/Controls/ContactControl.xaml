@@ -17,7 +17,7 @@
             <Style x:Key="ValidationStyleTextBox" TargetType="TextBox">
                 <Style.Triggers>
                     <Trigger Property="Validation.HasError" Value="True">
-                        <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}" />
+                        <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)/ErrorContent}" />
                         <Setter Property="Background" Value="{StaticResource HasErrorBackgroundColorBrush}" />
                     </Trigger>
                 </Style.Triggers>
@@ -48,7 +48,7 @@
                     IsReadOnly="{Binding Path=IsReadOnly, UpdateSourceTrigger=PropertyChanged}"
                     Text="{Binding Path=SelectedContact.Name, UpdateSourceTrigger=PropertyChanged}"
                     Style="{StaticResource ValidationStyleTextBox}"
-                    Validation.ErrorTemplate="{x:Null}" />
+                    Validation.ErrorTemplate="{x:Null}"/>
                 <TextBlock Margin="3" Text="Phone Number:"/>
                 <TextBox 
                     Margin="3" 
@@ -57,14 +57,14 @@
                     PreviewTextInput="PhoneNumberTextBox_PreviewTextInput"
                     DataObject.Pasting="PhoneNumberTextBox_Paste"
                     Style="{StaticResource ValidationStyleTextBox}"
-                    Validation.ErrorTemplate="{x:Null}" />
+                    Validation.ErrorTemplate="{x:Null}"/>
                 <TextBlock Margin="3" Text="Email:"/>
                 <TextBox 
                     Margin="3"                         
                     IsReadOnly="{Binding Path=IsReadOnly, UpdateSourceTrigger=PropertyChanged}"
                     Text="{Binding Path=SelectedContact.Email, UpdateSourceTrigger=PropertyChanged}"
                     Style="{StaticResource ValidationStyleTextBox}"
-                    Validation.ErrorTemplate="{x:Null}" />
+                    Validation.ErrorTemplate="{x:Null}"/>
             </StackPanel>
         </Grid>
     </Grid>

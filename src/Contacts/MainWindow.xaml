@@ -13,10 +13,19 @@
         MinHeight="550px"
         MinWidth="800px">
         <Window.Resources>
-            <ResourceDictionary>
-                <services:VisibilityConverter x:Key="VisibilityConverter"/>
+        <ResourceDictionary>
+            <services:VisibilityConverter x:Key="VisibilityConverter"/>
             <DataTemplate x:Key="ContactTemplate">
-                <StackPanel Grid.Column="1" Orientation="Vertical">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image 
+                        Width="48"
+                        Height="48"
+                        Source="Resources/Images/photo_placeholder_100x100.png"/>
+                    <StackPanel Grid.Column="1" Orientation="Vertical" Margin="3">
                     <TextBlock
                             FontSize="14"
                             FontWeight="SemiBold" 
@@ -25,6 +34,7 @@
                             FontSize="12" 
                             Text="{Binding PhoneNumber, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
+                </Grid>
             </DataTemplate>
             <Color x:Key="WhiteBackgroundColor">#ffffff</Color>
             <Color x:Key="HasErrorBackgroundColor">#ffdddd</Color>
@@ -32,7 +42,7 @@
                 <Style.Triggers>
                     <Trigger Property="Validation.HasError" Value="True">
                         <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}" />
-                        <Setter Property="Background" Value="{StaticResource HasErrorBackgroundColor}" />
+                        <Setter Property="Background" Value="{StaticResource HasErrorBackgroundColor}"/>
                     </Trigger>
                 </Style.Triggers>
             </Style>
