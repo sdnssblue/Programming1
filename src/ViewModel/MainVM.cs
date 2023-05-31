@@ -1,9 +1,11 @@
 ﻿using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Model;
 using Model.Services;
+using ViewModel;
 
 namespace ViewModel
 {
@@ -25,14 +27,14 @@ namespace ViewModel
         /// <summary>
         /// Текущий контакт.
         /// </summary>
-        private Contact _selectedContact;
+        private ContactVM _selectedContact;
 
         /// <summary>
         /// Создаёт экземпляр класса <see cref="MainVM"/>.
         /// </summary>
         public MainVM()
         {
-            Contacts = ContactSerializer.Deserialize();
+            Contacts = new ObservableCollection<ContactVM>(ContactSerializer.Deserialize().Select(c => new ContactVM(c)));
             AddCommand = new RelayCommand(AddContact);
             EditCommand = new RelayCommand(EditContact);
             RemoveCommand = new RelayCommand(RemoveContact);
@@ -44,17 +46,17 @@ namespace ViewModel
         /// <summary>
         /// Возвращает и задаёт коллекцию контактов.
         /// </summary>
-        public ObservableCollection<Contact> Contacts { get; set; }
+        public ObservableCollection<ContactVM> Contacts { get; set; }
 
         /// <summary>
         /// Возвращает и задает исходную версию редактируемого контакта.
         /// </summary>
-        public Contact ContactClone { get; set; }
+        public ContactVM ContactClone { get; set; }
 
         /// <summary>
         /// Возвращает и задает выбранный контакт.
         /// </summary>
-        public Contact SelectedContact
+        public ContactVM SelectedContact
         {
             get => _selectedContact;
             set
@@ -127,7 +129,6 @@ namespace ViewModel
             SelectedContact = new ContactVM(new Contact());
             IsReadOnly = false;
             IsEdit = false;
-
         }
 
         /// <summary>
@@ -135,7 +136,7 @@ namespace ViewModel
         /// </summary>
         private void EditContact()
         {
-            ContactClone = (Contact)SelectedContact.Clone();
+            ContactClone = (ContactVM)SelectedContact.Clone();
             IsReadOnly = false;
             IsEdit = false;
         }
@@ -166,7 +167,13 @@ namespace ViewModel
                 SelectedContact = Contacts[index];
             }
 
-            ContactSerializer.Serialize(Contacts);
+            ContactSerializer.Serialize(new ObservableCollection<Contact>(
+                Contacts.Select(c => new Contact
+                {
+                    Name = c.Name,
+                    PhoneNumber = c.PhoneNumber,
+                    Email = c.Email
+                })));
         }
 
         /// <summary>
@@ -181,7 +188,13 @@ namespace ViewModel
             ContactClone = null;
             IsEdit = true;
             IsReadOnly = true;
-            ContactSerializer.Serialize(Contacts);
+            ContactSerializer.Serialize(new ObservableCollection<Contact>(
+                Contacts.Select(c => new Contact
+                {
+                    Name = c.Name,
+                    PhoneNumber = c.PhoneNumber,
+                    Email = c.Email
+                })));
         }
     }
 }
