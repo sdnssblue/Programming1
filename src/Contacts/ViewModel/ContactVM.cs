@@ -18,7 +18,6 @@ namespace View.ViewModel
         /// <summary>
         /// Возращает и получает имя объекта.
         /// </summary>
-        //[CustomValidation(typeof(Model.Services.Validator), nameof(Model.Services.Validator.ValidateName))]
         [MaxLength(100)]
         [Required(AllowEmptyStrings = false)]
         public string Name
@@ -30,7 +29,6 @@ namespace View.ViewModel
         /// <summary>
         /// Возращает и получает номер объекта.
         /// </summary>
-        //[CustomValidation(typeof(Model.Services.Validator), nameof(Model.Services.Validator.ValidatePhoneNumber))]
         [MinLength(11)]
         [MaxLength(18)]
         [Required(AllowEmptyStrings = false)]
@@ -44,7 +42,6 @@ namespace View.ViewModel
         /// <summary>
         /// Возращает и получает почту объекта.
         /// </summary>
-        //[CustomValidation(typeof(Model.Services.Validator), nameof(Model.Services.Validator.ValidateEmail))]
         [EmailAddress]
         [MaxLength(100)]
         [Required(AllowEmptyStrings = false)]
